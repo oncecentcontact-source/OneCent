@@ -1,0 +1,337 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>OneCent - Automated Payment Verification for Myanmar Gaming Platforms</title>
+    <link rel="stylesheet" href="styles.css">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&display=swap"
+        rel="stylesheet">
+</head>
+
+<body>
+    <!-- Navigation -->
+    <nav class="navbar">
+        <div class="container">
+            <div class="nav-wrapper">
+                <div class="logo">
+                    <img src="../onecent-logo.jpg" alt="OneCent Logo">
+                    <span>OneCent</span>
+                </div>
+                <div class="nav-links">
+                    <a href="#home" data-i18n="nav.home">Home</a>
+                    <a href="../OneCent_Project_Introduction.html" target="_blank" data-i18n="nav.introduction">Project
+                        Introduction</a>
+                    <a href="../OneCent_Pricing_Plan.html" target="_blank" data-i18n="nav.pricing">Pricing Plan</a>
+                    <a href="#contact" data-i18n="nav.contact">Contact Us</a>
+                </div>
+                <div class="language-switcher">
+                    <button class="lang-btn active" data-lang="en">EN</button>
+                    <button class="lang-btn" data-lang="my">မြန်မာ</button>
+                    <button class="lang-btn" data-lang="zh">中文</button>
+                </div>
+                <button class="mobile-menu-toggle" onclick="toggleMobileMenu()" aria-label="Toggle menu">
+                    <span></span>
+                    <span></span>
+                    <span></span>
+                </button>
+            </div>
+        </div>
+    </nav>
+
+    <!-- Hero Section -->
+    <section id="home" class="hero">
+        <div class="hero-background"></div>
+        <div class="container">
+            <div class="hero-content">
+                <h1 class="hero-title" data-i18n="hero.title">Automate Your Payment Verification</h1>
+                <p class="hero-subtitle" data-i18n="hero.subtitle">Real-time KPay & Wave Pay transaction integration for
+                    Myanmar gaming platforms</p>
+                <div class="hero-buttons">
+                    <a href="#contact" class="btn btn-primary" data-i18n="hero.getStarted">Get Started</a>
+                    <a href="#introduction" class="btn btn-secondary" data-i18n="hero.learnMore">Learn More</a>
+                </div>
+                <div class="hero-stats">
+                    <div class="stat-item">
+                        <div class="stat-number">95%+</div>
+                        <div class="stat-label" data-i18n="hero.stat1">Faster Processing</div>
+                    </div>
+                    <div class="stat-item">
+                        <div class="stat-number">100%</div>
+                        <div class="stat-label" data-i18n="hero.stat2">Automation</div>
+                    </div>
+                    <div class="stat-item">
+                        <div class="stat-number">24/7</div>
+                        <div class="stat-label" data-i18n="hero.stat3">Availability</div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Features Section -->
+    <section class="features">
+        <div class="container">
+            <h2 class="section-title" data-i18n="features.title">Why Choose OneCent?</h2>
+            <div class="features-grid">
+                <div class="feature-card">
+                    <div class="feature-icon">⚡</div>
+                    <h3 data-i18n="features.instant.title">Instant Verification</h3>
+                    <p data-i18n="features.instant.desc">Process deposits in seconds, not minutes. Automated matching
+                        eliminates manual delays.</p>
+                </div>
+                <div class="feature-card">
+                    <div class="feature-icon">💰</div>
+                    <h3 data-i18n="features.cost.title">Cost Reduction</h3>
+                    <p data-i18n="features.cost.desc">Eliminate 24/7 staff requirements. Save 50-70% on operational
+                        costs.</p>
+                </div>
+                <div class="feature-card">
+                    <div class="feature-icon">🔒</div>
+                    <h3 data-i18n="features.security.title">Enhanced Security</h3>
+                    <p data-i18n="features.security.desc">Encrypted data transmission with zero human error in
+                        verification.</p>
+                </div>
+                <div class="feature-card">
+                    <div class="feature-icon">📊</div>
+                    <h3 data-i18n="features.analytics.title">Real-Time Analytics</h3>
+                    <p data-i18n="features.analytics.desc">Monitor deposit patterns and trends with comprehensive
+                        dashboards.</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Dashboard Preview -->
+    <section class="dashboard-preview">
+        <div class="container">
+            <h2 class="section-title" data-i18n="dashboard.title">Powerful Client Dashboard</h2>
+            <p class="section-subtitle" data-i18n="dashboard.subtitle">Monitor your transactions with our intuitive
+                admin panel</p>
+            <div class="dashboard-image">
+                <img src="../onecent-dashboard.png" alt="OneCent Dashboard">
+            </div>
+        </div>
+    </section>
+
+    <!-- API Documentation Preview -->
+    <section class="api-section">
+        <div class="container">
+            <div class="api-content">
+                <div class="api-text">
+                    <h2 data-i18n="api.title">Simple API Integration</h2>
+                    <p data-i18n="api.desc">Easy-to-use RESTful API with comprehensive documentation. Integrate in days,
+                        not weeks.</p>
+                    <ul class="api-features">
+                        <li data-i18n="api.feature1">✓ RESTful API endpoints</li>
+                        <li data-i18n="api.feature2">✓ JSON request/response</li>
+                        <li data-i18n="api.feature3">✓ Sandbox environment</li>
+                        <li data-i18n="api.feature4">✓ Sample code & SDKs</li>
+                    </ul>
+                </div>
+                <div class="api-image">
+                    <img src="../onecent-api-docs.png" alt="API Documentation">
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Project Introduction Section -->
+    <section id="introduction" class="introduction">
+        <div class="container">
+            <h2 class="section-title" data-i18n="intro.title">The Problem We Solve</h2>
+            <div class="intro-grid">
+                <div class="intro-card problem">
+                    <h3 data-i18n="intro.problem.title">❌ Manual System</h3>
+                    <ul>
+                        <li data-i18n="intro.problem.item1">24/7 staff monitoring required</li>
+                        <li data-i18n="intro.problem.item2">5-15 minutes processing time</li>
+                        <li data-i18n="intro.problem.item3">High labor costs</li>
+                        <li data-i18n="intro.problem.item4">Human errors & disputes</li>
+                        <li data-i18n="intro.problem.item5">Limited scalability</li>
+                    </ul>
+                </div>
+                <div class="intro-card solution">
+                    <h3 data-i18n="intro.solution.title">✅ OneCent Solution</h3>
+                    <ul>
+                        <li data-i18n="intro.solution.item1">Fully automated verification</li>
+                        <li data-i18n="intro.solution.item2">&lt;10 seconds processing</li>
+                        <li data-i18n="intro.solution.item3">50-70% cost reduction</li>
+                        <li data-i18n="intro.solution.item4">Zero human errors</li>
+                        <li data-i18n="intro.solution.item5">Unlimited scalability</li>
+                    </ul>
+                </div>
+            </div>
+            <div class="how-it-works">
+                <h3 data-i18n="intro.how.title">How It Works</h3>
+                <div class="workflow-steps">
+                    <div class="workflow-step">
+                        <div class="step-number">1</div>
+                        <h4 data-i18n="intro.how.step1.title">User Transfers</h4>
+                        <p data-i18n="intro.how.step1.desc">User sends money via KPay/Wave Pay</p>
+                    </div>
+                    <div class="workflow-arrow">→</div>
+                    <div class="workflow-step">
+                        <div class="step-number">2</div>
+                        <h4 data-i18n="intro.how.step2.title">OneCent Fetches</h4>
+                        <p data-i18n="intro.how.step2.desc">We retrieve transaction data</p>
+                    </div>
+                    <div class="workflow-arrow">→</div>
+                    <div class="workflow-step">
+                        <div class="step-number">3</div>
+                        <h4 data-i18n="intro.how.step3.title">Platform Verifies</h4>
+                        <p data-i18n="intro.how.step3.desc">Auto-match & approve deposit</p>
+                    </div>
+                    <div class="workflow-arrow">→</div>
+                    <div class="workflow-step">
+                        <div class="step-number">4</div>
+                        <h4 data-i18n="intro.how.step4.title">Instant Credit</h4>
+                        <p data-i18n="intro.how.step4.desc">User receives wallet credit</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Pricing Section -->
+    <section id="pricing" class="pricing">
+        <div class="container">
+            <h2 class="section-title" data-i18n="pricing.title">Simple, Transparent Pricing</h2>
+            <p class="section-subtitle" data-i18n="pricing.subtitle">Pay only for what you use</p>
+
+            <div class="pricing-cards">
+                <div class="pricing-card">
+                    <div class="pricing-header">
+                        <h3 data-i18n="pricing.starter.name">Starter</h3>
+                        <div class="price">
+                            <span class="currency">MMK</span>
+                            <span class="amount">500,000</span>
+                        </div>
+                        <p class="price-label" data-i18n="pricing.starter.label">One-time setup fee</p>
+                    </div>
+                    <ul class="pricing-features">
+                        <li data-i18n="pricing.starter.feature1">✓ Single KPay/Wave Pay account</li>
+                        <li data-i18n="pricing.starter.feature2">✓ API credentials & docs</li>
+                        <li data-i18n="pricing.starter.feature3">✓ Email support</li>
+                        <li data-i18n="pricing.starter.feature4">✓ 7-day integration assistance</li>
+                    </ul>
+                    <a href="#contact" class="btn btn-outline" data-i18n="pricing.getStarted">Get Started</a>
+                </div>
+
+                <div class="pricing-card featured">
+                    <div class="badge" data-i18n="pricing.popular">Most Popular</div>
+                    <div class="pricing-header">
+                        <h3 data-i18n="pricing.business.name">Business</h3>
+                        <div class="price">
+                            <span class="currency">MMK</span>
+                            <span class="amount">800,000</span>
+                        </div>
+                        <p class="price-label" data-i18n="pricing.business.label">One-time setup fee</p>
+                    </div>
+                    <ul class="pricing-features">
+                        <li data-i18n="pricing.business.feature1">✓ Up to 3 payment accounts</li>
+                        <li data-i18n="pricing.business.feature2">✓ Priority support</li>
+                        <li data-i18n="pricing.business.feature3">✓ 14-day integration assistance</li>
+                        <li data-i18n="pricing.business.feature4">✓ Sandbox environment</li>
+                        <li data-i18n="pricing.business.feature5">✓ Custom configuration</li>
+                    </ul>
+                    <a href="#contact" class="btn btn-primary" data-i18n="pricing.getStarted">Get Started</a>
+                </div>
+
+                <div class="pricing-card">
+                    <div class="pricing-header">
+                        <h3 data-i18n="pricing.enterprise.name">Enterprise</h3>
+                        <div class="price">
+                            <span class="currency">MMK</span>
+                            <span class="amount">1,500,000</span>
+                        </div>
+                        <p class="price-label" data-i18n="pricing.enterprise.label">One-time setup fee</p>
+                    </div>
+                    <ul class="pricing-features">
+                        <li data-i18n="pricing.enterprise.feature1">✓ Unlimited accounts</li>
+                        <li data-i18n="pricing.enterprise.feature2">✓ 24/7 phone support</li>
+                        <li data-i18n="pricing.enterprise.feature3">✓ Dedicated engineer</li>
+                        <li data-i18n="pricing.enterprise.feature4">✓ 30-day assistance</li>
+                        <li data-i18n="pricing.enterprise.feature5">✓ 99.9% SLA guarantee</li>
+                        <li data-i18n="pricing.enterprise.feature6">✓ Custom features</li>
+                    </ul>
+                    <a href="#contact" class="btn btn-outline" data-i18n="pricing.getStarted">Get Started</a>
+                </div>
+            </div>
+
+            <div class="api-pricing">
+                <h3 data-i18n="pricing.api.title">API Request Pricing</h3>
+                <div class="api-price-box">
+                    <div class="api-price-main">
+                        <span class="api-price-amount">100 MMK</span>
+                        <span class="api-price-label" data-i18n="pricing.api.label">per API request</span>
+                    </div>
+                    <p data-i18n="pricing.api.desc">Only pay for transaction verification requests. No hidden fees.</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Contact Section -->
+    <section id="contact" class="contact">
+        <div class="container">
+            <h2 class="section-title" data-i18n="contact.title">Get in Touch</h2>
+            <p class="section-subtitle" data-i18n="contact.subtitle">Ready to automate your payment verification?
+                Contact us today!</p>
+
+            <div class="contact-grid">
+                <div class="contact-card">
+                    <div class="contact-icon">📱</div>
+                    <h3 data-i18n="contact.telegram.title">Telegram</h3>
+                    <a href="https://t.me/timmybearer112" target="_blank">@timmybearer112</a>
+                </div>
+                <div class="contact-card">
+                    <div class="contact-icon">📞</div>
+                    <h3 data-i18n="contact.phone.title">Phone</h3>
+                    <a href="tel:+959767575794">09767575794</a>
+                </div>
+                <div class="contact-card">
+                    <div class="contact-icon">✉️</div>
+                    <h3 data-i18n="contact.email.title">Email</h3>
+                    <a href="mailto:oncecent.contact@gmail.com">oncecent.contact@gmail.com</a>
+                </div>
+            </div>
+
+            <div class="cta-box">
+                <h3 data-i18n="contact.cta.title">Start Your Free Trial Today</h3>
+                <p data-i18n="contact.cta.desc">7-day free trial with up to 500 API requests. No credit card required.
+                </p>
+                <a href="mailto:oncecent.contact@gmail.com" class="btn btn-primary btn-large"
+                    data-i18n="contact.cta.button">Contact Sales</a>
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer class="footer">
+        <div class="container">
+            <div class="footer-content">
+                <div class="footer-logo">
+                    <img src="../onecent-logo.jpg" alt="OneCent Logo">
+                    <span>OneCent</span>
+                </div>
+                <p data-i18n="footer.tagline">Automating the Future of Gaming Platform Payments in Myanmar</p>
+                <div class="footer-links">
+                    <a href="../OneCent_Project_Introduction.html" target="_blank" data-i18n="nav.introduction">Project
+                        Introduction</a>
+                    <a href="../OneCent_Pricing_Plan.html" target="_blank" data-i18n="nav.pricing">Pricing Plan</a>
+                    <a href="#contact" data-i18n="nav.contact">Contact Us</a>
+                </div>
+                <p class="copyright" data-i18n="footer.copyright">© 2025 OneCent. All rights reserved.</p>
+            </div>
+        </div>
+    </footer>
+
+    <script src="translations.js"></script>
+    <script src="script.js"></script>
+</body>
+
+</html>

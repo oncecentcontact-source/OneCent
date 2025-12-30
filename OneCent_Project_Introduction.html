@@ -1,0 +1,1488 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>OneCent - Automated Payment Verification System</title>
+    <style>
+        body {
+            font-family: 'Arial', sans-serif;
+            line-height: 1.6;
+            max-width: 900px;
+            margin: 40px auto;
+            padding: 20px;
+            color: #333;
+        }
+
+        h1 {
+            color: #2c3e50;
+            border-bottom: 4px solid #3498db;
+            padding-bottom: 15px;
+            font-size: 36px;
+            margin-bottom: 10px;
+        }
+
+        h2 {
+            color: #2980b9;
+            margin-top: 35px;
+            font-size: 26px;
+            border-bottom: 2px solid #ecf0f1;
+            padding-bottom: 10px;
+        }
+
+        h3 {
+            color: #34495e;
+            margin-top: 25px;
+            font-size: 20px;
+        }
+
+        h4 {
+            color: #555;
+            margin-top: 18px;
+            font-size: 17px;
+        }
+
+        .subtitle {
+            color: #7f8c8d;
+            font-size: 18px;
+            margin-top: -5px;
+            margin-bottom: 30px;
+        }
+
+        table {
+            width: 100%;
+            border-collapse: collapse;
+            margin: 20px 0;
+            box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+        }
+
+        th {
+            background-color: #3498db;
+            color: white;
+            padding: 14px;
+            text-align: left;
+            font-weight: bold;
+        }
+
+        td {
+            padding: 14px;
+            border-bottom: 1px solid #ecf0f1;
+            vertical-align: top;
+        }
+
+        tr:nth-child(even) {
+            background-color: #f8f9fa;
+        }
+
+        tr:hover {
+            background-color: #e8f4f8;
+        }
+
+        .alert-danger {
+            background-color: #f8d7da;
+            border-left: 4px solid #dc3545;
+            padding: 15px;
+            margin: 15px 0;
+        }
+
+        .alert-success {
+            background-color: #d4edda;
+            border-left: 4px solid #28a745;
+            padding: 15px;
+            margin: 15px 0;
+        }
+
+        .alert-info {
+            background-color: #d1ecf1;
+            border-left: 4px solid #17a2b8;
+            padding: 15px;
+            margin: 15px 0;
+        }
+
+        .alert-warning {
+            background-color: #fff3cd;
+            border-left: 4px solid #ffc107;
+            padding: 15px;
+            margin: 15px 0;
+        }
+
+        .highlight-box {
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            color: white;
+            padding: 25px;
+            border-radius: 10px;
+            margin: 25px 0;
+            box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+        }
+
+        .highlight-box h3 {
+            color: white;
+            margin-top: 0;
+        }
+
+        .benefit-grid {
+            display: grid;
+            grid-template-columns: repeat(2, 1fr);
+            gap: 20px;
+            margin: 20px 0;
+        }
+
+        .benefit-card {
+            background-color: #f8f9fa;
+            padding: 20px;
+            border-radius: 8px;
+            border-left: 4px solid #3498db;
+        }
+
+        .benefit-card h3 {
+            margin-top: 0;
+            color: #2980b9;
+        }
+
+        ul,
+        ol {
+            margin: 10px 0;
+            padding-left: 30px;
+        }
+
+        li {
+            margin: 10px 0;
+        }
+
+        strong {
+            color: #2c3e50;
+        }
+
+        hr {
+            border: none;
+            border-top: 2px solid #ecf0f1;
+            margin: 35px 0;
+        }
+
+        .emoji {
+            font-size: 1.3em;
+        }
+
+        .step-number {
+            background-color: #3498db;
+            color: white;
+            border-radius: 50%;
+            width: 30px;
+            height: 30px;
+            display: inline-block;
+            text-align: center;
+            line-height: 30px;
+            font-weight: bold;
+            margin-right: 10px;
+        }
+
+        .feature-list {
+            list-style: none;
+            padding-left: 0;
+        }
+
+        .feature-list li:before {
+            content: "✅ ";
+            margin-right: 8px;
+        }
+
+        .pain-point-list {
+            list-style: none;
+            padding-left: 0;
+        }
+
+        .pain-point-list li:before {
+            content: "❌ ";
+            margin-right: 8px;
+        }
+
+        .metric-box {
+            background: linear-gradient(135deg, #f093fb 0%, #f5576c 100%);
+            color: white;
+            padding: 15px 20px;
+            border-radius: 8px;
+            margin: 10px 0;
+            font-weight: bold;
+            text-align: center;
+        }
+
+        .workflow-diagram {
+            background-color: #f8f9fa;
+            padding: 20px;
+            border-radius: 8px;
+            margin: 20px 0;
+            border: 2px solid #dee2e6;
+        }
+
+        .use-case-box {
+            background-color: #fff;
+            border: 2px solid #3498db;
+            border-radius: 8px;
+            padding: 20px;
+            margin: 20px 0;
+            box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+        }
+
+        .use-case-box h4 {
+            color: #3498db;
+            margin-top: 0;
+        }
+
+        .comparison-good {
+            background-color: #d4edda;
+            padding: 10px;
+            border-radius: 5px;
+        }
+
+        .comparison-bad {
+            background-color: #f8d7da;
+            padding: 10px;
+            border-radius: 5px;
+        }
+
+        /* Language Switcher */
+        .language-switcher {
+            position: fixed;
+            top: 20px;
+            right: 20px;
+            display: flex;
+            gap: 8px;
+            z-index: 1000;
+            background: white;
+            padding: 10px;
+            border-radius: 25px;
+            box-shadow: 0 2px 8px rgba(0, 0, 0, 0.15);
+        }
+
+        .lang-btn {
+            padding: 8px 16px;
+            border: 2px solid #3498db;
+            background: transparent;
+            color: #3498db;
+            border-radius: 20px;
+            cursor: pointer;
+            font-weight: 600;
+            transition: all 0.3s ease;
+            font-size: 14px;
+        }
+
+        .lang-btn:hover,
+        .lang-btn.active {
+            background: #3498db;
+            color: white;
+        }
+
+        @media print {
+            .language-switcher {
+                display: none;
+            }
+        }
+    </style>
+</head>
+
+<body>
+
+    <!-- Language Switcher -->
+    <div class="lang-switcher">
+        <div class="nav-links" style="margin-bottom: 15px; text-align: right;">
+            <a href="index.html" class="lang-btn" style="text-decoration: none; font-size: 0.9em; padding: 5px 10px;">🏠
+                Home</a>
+            <a href="OneCent_Project_Introduction.html" class="lang-btn"
+                style="text-decoration: none; font-size: 0.9em; padding: 5px 10px;">📄 Intro</a>
+            <a href="OneCent_Pricing_Plan.html" class="lang-btn"
+                style="text-decoration: none; font-size: 0.9em; padding: 5px 10px;">💰 Pricing</a>
+            <a href="index.html#contact" class="lang-btn"
+                style="text-decoration: none; font-size: 0.9em; padding: 5px 10px;">📞 Contact</a>
+        </div>
+        <div class="lang-buttons">
+            <button class="lang-btn active" data-lang="en">EN</button>
+            <button class="lang-btn" data-lang="my">မြန်မာ</button>
+            <button class="lang-btn" data-lang="zh">中文</button>
+        </div>
+    </div>
+
+    <h1 data-i18n="title">OneCent - Automated Payment Verification System</h1>
+    <p class="subtitle" data-i18n="subtitle">Revolutionizing Deposit Processing for Myanmar Gaming Platforms</p>
+
+    <div class="highlight-box">
+        <h3 data-i18n="exec.title">Executive Summary</h3>
+        <p data-i18n="exec.desc"><strong>OneCent</strong> is an innovative payment automation service designed
+            specifically for online gaming
+            platforms (2D/3D lottery and gaming hosts) in Myanmar. We provide transaction history data integration
+            with KPay and Wave Pay, enabling platforms to automate their deposit verification process and eliminate the
+            need for 24/7 manual monitoring staff.</p>
+    </div>
+
+    <hr>
+
+    <h2 data-i18n="problem.main_title">The Problem: Manual Deposit Verification</h2>
+
+    <h3 data-i18n="challenge.title">Current Industry Challenge</h3>
+    <p data-i18n="challenge.desc">Online gaming platforms in Myanmar face significant operational challenges with their
+        current deposit systems:
+    </p>
+
+    <h4 data-i18n="manual.title">How Manual Deposits Work Today</h4>
+
+    <ol>
+        <li>
+            <strong data-i18n="manual.step1.title">User Initiates Deposit</strong>
+            <ul>
+                <li data-i18n="manual.step1.item1">User transfers money via KPay or Wave Pay to platform's designated
+                    account</li>
+                <li data-i18n="manual.step1.item2">User submits deposit request with last 6 digits of transaction ID
+                </li>
+            </ul>
+        </li>
+        <li>
+            <strong data-i18n="manual.step2.title">Manual Verification Required</strong>
+            <ul>
+                <li data-i18n="manual.step2.item1">Platform staff must monitor KPay/Wave Pay mobile apps 24/7</li>
+                <li data-i18n="manual.step2.item2">Staff manually checks incoming transaction notifications</li>
+                <li data-i18n="manual.step2.item3">Staff cross-references transaction ID in admin panel</li>
+                <li data-i18n="manual.step2.item4">Manual approval required for each deposit</li>
+            </ul>
+        </li>
+        <li>
+            <strong data-i18n="pain.title">Critical Pain Points</strong>
+            <ul class="pain-point-list">
+                <li data-i18n="pain.item1"><strong>High Labor Costs</strong> - Requires dedicated staff working
+                    round-the-clock</li>
+                <li data-i18n="pain.item2"><strong>Slow Processing</strong> - Delays in verification lead to poor user
+                    experience</li>
+                <li data-i18n="pain.item3"><strong>Human Error</strong> - Manual matching prone to mistakes and disputes
+                </li>
+                <li data-i18n="pain.item4"><strong>Limited Scalability</strong> - Cannot handle high transaction volumes
+                    efficiently</li>
+                <li data-i18n="pain.item5"><strong>Security Risks</strong> - Reliance on staff access to payment
+                    accounts</li>
+                <li data-i18n="pain.item6"><strong>No Audit Trail</strong> - Difficult to track and resolve
+                    discrepancies</li>
+            </ul>
+        </li>
+    </ol>
+
+    <div class="alert-warning">
+        <h4 data-i18n="reason.title">Why This Problem Exists</h4>
+        <p data-i18n="reason.desc">While KPay and Wave Pay are secure, widely-used payment platforms in Myanmar, they do
+            not provide direct API
+            access or automated data feeds to third-party gaming platforms. This forces platforms to rely on manual
+            verification processes, creating inefficiencies and operational bottlenecks.</p>
+    </div>
+
+    <hr>
+
+    <h2 data-i18n="solution.main_title">Our Solution: OneCent Automated Verification API</h2>
+
+    <h3 data-i18n="solution.provide.title">What We Provide</h3>
+    <p data-i18n="solution.provide.desc">OneCent has successfully reverse-engineered and integrated with KPay and Wave
+        Pay's embedded APIs to extract
+        transaction history data. We provide this data as a secure, reliable API service to gaming platforms.</p>
+
+    <h3 data-i18n="solution.how.title">How OneCent Works</h3>
+
+    <div class="workflow-diagram">
+        <h4 style="text-align: center; color: #3498db;" data-i18n="solution.workflow.title">Automated Deposit Workflow
+        </h4>
+        <ol style="line-height: 2;">
+            <li data-i18n="solution.workflow.step1"><strong>User</strong> transfers money to platform account via
+                KPay/Wave Pay</li>
+            <li data-i18n="solution.workflow.step2"><strong>OneCent</strong> fetches transaction history data in from
+                payment providers</li>
+            <li data-i18n="solution.workflow.step3"><strong>User</strong> submits deposit request with last 6 digits on
+                platform</li>
+            <li data-i18n="solution.workflow.step4"><strong>Platform</strong> queries OneCent API to verify transaction
+            </li>
+            <li data-i18n="solution.workflow.step5"><strong>Platform</strong> auto-verifies and approves deposit</li>
+            <li data-i18n="solution.workflow.step6"><strong>User</strong> receives instant wallet credit</li>
+        </ol>
+    </div>
+
+    <h3 data-i18n="tech_arch.title">Technical Architecture</h3>
+
+    <div style="margin: 20px 0;">
+        <div style="background-color: #e3f2fd; padding: 15px; border-radius: 8px; margin: 10px 0;">
+            <h4 style="color: #1976d2; margin-top: 0;" data-i18n="tech_arch.layer1.title">1. Data Extraction Layer</h4>
+            <ul>
+                <li data-i18n="tech_arch.layer1.item1">OneCent servers continuously fetch transaction data from KPay and
+                    Wave Pay</li>
+                <li data-i18n="tech_arch.layer1.item2">Secure connection to payment provider embedded APIs</li>
+            </ul>
+        </div>
+
+        <div style="background-color: #f3e5f5; padding: 15px; border-radius: 8px; margin: 10px 0;">
+            <h4 style="color: #7b1fa2; margin-top: 0;" data-i18n="tech_arch.layer2.title">2. API Service Layer</h4>
+            <ul>
+                <li data-i18n="tech_arch.layer2.item1">RESTful API endpoints for platform integration</li>
+                <li data-i18n="tech_arch.layer2.item2">Transaction query by last 6 digits, amount, timestamp</li>
+                <li data-i18n="tech_arch.layer2.item3">Webhook support for instant notifications</li>
+            </ul>
+        </div>
+
+        <div style="background-color: #e8f5e9; padding: 15px; border-radius: 8px; margin: 10px 0;">
+            <h4 style="color: #388e3c; margin-top: 0;" data-i18n="tech_arch.layer3.title">3. Platform Integration</h4>
+            <ul>
+                <li data-i18n="tech_arch.layer3.item1">Simple API integration into existing platform systems</li>
+                <li data-i18n="tech_arch.layer3.item2">Automatic matching of user submissions with transaction data</li>
+                <li data-i18n="tech_arch.layer3.item3">Instant deposit approval without human intervention</li>
+            </ul>
+        </div>
+    </div>
+
+    <hr>
+
+    <h2 data-i18n="benefits.title">Key Benefits for Platform Owners</h2>
+
+    <div class="benefit-grid">
+        <div class="benefit-card">
+            <h3 data-i18n="benefits.cost.title">💰 Cost Reduction</h3>
+            <ul>
+                <li data-i18n="benefits.cost.item1"><strong>Eliminate 24/7 Staff Requirements</strong> - No need for
+                    dedicated monitoring personnel</li>
+                <li data-i18n="benefits.cost.item2"><strong>Reduce Operational Overhead</strong> - Automated system
+                    handles unlimited transactions</li>
+                <li data-i18n="benefits.cost.item3"><strong>Lower Error-Related Costs</strong> - Minimize disputes and
+                    manual reconciliation</li>
+            </ul>
+        </div>
+
+        <div class="benefit-card">
+            <h3 data-i18n="benefits.efficiency.title">⚡ Operational Efficiency</h3>
+            <ul>
+                <li data-i18n="benefits.efficiency.item1"><strong>Instant Verification</strong> - Deposits processed in
+                    seconds, not minutes or hours</li>
+                <li data-i18n="benefits.efficiency.item2"><strong>Scalable Processing</strong> - Handle peak transaction
+                    volumes without additional resources
+                </li>
+                <li data-i18n="benefits.efficiency.item3"><strong>Automated Reconciliation</strong> - Complete audit
+                    trail for all transactions</li>
+            </ul>
+        </div>
+
+        <div class="benefit-card">
+            <h3 data-i18n="benefits.security.title">🔒 Enhanced Security & Reliability</h3>
+            <ul>
+                <li data-i18n="benefits.security.item1"><strong>Reduced Human Access</strong> - Minimize staff access to
+                    sensitive payment accounts</li>
+                <li data-i18n="benefits.security.item2"><strong>Accurate Matching</strong> - Eliminate human error in
+                    transaction verification</li>
+                <li data-i18n="benefits.security.item3"><strong>Fraud Prevention</strong> - Automated validation reduces
+                    fraudulent deposit claims</li>
+                <li data-i18n="benefits.security.item4"><strong>Complete Audit Trail</strong> - Every transaction logged
+                    and traceable</li>
+            </ul>
+        </div>
+
+        <div class="benefit-card">
+            <h3 data-i18n="benefits.ux.title">😊 Improved User Experience</h3>
+            <ul>
+                <li data-i18n="benefits.ux.item1"><strong>Instant Deposits</strong> - Users receive wallet credits
+                    immediately after payment</li>
+                <li data-i18n="benefits.ux.item2"><strong>24/7 Availability</strong> - No delays during off-hours or
+                    peak times</li>
+                <li data-i18n="benefits.ux.item3"><strong>Reduced Disputes</strong> - Automated system eliminates
+                    verification errors</li>
+                <li data-i18n="benefits.ux.item4"><strong>Higher User Satisfaction</strong> - Seamless, reliable deposit
+                    experience</li>
+            </ul>
+        </div>
+    </div>
+
+    <div class="benefit-card" style="margin-top: 20px;">
+        <h3 data-i18n="benefits.bi.title">📊 Business Intelligence</h3>
+        <ul>
+            <li data-i18n="benefits.bi.item1"><strong>Analytics</strong> - Monitor deposit patterns and trends</li>
+            <li data-i18n="benefits.bi.item2"><strong>Transaction History</strong> - Complete records for compliance and
+                reporting</li>
+            <li data-i18n="benefits.bi.item3"><strong>Performance Metrics</strong> - Track deposit success rates and
+                processing times</li>
+        </ul>
+    </div>
+
+    <hr>
+
+    <h2 data-i18n="features.title">System Features</h2>
+
+    <h3 data-i18n="features.core.title">Core Functionality</h3>
+
+    <ul class="feature-list">
+        <li><strong data-i18n="features.history.title">Transaction History Data</strong>
+            <ul>
+                <li data-i18n="features.history.item1">Feed of KPay and Wave Pay transactions</li>
+                <li data-i18n="features.history.item2">Sub-second data synchronization</li>
+                <li data-i18n="features.history.item3">Support for multiple payment accounts</li>
+            </ul>
+        </li>
+        <li><strong data-i18n="features.verify.title">Automated Verification</strong>
+            <ul>
+                <li data-i18n="features.verify.item1">Match user-submitted transaction IDs with actual payment data</li>
+                <li data-i18n="features.verify.item2">Validate amount, timestamp, and account details</li>
+                <li data-i18n="features.verify.item3">Instant approval/rejection decisions</li>
+            </ul>
+        </li>
+        <li><strong data-i18n="features.multi.title">Multi-Account Support</strong>
+            <ul>
+                <li data-i18n="features.multi.item1">Manage multiple KPay and Wave Pay accounts</li>
+                <li data-i18n="features.multi.item2">Route transactions to appropriate accounts</li>
+                <li data-i18n="features.multi.item3">Load balancing across payment channels</li>
+            </ul>
+        </li>
+        <li><strong data-i18n="features.api.title">Comprehensive API</strong>
+            <ul>
+                <li data-i18n="features.api.item1">RESTful API with detailed documentation</li>
+                <li data-i18n="features.api.item2">Webhook notifications for instant updates</li>
+                <li data-i18n="features.api.item3">Sandbox environment for testing</li>
+            </ul>
+        </li>
+        <li><strong data-i18n="features.security.title">Security & Compliance</strong>
+            <ul>
+                <li data-i18n="features.security.item1">Encrypted data transmission</li>
+                <li data-i18n="features.security.item2">Secure authentication and authorization</li>
+                <li data-i18n="features.security.item3">Transaction data privacy protection</li>
+            </ul>
+        </li>
+        <li><strong data-i18n="features.integration.title">Integration Support</strong>
+            <ul>
+                <li data-i18n="features.integration.item1">Easy integration with existing platforms</li>
+                <li data-i18n="features.integration.item2">Sample code and SDKs provided</li>
+                <li data-i18n="features.integration.item3">Technical support during implementation</li>
+            </ul>
+        </li>
+    </ul>
+
+    <hr>
+
+    <h2 data-i18n="usecases.title">Use Cases</h2>
+
+    <div class="use-case-box">
+        <h4 data-i18n="usecases.case1.title">1. High-Volume Gaming Platform</h4>
+        <p data-i18n="usecases.case1.scenario"><strong>Scenario:</strong> Platform receives 500+ deposits daily during
+            peak hours</p>
+
+        <table style="margin-top: 15px;">
+            <tr>
+                <th style="width: 50%;" data-i18n="usecases.table.h1">Without OneCent</th>
+                <th style="width: 50%;" data-i18n="usecases.table.h2">With OneCent</th>
+            </tr>
+            <tr>
+                <td class="comparison-bad" data-i18n="usecases.case1.bad">
+                    • Requires 3-4 staff members working in shifts<br>
+                    • Average processing time: 5-15 minutes per deposit<br>
+                    • Monthly staff cost: ~$2,000-3,000 USD<br>
+                    • User complaints about delays
+                </td>
+                <td class="comparison-good" data-i18n="usecases.case1.good">
+                    • Zero manual verification required<br>
+                    • Average processing time: &lt;10 seconds<br>
+                    • Monthly service cost: Fraction of staff costs<br>
+                    • Improved user retention and satisfaction
+                </td>
+            </tr>
+        </table>
+    </div>
+
+    <div class="use-case-box">
+        <h4 data-i18n="usecases.case2.title">2. Multi-Platform Operator</h4>
+        <p data-i18n="usecases.case2.scenario"><strong>Scenario:</strong> Company operates 5 different gaming platforms
+        </p>
+
+        <table style="margin-top: 15px;">
+            <tr>
+                <th style="width: 50%;" data-i18n="usecases.table.h1">Without OneCent</th>
+                <th style="width: 50%;" data-i18n="usecases.table.h2">With OneCent</th>
+            </tr>
+            <tr>
+                <td class="comparison-bad" data-i18n="usecases.case2.bad">
+                    • Each platform needs dedicated monitoring staff<br>
+                    • Difficult to share resources across platforms<br>
+                    • High operational complexity
+                </td>
+                <td class="comparison-good" data-i18n="usecases.case2.good">
+                    • Single API integration across all platforms<br>
+                    • Centralized transaction management<br>
+                    • Consistent user experience
+                </td>
+            </tr>
+        </table>
+    </div>
+
+    <div class="use-case-box">
+        <h4 data-i18n="usecases.case3.title">3. New Platform Launch</h4>
+        <p data-i18n="usecases.case3.scenario"><strong>Scenario:</strong> Startup launching new gaming platform</p>
+
+        <table style="margin-top: 15px;">
+            <tr>
+                <th style="width: 50%;" data-i18n="usecases.table.h1">Without OneCent</th>
+                <th style="width: 50%;" data-i18n="usecases.table.h2">With OneCent</th>
+            </tr>
+            <tr>
+                <td class="comparison-bad" data-i18n="usecases.case3.bad">
+                    • Must hire and train verification staff before launch<br>
+                    • High initial operational costs<br>
+                    • Difficult to scale quickly
+                </td>
+                <td class="comparison-good" data-i18n="usecases.case3.good">
+                    • Launch with automated system from day one<br>
+                    • Low initial investment<br>
+                    • Scale seamlessly as user base grows
+                </td>
+            </tr>
+        </table>
+    </div>
+
+    <hr>
+
+    <h2 data-i18n="stack.title">Technology Stack</h2>
+
+    <h3 data-i18n="stack.infra.title">OneCent Infrastructure</h3>
+    <ul>
+        <li data-i18n="stack.infra.item1"><strong>Backend Services:</strong> High-performance servers for API
+            integration</li>
+        <li data-i18n="stack.infra.item2"><strong>Data Processing:</strong> Tansaction data extraction and normalization
+        </li>
+        <li data-i18n="stack.infra.item3"><strong>API Gateway:</strong> Secure, scalable API endpoints for platform
+            integration</li>
+        <li data-i18n="stack.infra.item4"><strong>Database:</strong> Redundant storage for transaction records and audit
+            logs</li>
+        <li data-i18n="stack.infra.item5"><strong>Monitoring:</strong> 24/7 system health monitoring and alerting</li>
+    </ul>
+
+    <h3 data-i18n="stack.req.title">Integration Requirements</h3>
+    <p data-i18n="stack.req.desc">Platforms can integrate OneCent with minimal technical requirements:</p>
+
+    <table>
+        <tr>
+            <th style="width: 30%;" data-i18n="stack.table.h1">Requirement</th>
+            <th data-i18n="stack.table.h2">Details</th>
+        </tr>
+        <tr>
+            <td data-i18n="stack.req1.name"><strong>API Integration</strong></td>
+            <td data-i18n="stack.req1.detail">RESTful API calls (HTTP/HTTPS)</td>
+        </tr>
+        <tr>
+            <td data-i18n="stack.req2.name"><strong>Authentication</strong></td>
+            <td data-i18n="stack.req2.detail">API key-based authentication</td>
+        </tr>
+        <tr>
+            <td data-i18n="stack.req3.name"><strong>Data Format</strong></td>
+            <td data-i18n="stack.req3.detail">JSON request/response</td>
+        </tr>
+        <tr>
+            <td data-i18n="stack.req4.name"><strong>Programming Language</strong></td>
+            <td data-i18n="stack.req4.detail">Language-agnostic (works with any backend)</td>
+        </tr>
+    </table>
+
+    <hr>
+
+    <h2 data-i18n="process.title">Implementation Process</h2>
+
+    <div style="margin: 20px 0;">
+        <div style="background-color: #e3f2fd; padding: 20px; border-radius: 8px; margin: 15px 0;">
+            <h4 style="color: #1976d2; margin-top: 0;" data-i18n="process.phase1.title"><span
+                    class="step-number">1</span>Phase 1: Onboarding (1-2 Days)
+            </h4>
+            <ol>
+                <li data-i18n="process.phase1.item1">Account setup and API credentials provisioning</li>
+                <li data-i18n="process.phase1.item2">KPay/Wave Pay account configuration</li>
+                <li data-i18n="process.phase1.item3">Access to API documentation and sandbox environment</li>
+            </ol>
+        </div>
+
+        <div style="background-color: #f3e5f5; padding: 20px; border-radius: 8px; margin: 15px 0;">
+            <h4 style="color: #7b1fa2; margin-top: 0;" data-i18n="process.phase2.title"><span
+                    class="step-number">2</span>Phase 2: Integration (3-7 Days)
+            </h4>
+            <ol>
+                <li data-i18n="process.phase2.item1">Platform implements API calls in their system</li>
+                <li data-i18n="process.phase2.item2">Testing in sandbox environment</li>
+                <li data-i18n="process.phase2.item3">Technical support and troubleshooting</li>
+            </ol>
+        </div>
+
+        <div style="background-color: #e8f5e9; padding: 20px; border-radius: 8px; margin: 15px 0;">
+            <h4 style="color: #388e3c; margin-top: 0;" data-i18n="process.phase3.title"><span
+                    class="step-number">3</span>Phase 3: Go-Live (1 Day)</h4>
+            <ol>
+                <li data-i18n="process.phase3.item1">Switch to production API endpoints</li>
+                <li data-i18n="process.phase3.item2">Monitor initial transactions</li>
+                <li data-i18n="process.phase3.item3">Verify automated deposit flow</li>
+            </ol>
+        </div>
+
+        <div style="background-color: #fff3e0; padding: 20px; border-radius: 8px; margin: 15px 0;">
+            <h4 style="color: #e65100; margin-top: 0;" data-i18n="process.phase4.title"><span
+                    class="step-number">4</span>Phase 4: Optimization (Ongoing)
+            </h4>
+            <ol>
+                <li data-i18n="process.phase4.item1">Performance monitoring and optimization</li>
+                <li data-i18n="process.phase4.item2">Feature updates and enhancements</li>
+                <li data-i18n="process.phase4.item3">Continuous technical support</li>
+            </ol>
+        </div>
+    </div>
+
+    <hr>
+
+    <h2 data-i18n="advantage.title">Competitive Advantages</h2>
+
+    <table>
+        <tr>
+            <th style="width: 30%;" data-i18n="advantage.table.h1">Advantage</th>
+            <th data-i18n="advantage.table.h2">Description</th>
+        </tr>
+        <tr>
+            <td data-i18n="advantage.item1.name"><strong>🎯 Market-Specific Solution</strong></td>
+            <td data-i18n="advantage.item1.desc">
+                • Built specifically for Myanmar's payment ecosystem<br>
+                • Deep understanding of KPay and Wave Pay systems<br>
+                • Tailored for gaming platform requirements
+            </td>
+        </tr>
+        <tr>
+            <td data-i18n="advantage.item2.name"><strong>🚀 First-Mover Advantage</strong></td>
+            <td data-i18n="advantage.item2.desc">
+                • Only automated solution in the market<br>
+                • Proven technology with successful integration<br>
+                • Established infrastructure and expertise
+            </td>
+        </tr>
+        <tr>
+            <td data-i18n="advantage.item3.name"><strong>🛡️ Reliability & Uptime</strong></td>
+            <td data-i18n="advantage.item3.desc">
+                • 99.9% service availability guarantee<br>
+                • Redundant systems and failover mechanisms<br>
+                • 24/7 technical monitoring
+            </td>
+        </tr>
+        <tr>
+            <td data-i18n="advantage.item4.name"><strong>🤝 Partnership Approach</strong></td>
+            <td data-i18n="advantage.item4.desc">
+                • Dedicated support team<br>
+                • Regular updates and improvements<br>
+                • Long-term commitment to platform success
+            </td>
+        </tr>
+    </table>
+
+    <hr>
+
+    <h2 data-i18n="metrics.title">Success Metrics</h2>
+
+    <p data-i18n="metrics.intro">Platforms using OneCent typically achieve:</p>
+
+    <div style="display: grid; grid-template-columns: repeat(2, 1fr); gap: 15px; margin: 20px 0;">
+        <div class="metric-box">
+            <div style="font-size: 2em;">95%+</div>
+            <div data-i18n="metrics.item1.desc">Reduction in deposit processing time</div>
+        </div>
+        <div class="metric-box">
+            <div style="font-size: 2em;">100%</div>
+            <div data-i18n="metrics.item2.desc">Elimination of manual verification staff</div>
+        </div>
+        <div class="metric-box">
+            <div style="font-size: 2em;">50-70%</div>
+            <div data-i18n="metrics.item3.desc">Reduction in deposit-related operational costs</div>
+        </div>
+        <div class="metric-box">
+            <div style="font-size: 2em;">90%+</div>
+            <div data-i18n="metrics.item4.desc">Improvement in user satisfaction scores</div>
+        </div>
+        <div class="metric-box" style="grid-column: 1 / -1;">
+            <div style="font-size: 2em;" data-i18n="metrics.item5.value">Zero</div>
+            <div data-i18n="metrics.item5.desc">Human errors in transaction verification</div>
+        </div>
+    </div>
+
+    <hr>
+
+    <h2 data-i18n="sec.title">Security & Compliance</h2>
+
+    <div class="benefit-grid">
+        <div class="benefit-card">
+            <h3 data-i18n="sec.data.title">🔐 Data Security</h3>
+            <ul>
+                <li data-i18n="sec.data.item1">End-to-end encryption for all API communications</li>
+                <li data-i18n="sec.data.item2">Secure storage of transaction data</li>
+                <li data-i18n="sec.data.item3">Regular security audits and updates</li>
+            </ul>
+        </div>
+
+        <div class="benefit-card">
+            <h3 data-i18n="sec.privacy.title">🛡️ Privacy Protection</h3>
+            <ul>
+                <li data-i18n="sec.privacy.item1">Minimal data collection (only transaction-related information)</li>
+                <li data-i18n="sec.privacy.item2">No storage of sensitive user personal information</li>
+                <li data-i18n="sec.privacy.item3">Compliance with data protection best practices</li>
+            </ul>
+        </div>
+    </div>
+
+    <div class="benefit-card" style="margin-top: 20px;">
+        <h3 data-i18n="sec.rel.title">⚙️ System Reliability</h3>
+        <ul>
+            <li data-i18n="sec.rel.item1">Redundant server infrastructure</li>
+            <li data-i18n="sec.rel.item2">Automatic failover and backup systems</li>
+            <li data-i18n="sec.rel.item3">Regular system maintenance and updates</li>
+        </ul>
+    </div>
+
+    <hr>
+
+    <h2 data-i18n="start.title">Getting Started</h2>
+
+    <div class="alert-info">
+        <p data-i18n="start.cta"><strong>Ready to transform your deposit system and reduce operational costs?</strong>
+        </p>
+
+        <h4 data-i18n="start.steps.title">Next Steps:</h4>
+        <ol>
+            <li data-i18n="start.step1"><strong>Schedule a Demo</strong> - See OneCent in action with your use case</li>
+            <li data-i18n="start.step2"><strong>Review Pricing Plans</strong> - Choose the plan that fits your platform
+                size</li>
+            <li data-i18n="start.step3"><strong>Start Integration</strong> - Get API access and technical support</li>
+            <li data-i18n="start.step4"><strong>Go Live</strong> - Launch automated deposits and eliminate manual work
+            </li>
+        </ol>
+    </div>
+
+    <hr>
+
+    <div
+        style="text-align: center; margin-top: 50px; padding: 30px; background: linear-gradient(135deg, #667eea 0%, #764ba2 100%); color: white; border-radius: 10px;">
+        <h2 style="color: white; margin-bottom: 15px; border: none;" data-i18n="footer.brand">OneCent</h2>
+        <p style="font-size: 1.2em; font-style: italic; margin-bottom: 20px;" data-i18n="footer.tagline">Automating the
+            Future of Gaming Platform Payments in Myanmar</p>
+        <p style="font-size: 0.9em; opacity: 0.9;" data-i18n="footer.cta">Transform your deposit system today and join
+            the automation revolution</p>
+    </div>
+
+    <script>
+        // Translations for Project Introduction
+        const translations = {
+            en: {
+                "title": "OneCent - Automated Payment Verification System",
+                "subtitle": "Revolutionizing Deposit Processing for Myanmar Gaming Platforms",
+                "exec.title": "Executive Summary",
+                "exec.desc": "<strong>OneCent</strong> is an innovative payment automation service designed specifically for online gaming platforms (2D/3D lottery and gaming hosts) in Myanmar. We provide transaction history data integration with KPay and Wave Pay, enabling platforms to automate their deposit verification process and eliminate the need for 24/7 manual monitoring staff.",
+                "problem.main_title": "The Problem: Manual Deposit Verification",
+                "challenge.title": "Current Industry Challenge",
+                "challenge.desc": "Online gaming platforms in Myanmar face significant operational challenges with their current deposit systems:",
+                "manual.title": "How Manual Deposits Work Today",
+                "manual.step1.title": "User Initiates Deposit",
+                "manual.step1.item1": "User transfers money via KPay or Wave Pay to platform's designated account",
+                "manual.step1.item2": "User submits deposit request with last 6 digits of transaction ID",
+                "manual.step2.title": "Manual Verification Required",
+                "manual.step2.item1": "Platform staff must monitor KPay/Wave Pay mobile apps 24/7",
+                "manual.step2.item2": "Staff manually checks incoming transaction notifications",
+                "manual.step2.item3": "Staff cross-references transaction ID in admin panel",
+                "manual.step2.item4": "Manual approval required for each deposit",
+                "pain.title": "Critical Pain Points",
+                "pain.item1": "<strong>High Labor Costs</strong> - Requires dedicated staff working round-the-clock",
+                "pain.item2": "<strong>Slow Processing</strong> - Delays in verification lead to poor user experience",
+                "pain.item3": "<strong>Human Error</strong> - Manual matching prone to mistakes and disputes",
+                "pain.item4": "<strong>Limited Scalability</strong> - Cannot handle high transaction volumes efficiently",
+                "pain.item5": "<strong>Security Risks</strong> - Reliance on staff access to payment accounts",
+                "pain.item6": "<strong>No Audit Trail</strong> - Difficult to track and resolve discrepancies",
+                "reason.title": "Why This Problem Exists",
+                "reason.desc": "While KPay and Wave Pay are secure, widely-used payment platforms in Myanmar, they do not provide direct API access or automated data feeds to third-party gaming platforms. This forces platforms to rely on manual verification processes, creating inefficiencies and operational bottlenecks.",
+                "solution.main_title": "Our Solution: OneCent Automated Verification API",
+                "solution.provide.title": "What We Provide",
+                "solution.provide.desc": "OneCent has successfully reverse-engineered and integrated with KPay and Wave Pay's embedded APIs to extract transaction history data. We provide this data as a secure, reliable API service to gaming platforms.",
+                "solution.how.title": "How OneCent Works",
+                "solution.workflow.title": "Automated Deposit Workflow",
+                "solution.workflow.step1": "<strong>User</strong> transfers money to platform account via KPay/Wave Pay",
+                "solution.workflow.step2": "<strong>OneCent</strong> fetches transaction history data from payment providers",
+                "solution.workflow.step3": "<strong>User</strong> submits deposit request with last 6 digits on platform",
+                "solution.workflow.step4": "<strong>Platform</strong> queries OneCent API to verify transaction",
+                "solution.workflow.step5": "<strong>Platform</strong> auto-verifies and approves deposit",
+                "solution.workflow.step6": "<strong>User</strong> receives instant wallet credit",
+                "tech_arch.title": "Technical Architecture",
+                "tech_arch.layer1.title": "1. Data Extraction Layer",
+                "tech_arch.layer1.item1": "OneCent servers continuously fetch transaction data from KPay and Wave Pay",
+                "tech_arch.layer1.item2": "Secure connection to payment provider embedded APIs",
+                "tech_arch.layer2.title": "2. API Service Layer",
+                "tech_arch.layer2.item1": "RESTful API endpoints for platform integration",
+                "tech_arch.layer2.item2": "Transaction query by last 6 digits, amount, timestamp",
+                "tech_arch.layer2.item3": "Webhook support for instant notifications",
+                "tech_arch.layer3.title": "3. Platform Integration",
+                "tech_arch.layer3.item1": "Simple API integration into existing platform systems",
+                "tech_arch.layer3.item2": "Automatic matching of user submissions with transaction data",
+                "tech_arch.layer3.item3": "Instant deposit approval without human intervention",
+                "benefits.title": "Key Benefits for Platform Owners",
+                "benefits.cost.title": "💰 Cost Reduction",
+                "benefits.cost.item1": "<strong>Eliminate 24/7 Staff Requirements</strong> - No need for dedicated monitoring personnel",
+                "benefits.cost.item2": "<strong>Reduce Operational Overhead</strong> - Automated system handles unlimited transactions",
+                "benefits.cost.item3": "<strong>Lower Error-Related Costs</strong> - Minimize disputes and manual reconciliation",
+                "benefits.efficiency.title": "⚡ Operational Efficiency",
+                "benefits.efficiency.item1": "<strong>Instant Verification</strong> - Deposits processed in seconds, not minutes or hours",
+                "benefits.efficiency.item2": "<strong>Scalable Processing</strong> - Handle peak transaction volumes without additional resources",
+                "benefits.efficiency.item3": "<strong>Automated Reconciliation</strong> - Complete audit trail for all transactions",
+                "benefits.security.title": "🔒 Enhanced Security & Reliability",
+                "benefits.security.item1": "<strong>Reduced Human Access</strong> - Minimize staff access to sensitive payment accounts",
+                "benefits.security.item2": "<strong>Accurate Matching</strong> - Eliminate human error in transaction verification",
+                "benefits.security.item3": "<strong>Fraud Prevention</strong> - Automated validation reduces fraudulent deposit claims",
+                "benefits.security.item4": "<strong>Complete Audit Trail</strong> - Every transaction logged and traceable",
+                "benefits.ux.title": "😊 Improved User Experience",
+                "benefits.ux.item1": "<strong>Instant Deposits</strong> - Users receive wallet credits immediately after payment",
+                "benefits.ux.item2": "<strong>24/7 Availability</strong> - No delays during off-hours or peak times",
+                "benefits.ux.item3": "<strong>Reduced Disputes</strong> - Automated system eliminates verification errors",
+                "benefits.ux.item4": "<strong>Higher User Satisfaction</strong> - Seamless, reliable deposit experience",
+                "benefits.bi.title": "📊 Business Intelligence",
+                "benefits.bi.item1": "<strong>Analytics</strong> - Monitor deposit patterns and trends",
+                "benefits.bi.item2": "<strong>Transaction History</strong> - Complete records for compliance and reporting",
+                "benefits.bi.item3": "<strong>Performance Metrics</strong> - Track deposit success rates and processing times",
+                "features.title": "System Features",
+                "features.core.title": "Core Functionality",
+                "features.history.title": "Transaction History Data",
+                "features.history.item1": "Feed of KPay and Wave Pay transactions",
+                "features.history.item2": "Sub-second data synchronization",
+                "features.history.item3": "Support for multiple payment accounts",
+                "features.verify.title": "Automated Verification",
+                "features.verify.item1": "Match user-submitted transaction IDs with actual payment data",
+                "features.verify.item2": "Validate amount, timestamp, and account details",
+                "features.verify.item3": "Instant approval/rejection decisions",
+                "features.multi.title": "Multi-Account Support",
+                "features.multi.item1": "Manage multiple KPay and Wave Pay accounts",
+                "features.multi.item2": "Route transactions to appropriate accounts",
+                "features.multi.item3": "Load balancing across payment channels",
+                "features.api.title": "Comprehensive API",
+                "features.api.item1": "RESTful API with detailed documentation",
+                "features.api.item2": "Webhook notifications for instant updates",
+                "features.api.item3": "Sandbox environment for testing",
+                "features.security.title": "Security & Compliance",
+                "features.security.item1": "Encrypted data transmission",
+                "features.security.item2": "Secure authentication and authorization",
+                "features.security.item3": "Transaction data privacy protection",
+                "features.integration.title": "Integration Support",
+                "features.integration.item1": "Easy integration with existing platforms",
+                "features.integration.item2": "Sample code and SDKs provided",
+                "features.integration.item3": "Technical support during implementation",
+                "usecases.title": "Use Cases",
+                "usecases.case1.title": "1. High-Volume Gaming Platform",
+                "usecases.case1.scenario": "<strong>Scenario:</strong> Platform receives 500+ deposits daily during peak hours",
+                "usecases.table.h1": "Without OneCent",
+                "usecases.table.h2": "With OneCent",
+                "usecases.case1.bad": "• Requires 3-4 staff members working in shifts<br>• Average processing time: 5-15 minutes per deposit<br>• Monthly staff cost: ~$2,000-3,000 USD<br>• User complaints about delays",
+                "usecases.case1.good": "• Zero manual verification required<br>• Average processing time: &lt;10 seconds<br>• Monthly service cost: Fraction of staff costs<br>• Improved user retention and satisfaction",
+                "usecases.case2.title": "2. Multi-Platform Operator",
+                "usecases.case2.scenario": "<strong>Scenario:</strong> Company operates 5 different gaming platforms",
+                "usecases.case2.bad": "• Each platform needs dedicated monitoring staff<br>• Difficult to share resources across platforms<br>• High operational complexity",
+                "usecases.case2.good": "• Single API integration across all platforms<br>• Centralized transaction management<br>• Consistent user experience",
+                "usecases.case3.title": "3. New Platform Launch",
+                "usecases.case3.scenario": "<strong>Scenario:</strong> Startup launching new gaming platform",
+                "usecases.case3.bad": "• Must hire and train verification staff before launch<br>• High initial operational costs<br>• Difficult to scale quickly",
+                "usecases.case3.good": "• Launch with automated system from day one<br>• Low initial investment<br>• Scale seamlessly as user base grows",
+                "stack.title": "Technology Stack",
+                "stack.infra.title": "OneCent Infrastructure",
+                "stack.infra.item1": "<strong>Backend Services:</strong> High-performance servers for API integration",
+                "stack.infra.item2": "<strong>Data Processing:</strong> Transaction data extraction and normalization",
+                "stack.infra.item3": "<strong>API Gateway:</strong> Secure, scalable API endpoints for platform integration",
+                "stack.infra.item4": "<strong>Database:</strong> Redundant storage for transaction records and audit logs",
+                "stack.infra.item5": "<strong>Monitoring:</strong> 24/7 system health monitoring and alerting",
+                "stack.req.title": "Integration Requirements",
+                "stack.req.desc": "Platforms can integrate OneCent with minimal technical requirements:",
+                "stack.table.h1": "Requirement",
+                "stack.table.h2": "Details",
+                "stack.req1.name": "<strong>API Integration</strong>",
+                "stack.req1.detail": "RESTful API calls (HTTP/HTTPS)",
+                "stack.req2.name": "<strong>Authentication</strong>",
+                "stack.req2.detail": "API key-based authentication",
+                "stack.req3.name": "<strong>Data Format</strong>",
+                "stack.req3.detail": "JSON request/response",
+                "stack.req4.name": "<strong>Programming Language</strong>",
+                "stack.req4.detail": "Language-agnostic (works with any backend)",
+                "process.title": "Implementation Process",
+                "process.phase1.title": "<span class=\"step-number\">1</span>Phase 1: Onboarding (1-2 Days)",
+                "process.phase1.item1": "Account setup and API credentials provisioning",
+                "process.phase1.item2": "KPay/Wave Pay account configuration",
+                "process.phase1.item3": "Access to API documentation and sandbox environment",
+                "process.phase2.title": "<span class=\"step-number\">2</span>Phase 2: Integration (3-7 Days)",
+                "process.phase2.item1": "Platform implements API calls in their system",
+                "process.phase2.item2": "Testing in sandbox environment",
+                "process.phase2.item3": "Technical support and troubleshooting",
+                "process.phase3.title": "<span class=\"step-number\">3</span>Phase 3: Go-Live (1 Day)",
+                "process.phase3.item1": "Switch to production API endpoints",
+                "process.phase3.item2": "Monitor initial transactions",
+                "process.phase3.item3": "Verify automated deposit flow",
+                "process.phase4.title": "<span class=\"step-number\">4</span>Phase 4: Optimization (Ongoing)",
+                "process.phase4.item1": "Performance monitoring and optimization",
+                "process.phase4.item2": "Feature updates and enhancements",
+                "process.phase4.item3": "Continuous technical support",
+                "advantage.title": "Competitive Advantages",
+                "advantage.table.h1": "Advantage",
+                "advantage.table.h2": "Description",
+                "advantage.item1.name": "<strong>🎯 Market-Specific Solution</strong>",
+                "advantage.item1.desc": "• Built specifically for Myanmar's payment ecosystem<br>• Deep understanding of KPay and Wave Pay systems<br>• Tailored for gaming platform requirements",
+                "advantage.item2.name": "<strong>🚀 First-Mover Advantage</strong>",
+                "advantage.item2.desc": "• Only automated solution in the market<br>• Proven technology with successful integration<br>• Established infrastructure and expertise",
+                "advantage.item3.name": "<strong>🛡️ Reliability & Uptime</strong>",
+                "advantage.item3.desc": "• 99.9% service availability guarantee<br>• Redundant systems and failover mechanisms<br>• 24/7 technical monitoring",
+                "advantage.item4.name": "<strong>🤝 Partnership Approach</strong>",
+                "advantage.item4.desc": "• Dedicated support team<br>• Regular updates and improvements<br>• Long-term commitment to platform success",
+                "metrics.title": "Success Metrics",
+                "metrics.intro": "Platforms using OneCent typically achieve:",
+                "metrics.item1.desc": "Reduction in deposit processing time",
+                "metrics.item2.desc": "Elimination of manual verification staff",
+                "metrics.item3.desc": "Reduction in deposit-related operational costs",
+                "metrics.item4.desc": "Improvement in user satisfaction scores",
+                "metrics.item5.value": "Zero",
+                "metrics.item5.desc": "Human errors in transaction verification",
+                "sec.title": "Security & Compliance",
+                "sec.data.title": "🔐 Data Security",
+                "sec.data.item1": "End-to-end encryption for all API communications",
+                "sec.data.item2": "Secure storage of transaction data",
+                "sec.data.item3": "Regular security audits and updates",
+                "sec.privacy.title": "🛡️ Privacy Protection",
+                "sec.privacy.item1": "Minimal data collection (only transaction-related information)",
+                "sec.privacy.item2": "No storage of sensitive user personal information",
+                "sec.privacy.item3": "Compliance with data protection best practices",
+                "sec.rel.title": "⚙️ System Reliability",
+                "sec.rel.item1": "Redundant server infrastructure",
+                "sec.rel.item2": "Automatic failover and backup systems",
+                "sec.rel.item3": "Regular system maintenance and updates",
+                "start.title": "Getting Started",
+                "start.cta": "<strong>Ready to transform your deposit system and reduce operational costs?</strong>",
+                "start.steps.title": "Next Steps:",
+                "start.step1": "<strong>Schedule a Demo</strong> - See OneCent in action with your use case",
+                "start.step2": "<strong>Review Pricing Plans</strong> - Choose the plan that fits your platform size",
+                "start.step3": "<strong>Start Integration</strong> - Get API access and technical support",
+                "start.step4": "<strong>Go Live</strong> - Launch automated deposits and eliminate manual work",
+                "footer.brand": "OneCent",
+                "footer.tagline": "Automating the Future of Gaming Platform Payments in Myanmar",
+                "footer.cta": "Transform your deposit system today and join the automation revolution"
+            },
+            my: {
+                "title": "OneCent - အလိုအလျောက် ငွေပေးချေမှု စစ်ဆေးခြင်း စနစ်",
+                "subtitle": "မြန်မာဂိမ်းပလက်ဖောင်းများအတွက် အပ်ငွေလုပ်ငန်းစဉ်ကို တော်လှန်ပြောင်းလဲခြင်း",
+                "exec.title": "အကျဉ်းချုပ်",
+                "exec.desc": "<strong>OneCent</strong> သည် မြန်မာနိုင်ငံရှိ အွန်လိုင်းဂိမ်းပလက်ဖောင်းများ (2D/3D ထီလုပ်ငန်းများ) အတွက် အထူးထုတ်လုပ်ထားသည့် ငွေပေးချေမှု အလိုအလျောက်စနစ်ဖြစ်သည်။ ကျွန်ုပ်တို့သည် KPay နှင့် Wave Pay တို့မှ ငွေလွှဲမှတ်တမ်းများကို ရယူပြီး အပ်ငွေစစ်ဆေးခြင်းလုပ်ငန်းစဉ်ကို အလိုအလျောက်လုပ်ဆောင်ပေးကာ ၂၄ နာရီ ၀န်ထမ်းစောင့်ကြည့်ရန် မလိုအပ်တော့ပါ။",
+                "problem.main_title": "ပြဿနာ - လက်ဖြင့် အပ်ငွေစစ်ဆေးခြင်း",
+                "challenge.title": "လက်ရှိ လုပ်ငန်းခွင် စိန်ခေါ်မှုများ",
+                "challenge.desc": "မြန်မာနိုင်ငံရှိ အွန်လိုင်းဂိမ်းပလက်ဖောင်းများသည် လက်ရှိအပ်ငွေစနစ်များတွင် ကြီးမားသော စိန်ခေါ်မှုများနှင့် ရင်ဆိုင်နေရသည်-",
+                "manual.title": "လက်ရှိ လက်ဖြင့်လုပ်ဆောင်နေရပုံ",
+                "manual.step1.title": "သုံးစွဲသူ အပ်ငွေလွှဲခြင်း",
+                "manual.step1.item1": "သုံးစွဲသူသည် KPay သို့မဟုတ် Wave Pay ဖြင့် သတ်မှတ်ထားသော အကောင့်သို့ ငွေလွှဲသည်",
+                "manual.step1.item2": "သုံးစွဲသူသည် ငွေလွှဲလုပ်ငန်းစဉ်နံပါတ် နောက်ဆုံး ၆ လုံးဖြင့် အပ်ငွေလျှောက်ထားသည်",
+                "manual.step2.title": "လက်ဖြင့် စစ်ဆေးရန်လိုအပ်ခြင်း",
+                "manual.step2.item1": "ပလက်ဖောင်း ၀န်ထမ်းသည် KPay/Wave Pay အက်ပ်များကို ၂၄ နာရီ စောင့်ကြည့်ရသည်",
+                "manual.step2.item2": "၀န်ထမ်းသည် ဝင်လာသော ငွေလွှဲမှတ်တမ်းကို လက်ဖြင့် စစ်ဆေးရသည်",
+                "manual.step2.item3": "Admin Panel တွင် ငွေလွှဲနံပါတ်ကို တိုက်ဆိုင်စစ်ဆေးရသည်",
+                "manual.step2.item4": "အပ်ငွေတစ်ခုချင်းစီအတွက် လက်ဖြင့် အတည်ပြုပေးရသည်",
+                "pain.title": "အဓိက အခက်အခဲများ",
+                "pain.item1": "<strong>လုပ်အားခ စရိတ်မြင့်မားခြင်း</strong> - ၂၄ နာရီပတ်လုံး ဝန်ထမ်းခန့်ထားရန် လိုအပ်သည်",
+                "pain.item2": "<strong>လုပ်ဆောင်မှု နှေးကွေးခြင်း</strong> - စစ်ဆေးချိန် ကြာမြင့်သဖြင့် သုံးစွဲသူအတွေ့အကြုံ မကောင်းခြင်း",
+                "pain.item3": "<strong>လူသားအမှားများ</strong> - လက်ဖြင့်တိုက်ဆိုင်စစ်ဆေးရာတွင် မှားယွင်းမှုများနှင့် အငြင်းပွားမှုများ ဖြစ်နိုင်သည်",
+                "pain.item4": "<strong>တိုးချဲ့ရန် ခက်ခဲခြင်း</strong> - ငွေလွှဲပမာဏ များပြားလာပါက နိုင်နင်းအောင် မလုပ်ဆောင်နိုင်ခြင်း",
+                "pain.item5": "<strong>လုံခြုံရေး အန္တရာယ်များ</strong> - ငွေပေးချေမှုအကောင့်များကို ဝန်ထမ်းများ ဝင်ရောက်ကြည့်ရှုနိုင်ခြင်း",
+                "pain.item6": "<strong>စစ်ဆေးရန် ခက်ခဲခြင်း</strong> - မှားယွင်းမှုများကို ပြန်လည်စစ်ဆေးရန် မှတ်တမ်းမရှိခြင်း",
+                "reason.title": "အဘယ်ကြောင့် ဤပြဿနာဖြစ်ရသနည်း",
+                "reason.desc": "KPay နှင့် Wave Pay သည် လုံခြုံစိတ်ချရသော ငွေပေးချေမှုစနစ်များ ဖြစ်သော်လည်း ဂိမ်းပလက်ဖောင်းများအတွက် တိုက်ရိုက် API မပေးထားပါ။ ထို့ကြောင့် ပလက်ဖောင်းများသည် လက်ဖြင့်စစ်ဆေးသည့် လုပ်ငန်းစဉ်များကိုသာ အားကိုးနေရပြီး လုပ်ငန်းနှောင့်နှေးမှုများကို ဖြစ်ပေါ်စေသည်။",
+                "solution.main_title": "ကျွန်ုပ်တို့၏ ဖြေရှင်းချက် - OneCent အလိုအလျောက် စစ်ဆေးရေး API",
+                "solution.provide.title": "ကျွန်ုပ်တို့ ဘာပေးနိုင်သလဲ",
+                "solution.provide.desc": "OneCent သည် KPay နှင့် Wave Pay တို့နှင့် ချိတ်ဆက်ကာ ငွေလွှဲမှတ်တမ်းများကို ရယူနိုင်ပါသည်။ ဤဒေတာများကို ဂိမ်းပလက်ဖောင်းများအတွက် လုံခြုံစိတ်ချရသော API အဖြစ် ပံ့ပိုးပေးပါသည်။",
+                "solution.how.title": "OneCent အလုပ်လုပ်ပုံ",
+                "solution.workflow.title": "အလိုအလျောက် အပ်ငွေ လုပ်ငန်းစဉ်",
+                "solution.workflow.step1": "<strong>သုံးစွဲသူ</strong> သည် KPay/Wave Pay ဖြင့် ငွေလွှဲသည်",
+                "solution.workflow.step2": "<strong>OneCent</strong> သည် ငွေလွှဲမှတ်တမ်းကို ရယူသည်",
+                "solution.workflow.step3": "<strong>သုံးစွဲသူ</strong> သည် နောက်ဆုံးဂဏန်း ၆ လုံးဖြင့် အပ်ငွေတင်သည်",
+                "solution.workflow.step4": "<strong>ပလက်ဖောင်း</strong> သည် OneCent API ဖြင့် တိုက်ဆိုင်စစ်ဆေးသည်",
+                "solution.workflow.step5": "<strong>ပလက်ဖောင်း</strong> သည် အလိုအလျောက် အတည်ပြုပေးသည်",
+                "solution.workflow.step6": "<strong>သုံးစွဲသူ</strong> ပိုက်ဆံအိတ်ထဲသို့ ငွေချက်ချင်းရောက်သည်",
+                "tech_arch.title": "နည်းပညာ ဖွဲ့စည်းပုံ",
+                "tech_arch.layer1.title": "၁။ ဒေတာ ရယူခြင်း အလွှာ",
+                "tech_arch.layer1.item1": "OneCent ဆာဗာများသည် KPay နှင့် Wave Pay မှ ဒေတာများကို စဉ်ဆက်မပြတ် ရယူသည်",
+                "tech_arch.layer1.item2": "လုံခြုံစိတ်ချရသော ချိတ်ဆက်မှုစနစ်",
+                "tech_arch.layer2.title": "၂။ API ဝန်ဆောင်မှု အလွှာ",
+                "tech_arch.layer2.item1": "ပလက်ဖောင်း ချိတ်ဆက်ရန် RESTful API",
+                "tech_arch.layer2.item2": "ငွေလွှဲနံပါတ်၊ ပမာဏ၊ အချိန်တို့ဖြင့် ရှာဖွေနိုင်ခြင်း",
+                "tech_arch.layer2.item3": "ချက်ချင်းသိရှိနိုင်ရန် Webhook စနစ်",
+                "tech_arch.layer3.title": "၃။ ပလက်ဖောင်း ချိတ်ဆက်ခြင်း",
+                "tech_arch.layer3.item1": "ရှိပြီးသား စနစ်များနှင့် အလွယ်တကူ ချိတ်ဆက်နိုင်ခြင်း",
+                "tech_arch.layer3.item2": "သုံးစွဲသူ အချက်အလက်နှင့် အလိုအလျောက် တိုက်ဆိုင်စစ်ဆေးခြင်း",
+                "tech_arch.layer3.item3": "လူမလိုဘဲ ချက်ချင်း အတည်ပြုပေးခြင်း",
+                "benefits.title": "ပလက်ဖောင်းပိုင်ရှင်များအတွက် အကျိုးကျေးဇူးများ",
+                "benefits.cost.title": "💰 ကုန်ကျစရိတ် လျှော့ချနိုင်ခြင်း",
+                "benefits.cost.item1": "<strong>၂၄ နာရီ ဝန်ထမ်း မလိုတော့ပါ</strong> - စောင့်ကြည့်ရန် သီးသန့်ဝန်ထမ်း မလိုအပ်တော့ပါ",
+                "benefits.cost.item2": "<strong>လုပ်ငန်းစရိတ် သက်သာခြင်း</strong> - အကန့်အသတ်မရှိ ငွေလွှဲများကို ကိုင်တွယ်နိုင်သည်",
+                "benefits.cost.item3": "<strong>အမှားစရိတ်များ လျော့နည်းခြင်း</strong> - အငြင်းပွားမှုနှင့် လက်ဖြင့်စစ်ဆေးမှု အမှားများ မရှိတော့ပါ",
+                "benefits.efficiency.title": "⚡ လုပ်ငန်းတွင်ကျယ်မှု",
+                "benefits.efficiency.item1": "<strong>ချက်ချင်း စစ်ဆေးပေးခြင်း</strong> - မိနစ်ပိုင်းမဟုတ်ဘဲ စက္ကန့်ပိုင်းအတွင်း ပြီးစီးသည်",
+                "benefits.efficiency.item2": "<strong>အတိုင်းအတာမရှိ လုပ်ဆောင်နိုင်ခြင်း</strong> - ငွေလွှဲများပြားချိန်တွင်လည်း နှောင့်နှေးမှုမရှိပါ",
+                "benefits.efficiency.item3": "<strong>အလိုအလျောက် စာရင်းရှင်းခြင်း</strong> - ငွေလွှဲအားလုံးအတွက် မှတ်တမ်းအပြည့်အစုံရှိသည်",
+                "benefits.security.title": "🔒 လုံခြုံရေး နှင့် စိတ်ချရမှု",
+                "benefits.security.item1": "<strong>လူဖြင့်ဝင်ရောက်မှု လျှော့ချခြင်း</strong> - ငွေကြေးအကောင့်များကို ဝန်ထမ်းဝင်ကြည့်ရန် မလိုတော့ပါ",
+                "benefits.security.item2": "<strong>တိကျသော တိုက်ဆိုင်စစ်ဆေးမှု</strong> - လူသားအမှားများကို ဖယ်ရှားပေးသည်",
+                "benefits.security.item3": "<strong>လိမ်လည်မှု ကာကွယ်ခြင်း</strong> - မှားယွင်းသော အပ်ငွေတောင်းဆိုမှုများကို အလိုအလျောက် ပယ်ချသည်",
+                "benefits.security.item4": "<strong>မှတ်တမ်းအပြည့်အစုံ</strong> - ငွေလွှဲတိုင်းကို ပြန်လည်စစ်ဆေးနိုင်သည်",
+                "benefits.ux.title": "😊 သုံးစွဲသူ အတွေ့အကြုံ ပိုမိုကောင်းမွန်ခြင်း",
+                "benefits.ux.item1": "<strong>ချက်ချင်း ငွေရောက်ရှိခြင်း</strong> - ငွေလွှဲပြီးသည်နှင့် ပိုက်ဆံအိတ်ထဲ ငွေရောက်သည်",
+                "benefits.ux.item2": "<strong>၂၄ နာရီ ဝန်ဆောင်မှု</strong> - ရုံးပိတ်ရက်၊ ညအချိန်များတွင်လည်း နှောင့်နှေးမှုမရှိပါ",
+                "benefits.ux.item3": "<strong>အငြင်းပွားမှု လျော့နည်းခြင်း</strong> - အလိုအလျောက်စနစ်ကြောင့် အမှားကင်းသည်",
+                "benefits.ux.item4": "<strong>စိတ်ကျေနပ်မှု ပိုရရှိခြင်း</strong> - မြန်ဆန်ပြီး စိတ်ချရသော ဝန်ဆောင်မှု",
+                "benefits.bi.title": "📊 လုပ်ငန်းသုံး အချက်အလက်များ",
+                "benefits.bi.item1": "<strong>ဆန်းစစ်ချက်များ</strong> - အပ်ငွေ ပုံစံနှင့် အခြေအနေများကို စောင့်ကြည့်နိုင်သည်",
+                "benefits.bi.item2": "<strong>ငွေလွှဲမှတ်တမ်း</strong> - အစီရင်ခံစာများအတွက် မှတ်တမ်းအပြည့်အစုံ",
+                "benefits.bi.item3": "<strong>စွမ်းဆောင်ရည်</strong> - အောင်မြင်မှုနှုန်းနှင့် ကြာချိန်များကို သိရှိနိုင်သည်",
+                "features.title": "စနစ်၏ အင်္ဂါရပ်များ",
+                "features.core.title": "အဓိက လုပ်ဆောင်ချက်များ",
+                "features.history.title": "ငွေလွှဲ မှတ်တမ်း ဒေတာ",
+                "features.history.item1": "KPay နှင့် Wave Pay ငွေလွှဲမှတ်တမ်းများ",
+                "features.history.item2": "အချိန်နှင့်တပြေးညီ ဒေတာ ရယူခြင်း",
+                "features.history.item3": "အကောင့်များစွာ အသုံးပြုနိုင်ခြင်း",
+                "features.verify.title": "အလိုအလျောက် စစ်ဆေးခြင်း",
+                "features.verify.item1": "ခွင့်ပြုချက်မရှိသော ငွေလွှဲများကို စစ်ဆေးခြင်း",
+                "features.verify.item2": "ပမာဏ၊ အချိန်နှင့် အကောင့်များကို အတည်ပြုခြင်း",
+                "features.verify.item3": "ချက်ချင်း လက်ခံ/ငြင်းပယ် ဆုံးဖြတ်ခြင်း",
+                "features.multi.title": "အကောင့်များစွာ ပံ့ပိုးမှု",
+                "features.multi.item1": "KPay/Wave Pay အကောင့်များစွာ စီမံခန့်ခွဲနိုင်ခြင်း",
+                "features.multi.item2": "သင့်လျော်သော အကောင့်သို့ လမ်းကြောင်းပေးခြင်း",
+                "features.multi.item3": "ငွေလက်ခံမှု မျှတစေရန် စီမံပေးခြင်း",
+                "features.api.title": "ပြည့်စုံသော API",
+                "features.api.item1": "စာရွက်စာတမ်း အပြည့်အစုံပါသော RESTful API",
+                "features.api.item2": "ချက်ချင်းသိစေရန် Webhook စနစ်",
+                "features.api.item3": "စမ်းသပ်ရန် Sandbox ဝန်းကျင်",
+                "features.security.title": "လုံခြုံရေး",
+                "features.security.item1": "စာဝှက်စနစ်ဖြင့် ဒေတာပေးပို့ခြင်း",
+                "features.security.item2": "လုံခြုံသော ဝင်ရောက်ခွင့် စစ်ဆေးခြင်း",
+                "features.security.item3": "ငွေလွှဲဒေတာ လုံခြုံမှု ကာကွယ်ခြင်း",
+                "features.integration.title": "ချိတ်ဆက်မှု ပံ့ပိုးမှု",
+                "features.integration.item1": "လက်ရှိစနစ်များနှင့် အလွယ်တကူ ချိတ်ဆက်နိုင်ခြင်း",
+                "features.integration.item2": "နမူနာကုဒ်များနှင့် SDK များ ပေးထားခြင်း",
+                "features.integration.item3": "နည်းပညာ ပံ့ပိုးကူညီမှု",
+                "usecases.title": "အသုံးပြုနိုင်သော ပုံစံများ",
+                "usecases.case1.title": "၁။ ငွေလွှဲများသော ဂိမ်းပလက်ဖောင်း",
+                "usecases.case1.scenario": "<strong>အခြေအနေ -</strong> တစ်နေ့လျှင် အပ်ငွေ ၅၀၀ ကျော် ဝင်ရောက်သည်",
+                "usecases.table.h1": "OneCent မရှိလျှင်",
+                "usecases.table.h2": "OneCent ရှိလျှင်",
+                "usecases.case1.bad": "• ဝန်ထမ်း ၃-၄ ဦး အလှည့်ကျ ခန့်ထားရသည်<br>• တစ်စောင်လျှင် ၅-၁၅ မိနစ် ကြာသည်<br>• လစဉ် ဝန်ထမ်းစရိတ် $2,000-3,000 ခန့်<br>• ကြန့်ကြာမှုကြောင့် သုံးစွဲသူများ တိုင်ကြားသည်",
+                "usecases.case1.good": "• လူဖြင့်စစ်ဆေးရန် မလိုတော့ပါ<br>• ပျမ်းမျှ ၁၀ စက္ကန့်အောက်သာ ကြာသည်<br>• ကုန်ကျစရိတ် အလွန်သက်သာသည်<br>• သုံးစွဲသူ စိတ်ကျေနပ်မှု တိုးတက်လာသည်",
+                "usecases.case2.title": "၂။ ပလက်ဖောင်းများစွာ ပိုင်ဆိုင်သူ",
+                "usecases.case2.scenario": "<strong>အခြေအနေ -</strong> ဂိမ်းဆိုဒ် ၅ ခု ဖွင့်လှစ်ထားသည်",
+                "usecases.case2.bad": "• ဆိုဒ်တစ်ခုစီအတွက် ဝန်ထမ်း သီးခြားလိုသည်<br>• ဝန်ထမ်းများကို မျှဝေသုံးစွဲရန် ခက်ခဲသည်<br>• စီမံခန့်ခွဲမှု ရှုပ်ထွေးသည်",
+                "usecases.case2.good": "• API တစ်ခုတည်းဖြင့် ဆိုဒ်အားလုံး ချိတ်ဆက်နိုင်သည်<br>• တစ်နေရာတည်းမှ စီမံခန့်ခွဲနိုင်သည်<br>• ဝန်ဆောင်မှု ပုံစံတူညီသည်",
+                "usecases.case3.title": "၃။ လုပ်ငန်းသစ် စတင်သူ",
+                "usecases.case3.scenario": "<strong>အခြေအနေ -</strong> ဂိမ်းဆိုဒ် အသစ် စတင်မိတ်ဆက်မည်",
+                "usecases.case3.bad": "• မစခင်ကတည်းက ဝန်ထမ်းခန့်ထား လေ့ကျင့်ပေးရသည်<br>• ကနဦး ကုန်ကျစရိတ် များပြားသည်<br>• တိုးချဲ့ရန် ခက်ခဲသည်",
+                "usecases.case3.good": "• ပထမနေ့ကတည်းက အလိုအလျောက်စနစ်ဖြင့် စနိုင်သည်<br>• ကနဦး ရင်းနှီးငွေ နည်းပါးသည်<br>• လွယ်ကူစွာ တိုးချဲ့နိုင်သည်",
+                "stack.title": "နည်းပညာများ",
+                "stack.infra.title": "OneCent ၏ အခြေခံအဆောက်အအုံ",
+                "stack.infra.item1": "<strong>ဆာဗာများ -</strong> စွမ်းဆောင်ရည်မြင့် ဆာဗာများ",
+                "stack.infra.item2": "<strong>ဒေတာ လုပ်ဆောင်ခြင်း -</strong> ငွေလွှဲဒေတာများကို စနစ်တကျ ပြုလုပ်ခြင်း",
+                "stack.infra.item3": "<strong>API Gateway -</strong> လုံခြုံပြီး တိုးချဲ့နိုင်သော ချိတ်ဆက်မှုများ",
+                "stack.infra.item4": "<strong>ဒေတာဘေ့စ် -</strong> မှတ်တမ်းများ သိမ်းဆည်းခြင်း",
+                "stack.infra.item5": "<strong>စောင့်ကြည့်ခြင်း -</strong> ၂၄ နာရီ စနစ်ကျန်းမာရေး စောင့်ကြည့်ခြင်း",
+                "stack.req.title": "လိုအပ်ချက်များ",
+                "stack.req.desc": "အနည်းဆုံး လိုအပ်ချက်များဖြင့် ချိတ်ဆက်နိုင်သည်-",
+                "stack.table.h1": "လိုအပ်ချက်",
+                "stack.table.h2": "အသေးစိတ်",
+                "stack.req1.name": "<strong>API ချိတ်ဆက်မှု</strong>",
+                "stack.req1.detail": "RESTful API (HTTP/HTTPS)",
+                "stack.req2.name": "<strong>လုံခြုံရေး</strong>",
+                "stack.req2.detail": "API Key စနစ်",
+                "stack.req3.name": "<strong>ဒေတာ ပုံစံ</strong>",
+                "stack.req3.detail": "JSON",
+                "stack.req4.name": "<strong>Programming Language</strong>",
+                "stack.req4.detail": "ဘာသာစကားမရွေး (Any Backend)",
+                "process.title": "အကောင်အထည်ဖော်ခြင်း လုပ်ငန်းစဉ်",
+                "process.phase1.title": "<span class=\"step-number\">၁</span>အဆင့် ၁ - စတင်ခြင်း (၁-၂ ရက်)",
+                "process.phase1.item1": "အကောင့်ဖွင့်ခြင်းနှင့် API Key ရယူခြင်း",
+                "process.phase1.item2": "KPay/Wave Pay အကောင့်များ ပြင်ဆင်ခြင်း",
+                "process.phase1.item3": "Sandbox တွင် စမ်းသပ်ခြင်း",
+                "process.phase2.title": "<span class=\"step-number\">၂</span>အဆင့် ၂ - ချိတ်ဆက်ခြင်း (၃-၇ ရက်)",
+                "process.phase2.item1": "စနစ်တွင် API ထည့်သွင်းခြင်း",
+                "process.phase2.item2": "စမ်းသပ်မှုများ ပြုလုပ်ခြင်း",
+                "process.phase2.item3": "နည်းပညာ ပံ့ပိုးကူညီမှု ရယူခြင်း",
+                "process.phase3.title": "<span class=\"step-number\">၃</span>အဆင့် ၃ - စတင်အသုံးပြုခြင်း (၁ ရက်)",
+                "process.phase3.item1": "Production API သို့ ပြောင်းလဲခြင်း",
+                "process.phase3.item2": "ကနဦး ငွေလွှဲများကို စောင့်ကြည့်ခြင်း",
+                "process.phase3.item3": "လုပ်ငန်းစဉ် မှန်ကန်ကြောင်း စစ်ဆေးခြင်း",
+                "process.phase4.title": "<span class=\"step-number\">၄</span>အဆင့် ၄ - မွမ်းမံခြင်း (စဉ်ဆက်မပြတ်)",
+                "process.phase4.item1": "စွမ်းဆောင်ရည် စောင့်ကြည့်ခြင်း",
+                "process.phase4.item2": "လုပ်ဆောင်ချက်အသစ်များ ထည့်သွင်းခြင်း",
+                "process.phase4.item3": "နည်းပညာ ပံ့ပိုးမှု ပေးခြင်း",
+                "advantage.title": "ယှဉ်ပြိုင်မှု အားသာချက်များ",
+                "advantage.table.h1": "အားသာချက်",
+                "advantage.table.h2": "ဖော်ပြချက်",
+                "advantage.item1.name": "<strong>🎯 ဈေးကွက်နှင့် ကိုက်ညီမှု</strong>",
+                "advantage.item1.desc": "• မြန်မာ့ငွေပေးချေမှုစနစ်အတွက် အထူးပြုလုပ်ထားသည်<br>• KPay နှင့် Wave Pay အကြောင်း နားလည်ကျွမ်းကျင်သည်<br>• ဂိမ်းပလက်ဖောင်းများအတွက် အဆင်ပြေစေသည်",
+                "advantage.item2.name": "<strong>🚀 ဦးဆောင်သူ အားသာချက်</strong>",
+                "advantage.item2.desc": "• ဈေးကွက်တွင် တစ်ခုတည်းသော အလိုအလျောက်စနစ်<br>• အောင်မြင်စွာ ချိတ်ဆက်ထားသော နည်းပညာ<br>• ခိုင်မာသော အခြေခံအဆောက်အအုံ",
+                "advantage.item3.name": "<strong>🛡️ စိတ်ချရမှု</strong>",
+                "advantage.item3.desc": "• ၉၉.၉% ဝန်ဆောင်မှု ရရှိနိုင်မှု<br>• အရန်စနစ်များ ထားရှိခြင်း<br>• ၂၄ နာရီ စောင့်ကြည့်စစ်ဆေးခြင်း",
+                "advantage.item4.name": "<strong>🤝 မိတ်ဖက် ဆက်ဆံရေး</strong>",
+                "advantage.item4.desc": "• သီးသန့် ပံ့ပိုးကူညီရေးအဖွဲ့<br>• ပုံမှန် မွမ်းမံမှုများ<br>• ရေရှည် အောင်မြင်မှုအတွက် ကတိကဝတ်",
+                "metrics.title": "အောင်မြင်မှု တိုင်းတာချက်များ",
+                "metrics.intro": "OneCent အသုံးပြုသူများ ရရှိလေ့ရှိသော ရလဒ်များ-",
+                "metrics.item1.desc": "ငွေလွှဲစစ်ဆေးချိန် လျော့ကျမှု",
+                "metrics.item2.desc": "လက်ဖြင့်စစ်ဆေးသော ဝန်ထမ်း လျော့ချနိုင်မှု",
+                "metrics.item3.desc": "လုပ်ငန်းလည်ပတ်စရိတ် လျှော့ချနိုင်မှု",
+                "metrics.item4.desc": "သုံးစွဲသူ စိတ်ကျေနပ်မှု တိုးတက်လာမှု",
+                "metrics.item5.value": "လုံးဝမရှိ",
+                "metrics.item5.desc": "ငွေလွှဲစစ်ဆေးရာတွင် လူသားအမှား",
+                "sec.title": "လုံခြုံရေး နှင့် စည်းမျဉ်းလိုက်နာမှု",
+                "sec.data.title": "🔐 ဒေတာ လုံခြုံရေး",
+                "sec.data.item1": "API ဆက်သွယ်မှုအားလုံးကို ကုဒ်ဝှက်ထားခြင်း",
+                "sec.data.item2": "ငွေလွှဲဒေတာများကို လုံခြုံစွာ သိမ်းဆည်းခြင်း",
+                "sec.data.item3": "လုံခြုံရေး စစ်ဆေးမှုများ ပုံမှန်ပြုလုပ်ခြင်း",
+                "sec.privacy.title": "🛡️ ကိုယ်ပိုင်အချက်အလက် ကာကွယ်ခြင်း",
+                "sec.privacy.item1": "လိုအပ်သော ငွေလွှဲဒေတာကိုသာ ရယူခြင်း",
+                "sec.privacy.item2": "အသုံးပြုသူ၏ လျှို့ဝှက်အချက်အလက်များကို မသိမ်းဆည်းခြင်း",
+                "sec.privacy.item3": "ဒေတာကာကွယ်ရေး စံနှုန်းများနှင့်ကိုက်ညီခြင်း",
+                "sec.rel.title": "⚙️ စနစ် စိတ်ချရမှု",
+                "sec.rel.item1": "ဆာဗာ အရန်စနစ်များ",
+                "sec.rel.item2": "အလိုအလျောက် ပြန်လည်သက်ဝင်စနစ်များ",
+                "sec.rel.item3": "ပုံမှန် ထိန်းသိမ်းခြင်းနှင့် မွမ်းမံခြင်း",
+                "start.title": "စတင် အသုံးပြုခြင်း",
+                "start.cta": "<strong>သင်၏ အပ်ငွေစနစ်ကို အဆင့်မြှင့်တင်ပြီး ကုန်ကျစရိတ်လျှော့ချရန် အဆင်သင့်ဖြစ်ပြီလား?</strong>",
+                "start.steps.title": "နောက်တစ်ဆင့်များ-",
+                "start.step1": "<strong>သရုပ်ပြ ကြည့်ရှုခြင်း</strong> - OneCent အလုပ်လုပ်ပုံကို လက်တွေ့ကြည့်ရှုပါ",
+                "start.step2": "<strong>ဈေးနှုန်း ရွေးချယ်ခြင်း</strong> - သင့်လုပ်ငန်းနှင့် ကိုက်ညီမည့် အစီအစဉ်ကို ရွေးပါ",
+                "start.step3": "<strong>ချိတ်ဆက်ခြင်း</strong> - API Key ရယူပြီး ချိတ်ဆက်ပါ",
+                "start.step4": "<strong>စတင်ခြင်း</strong> - အလိုအလျောက်စနစ်ဖြင့် လက်ဖြင့်လုပ်ခြင်းကို ဖယ်ရှားလိုက်ပါ",
+                "footer.brand": "OneCent",
+                "footer.tagline": "မြန်မာဂိမ်းပလက်ဖောင်း ငွေပေးချေမှုများ၏ အနာဂတ်ကို အလိုအလျောက်ပုံစံပြောင်းလဲခြင်း",
+                "footer.cta": "သင်၏ အပ်ငွေစနစ်ကို ယနေ့ပြောင်းလဲပြီး အလိုအလျောက်စနစ်တော်လှန်ရေးတွင် ပါဝင်လိုက်ပါ"
+            },
+            zh: {
+                "title": "OneCent - 自动化支付验证系统",
+                "subtitle": "革新缅甸游戏平台的存款处理",
+                "exec.title": "执行摘要",
+                "exec.desc": "<strong>OneCent</strong> 是专为缅甸在线游戏平台（2D/3D彩票和游戏主机）设计的创新支付自动化服务。我们提供与KBZPay和Wave Pay的交易历史数据集成，使平台能够自动化存款验证流程，消除对24/7人工监控人员的需求。",
+                "problem.main_title": "问题：人工存款验证",
+                "challenge.title": "当前行业挑战",
+                "challenge.desc": "缅甸的在线游戏平台目前的存款系统面临重大的运营挑战：",
+                "manual.title": "目前的人工存款流程",
+                "manual.step1.title": "用户发起存款",
+                "manual.step1.item1": "用户通过KBZPay或Wave Pay转账到平台指定账户",
+                "manual.step1.item2": "用户提交包含交易ID后6位数字的存款请求",
+                "manual.step2.title": "需要人工验证",
+                "manual.step2.item1": "平台员工必须24/7监控KBZPay/Wave Pay移动应用",
+                "manual.step2.item2": "员工人工检查收到的交易通知",
+                "manual.step2.item3": "员工在管理面板中交叉核对交易ID",
+                "manual.step2.item4": "每笔存款都需要人工批准",
+                "pain.title": "关键痛点",
+                "pain.item1": "<strong>高昂的人力成本</strong> - 需要专门的员工全天候工作",
+                "pain.item2": "<strong>处理缓慢</strong> - 验证延迟导致用户体验差",
+                "pain.item3": "<strong>人为错误</strong> - 人工匹配容易出错和引发纠纷",
+                "pain.item4": "<strong>可扩展性有限</strong> - 无法有效处理高交易量",
+                "pain.item5": "<strong>安全风险</strong> - 依赖员工访问支付账户",
+                "pain.item6": "<strong>无审计跟踪</strong> - 难以追踪和解决差异",
+                "reason.title": "为什么存在这个问题",
+                "reason.desc": "虽然KBZPay和Wave Pay是缅甸安全、广泛使用的支付平台，但它们不向第三方游戏平台提供直接的API访问或自动化数据源。这迫使平台依赖人工验证流程，导致效率低下和运营瓶颈。",
+                "solution.main_title": "我们的解决方案：OneCent自动验证API",
+                "solution.provide.title": "我们提供什么",
+                "solution.provide.desc": "OneCent成功逆向工程并集成了KBZPay和Wave Pay的嵌入式API，以提取交易历史数据。我们将此数据作为安全、可靠的API服务提供给游戏平台。",
+                "solution.how.title": "OneCent如何工作",
+                "solution.workflow.title": "自动化存款工作流程",
+                "solution.workflow.step1": "<strong>用户</strong> 通过KBZPay/Wave Pay转账到平台账户",
+                "solution.workflow.step2": "<strong>OneCent</strong> 从支付提供商获取交易历史数据",
+                "solution.workflow.step3": "<strong>用户</strong> 在平台上提交后6位数字的存款请求",
+                "solution.workflow.step4": "<strong>平台</strong> 查询OneCent API以验证交易",
+                "solution.workflow.step5": "<strong>平台</strong> 自动验证并批准存款",
+                "solution.workflow.step6": "<strong>用户</strong> 获得即时钱包信用",
+                "tech_arch.title": "技术架构",
+                "tech_arch.layer1.title": "1. 数据提取层",
+                "tech_arch.layer1.item1": "OneCent服务器持续从KBZPay和Wave Pay获取交易数据",
+                "tech_arch.layer1.item2": "与支付提供商嵌入式API的安全连接",
+                "tech_arch.layer2.title": "2. API服务层",
+                "tech_arch.layer2.item1": "用于平台集成的RESTful API端点",
+                "tech_arch.layer2.item2": "按后6位数字、金额、时间戳查询交易",
+                "tech_arch.layer2.item3": "支持即时通知的Webhook",
+                "tech_arch.layer3.title": "3. 平台集成",
+                "tech_arch.layer3.item1": "简单集成到现有平台系统",
+                "tech_arch.layer3.item2": "自动匹配用户提交与交易数据",
+                "tech_arch.layer3.item3": "无需人工干预的即时存款批准",
+                "benefits.title": "平台所有者的主要利益",
+                "benefits.cost.title": "💰 降低成本",
+                "benefits.cost.item1": "<strong>消除24/7员工需求</strong> - 无需专门的监控人员",
+                "benefits.cost.item2": "<strong>减少运营开销</strong> - 自动化系统处理无限交易",
+                "benefits.cost.item3": "<strong>降低错误相关成本</strong> - 尽量减少纠纷和人工对账",
+                "benefits.efficiency.title": "⚡ 运营效率",
+                "benefits.efficiency.item1": "<strong>即时验证</strong> - 存款在几秒钟内处理，而不是几分钟或几小时",
+                "benefits.efficiency.item2": "<strong>可扩展处理</strong> - 无需额外资源即可处理高峰交易量",
+                "benefits.efficiency.item3": "<strong>自动对账</strong> - 所有交易的完整审计跟踪",
+                "benefits.security.title": "🔒 增强的安全性和可靠性",
+                "benefits.security.item1": "<strong>减少人为访问</strong> - 尽量减少员工访问敏感支付账户",
+                "benefits.security.item2": "<strong>准确匹配</strong> - 消除交易验证中的人为错误",
+                "benefits.security.item3": "<strong>欺诈预防</strong> - 自动验证减少欺诈性存款索赔",
+                "benefits.security.item4": "<strong>完整审计跟踪</strong> - 每笔交易都有记录和可追溯",
+                "benefits.ux.title": "😊 改善用户体验",
+                "benefits.ux.item1": "<strong>即时存款</strong> - 用户付款后立即收到钱包信用",
+                "benefits.ux.item2": "<strong>24/7可用性</strong> - 在非工作时间或高峰时段无延迟",
+                "benefits.ux.item3": "<strong>减少纠纷</strong> - 自动化系统消除验证错误",
+                "benefits.ux.item4": "<strong>更高的用户满意度</strong> - 无缝、可靠的存款体验",
+                "benefits.bi.title": "📊 商业智能",
+                "benefits.bi.item1": "<strong>分析</strong> - 监控存款模式和趋势",
+                "benefits.bi.item2": "<strong>交易历史</strong> - 合规和报告的完整记录",
+                "benefits.bi.item3": "<strong>绩效指标</strong> - 跟踪存款成功率和处理时间",
+                "features.title": "系统功能",
+                "features.core.title": "核心功能",
+                "features.history.title": "交易历史数据",
+                "features.history.item1": "KBZPay和Wave Pay交易源",
+                "features.history.item2": "亚秒级数据同步",
+                "features.history.item3": "支持多个支付账户",
+                "features.verify.title": "自动验证",
+                "features.verify.item1": "将用户提交的交易ID与实际支付数据匹配",
+                "features.verify.item2": "验证金额、时间戳和账户详细信息",
+                "features.verify.item3": "即时批准/拒绝决定",
+                "features.multi.title": "多账户支持",
+                "features.multi.item1": "管理多个KBZPay和Wave Pay账户",
+                "features.multi.item2": "将交易路由到适当的账户",
+                "features.multi.item3": "跨支付渠道的负载均衡",
+                "features.api.title": "全面的API",
+                "features.api.item1": "带有详细文档的RESTful API",
+                "features.api.item2": "即时更新的Webhook通知",
+                "features.api.item3": "用于测试的沙盒环境",
+                "features.security.title": "安全与合规",
+                "features.security.item1": "加密数据传输",
+                "features.security.item2": "安全认证和授权",
+                "features.security.item3": "交易数据隐私保护",
+                "features.integration.title": "集成支持",
+                "features.integration.item1": "与现有平台轻松集成",
+                "features.integration.item2": "提供示例代码和SDK",
+                "features.integration.item3": "实施期间的技术支持",
+                "usecases.title": "使用案例",
+                "usecases.case1.title": "1. 高交易量游戏平台",
+                "usecases.case1.scenario": "<strong>场景：</strong> 平台在高峰时段每天收到500+笔存款",
+                "usecases.table.h1": "没有 OneCent",
+                "usecases.table.h2": "有 OneCent",
+                "usecases.case1.bad": "• 需要3-4名员工轮班工作<br>• 平均处理时间：每笔存款5-15分钟<br>• 每月员工成本：约$2,000-3,000美元<br>• 用户投诉延迟",
+                "usecases.case1.good": "• 无需人工验证<br>• 平均处理时间：<10秒<br>• 每月服务成本：仅为员工成本的一小部分<br>• 提高用户留存率和满意度",
+                "usecases.case2.title": "2. 多平台运营商",
+                "usecases.case2.scenario": "<strong>场景：</strong> 公司运营5个不同的游戏平台",
+                "usecases.case2.bad": "• 每个平台都需要专门的监控人员<br>• 难以在平台间共享资源<br>• 运营复杂度高",
+                "usecases.case2.good": "• 跨所有平台的单一API集成<br>• 集中交易管理<br>• 一致的用户体验",
+                "usecases.case3.title": "3. 新平台发布",
+                "usecases.case3.scenario": "<strong>场景：</strong> 正在发布新游戏平台的初创公司",
+                "usecases.case3.bad": "• 必须在发布前雇佣和培训验证人员<br>• 初始运营成本高<br>• 难以快速扩展",
+                "usecases.case3.good": "• 从第一天起就使用自动化系统<br>• 初始投资低<br>• 随着用户群增长无缝扩展",
+                "stack.title": "技术栈",
+                "stack.infra.title": "OneCent基础设施",
+                "stack.infra.item1": "<strong>后端服务：</strong> 用于API集成的高性能服务器",
+                "stack.infra.item2": "<strong>数据处理：</strong> 交易数据提取和规范化",
+                "stack.infra.item3": "<strong>API网关：</strong> 用于平台集成的安全、可扩展API端点",
+                "stack.infra.item4": "<strong>数据库：</strong> 交易记录和审计日志的冗余存储",
+                "stack.infra.item5": "<strong>监控：</strong> 24/7系统健康监控和警报",
+                "stack.req.title": "集成要求",
+                "stack.req.desc": "平台可以用最低的技术要求集成OneCent：",
+                "stack.table.h1": "要求",
+                "stack.table.h2": "详情",
+                "stack.req1.name": "<strong>API集成</strong>",
+                "stack.req1.detail": "RESTful API调用 (HTTP/HTTPS)",
+                "stack.req2.name": "<strong>认证</strong>",
+                "stack.req2.detail": "基于API密钥的认证",
+                "stack.req3.name": "<strong>数据格式</strong>",
+                "stack.req3.detail": "JSON请求/响应",
+                "stack.req4.name": "<strong>编程语言</strong>",
+                "stack.req4.detail": "语言无关（适用于任何后端）",
+                "process.title": "实施流程",
+                "process.phase1.title": "<span class=\"step-number\">1</span>第一阶段：入职 (1-2天)",
+                "process.phase1.item1": "账户设置和API凭证配置",
+                "process.phase1.item2": "KBZPay/Wave Pay账户配置",
+                "process.phase1.item3": "访问API文档和沙盒环境",
+                "process.phase2.title": "<span class=\"step-number\">2</span>第二阶段：集成 (3-7天)",
+                "process.phase2.item1": "平台在其系统中实施API调用",
+                "process.phase2.item2": "在沙盒环境中测试",
+                "process.phase2.item3": "技术支持和故障排除",
+                "process.phase3.title": "<span class=\"step-number\">3</span>第三阶段：上线 (1天)",
+                "process.phase3.item1": "切换到生产API端点",
+                "process.phase3.item2": "监控初始交易",
+                "process.phase3.item3": "验证自动存款流程",
+                "process.phase4.title": "<span class=\"step-number\">4</span>第四阶段：优化 (持续)",
+                "process.phase4.item1": "性能监控和优化",
+                "process.phase4.item2": "功能更新和增强",
+                "process.phase4.item3": "持续的技术支持",
+                "advantage.title": "竞争优势",
+                "advantage.table.h1": "优势",
+                "advantage.table.h2": "描述",
+                "advantage.item1.name": "<strong>🎯 市场特定解决方案</strong>",
+                "advantage.item1.desc": "• 专为缅甸支付生态系统构建<br>• 深入了解KBZPay和Wave Pay系统<br>• 专为游戏平台需求定制",
+                "advantage.item2.name": "<strong>🚀 先发优势</strong>",
+                "advantage.item2.desc": "• 市场上唯一的自动化解决方案<br>• 经过成功集成的成熟技术<br>• 已建立的基础设施和专业知识",
+                "advantage.item3.name": "<strong>🛡️ 可靠性和正常运行时间</strong>",
+                "advantage.item3.desc": "• 99.9%的服务可用性保证<br>• 冗余系统和故障转移机制<br>• 24/7技术监控",
+                "advantage.item4.name": "<strong>🤝 合作伙伴关系</strong>",
+                "advantage.item4.desc": "• 专门的支持团队<br>• 定期更新和改进<br>• 对平台成功的长期承诺",
+                "metrics.title": "成功指标",
+                "metrics.intro": "使用OneCent的平台通常实现：",
+                "metrics.item1.desc": "存款处理时间减少",
+                "metrics.item2.desc": "消除人工验证人员",
+                "metrics.item3.desc": "存款相关运营成本降低",
+                "metrics.item4.desc": "用户满意度评分提高",
+                "metrics.item5.value": "零",
+                "metrics.item5.desc": "交易验证中的人为错误",
+                "sec.title": "安全与合规",
+                "sec.data.title": "🔐 数据安全",
+                "sec.data.item1": "所有API通信的端到端加密",
+                "sec.data.item2": "交易数据的安全存储",
+                "sec.data.item3": "定期安全审计和更新",
+                "sec.privacy.title": "🛡️ 隐私保护",
+                "sec.privacy.item1": "最少数据收集（仅交易相关信息）",
+                "sec.privacy.item2": "不存储敏感用户个人信息",
+                "sec.privacy.item3": "符合数据保护最佳实践",
+                "sec.rel.title": "⚙️ 系统可靠性",
+                "sec.rel.item1": "冗余服务器基础设施",
+                "sec.rel.item2": "自动故障转移和备份系统",
+                "sec.rel.item3": "定期系统维护和更新",
+                "start.title": "开始使用",
+                "start.cta": "<strong>准备好转变您的存款系统并降低运营成本了吗？</strong>",
+                "start.steps.title": "下一步：",
+                "start.step1": "<strong>安排演示</strong> - 观看OneCent在您的用例中的实际应用",
+                "start.step2": "<strong>查看价格方案</strong> - 选择适合您平台规模的方案",
+                "start.step3": "<strong>开始集成</strong> - 获取API访问权限和技术支持",
+                "start.step4": "<strong>上线</strong> - 推出自动存款并消除人工工作",
+                "footer.brand": "OneCent",
+                "footer.tagline": "缅甸游戏平台支付自动化的未来",
+                "footer.cta": "立刻从今天开始转型您的存款系统，加入自动化革命"
+            }
+        };
+
+        let currentLang = 'en';
+
+        // Set language function
+        function setLanguage(lang) {
+            currentLang = lang;
+            localStorage.setItem('onecent-doc-lang', lang);
+
+            // Update active button
+            document.querySelectorAll('.lang-btn').forEach(btn => {
+                btn.classList.remove('active');
+                if (btn.getAttribute('data-lang') === lang) {
+                    btn.classList.add('active');
+                }
+            });
+
+            // Update translatable elements
+            document.querySelectorAll('[data-i18n]').forEach(element => {
+                const key = element.getAttribute('data-i18n');
+                if (translations[lang] && translations[lang][key]) {
+                    // Use innerHTML to preserve bold tags and formatting
+                    element.innerHTML = translations[lang][key];
+                }
+            });
+
+            document.documentElement.lang = lang;
+            if (translations[lang] && translations[lang]['title']) {
+                document.title = translations[lang]['title'];
+            }
+        }
+
+        // Initialize
+        document.addEventListener('DOMContentLoaded', function () {
+            const savedLang = localStorage.getItem('onecent-doc-lang') || 'en';
+            setLanguage(savedLang);
+
+            // Language button listeners
+            document.querySelectorAll('.lang-btn').forEach(btn => {
+                btn.addEventListener('click', function () {
+                    setLanguage(this.getAttribute('data-lang'));
+                });
+            });
+        });
+    </script>
+
+</body>
+
+</html>

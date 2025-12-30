@@ -1,0 +1,1609 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>OneCent - Pricing Plan</title>
+    <style>
+        body {
+            font-family: 'Arial', sans-serif;
+            line-height: 1.6;
+            max-width: 800px;
+            margin: 40px auto;
+            padding: 20px;
+            color: #333;
+        }
+
+        h1 {
+            color: #2c3e50;
+            border-bottom: 3px solid #3498db;
+            padding-bottom: 10px;
+            font-size: 32px;
+        }
+
+        h2 {
+            color: #2980b9;
+            margin-top: 30px;
+            font-size: 24px;
+            border-bottom: 2px solid #ecf0f1;
+            padding-bottom: 8px;
+        }
+
+        h3 {
+            color: #34495e;
+            margin-top: 20px;
+            font-size: 20px;
+        }
+
+        h4 {
+            color: #555;
+            margin-top: 15px;
+            font-size: 16px;
+        }
+
+        table {
+            width: 100%;
+            border-collapse: collapse;
+            margin: 20px 0;
+            box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+        }
+
+        th {
+            background-color: #3498db;
+            color: white;
+            padding: 12px;
+            text-align: left;
+            font-weight: bold;
+        }
+
+        td {
+            padding: 12px;
+            border-bottom: 1px solid #ecf0f1;
+        }
+
+        tr:nth-child(even) {
+            background-color: #f8f9fa;
+        }
+
+        tr:hover {
+            background-color: #e8f4f8;
+        }
+
+        .highlight {
+            background-color: #fff3cd;
+            padding: 15px;
+            border-left: 4px solid #ffc107;
+            margin: 15px 0;
+        }
+
+        .success {
+            background-color: #d4edda;
+            padding: 15px;
+            border-left: 4px solid #28a745;
+            margin: 15px 0;
+        }
+
+        .info {
+            background-color: #d1ecf1;
+            padding: 15px;
+            border-left: 4px solid #17a2b8;
+            margin: 15px 0;
+        }
+
+        ul,
+        ol {
+            margin: 10px 0;
+            padding-left: 30px;
+        }
+
+        li {
+            margin: 8px 0;
+        }
+
+        strong {
+            color: #2c3e50;
+        }
+
+        hr {
+            border: none;
+            border-top: 2px solid #ecf0f1;
+            margin: 30px 0;
+        }
+
+        .emoji {
+            font-size: 1.2em;
+        }
+
+        .price {
+            color: #27ae60;
+            font-weight: bold;
+            font-size: 1.1em;
+        }
+
+        .strikethrough {
+            text-decoration: line-through;
+            color: #999;
+        }
+
+        /* Language Switcher */
+        .language-switcher {
+            position: fixed;
+            top: 20px;
+            right: 20px;
+            display: flex;
+            gap: 8px;
+            z-index: 1000;
+            background: white;
+            padding: 10px;
+            border-radius: 25px;
+            box-shadow: 0 2px 8px rgba(0, 0, 0, 0.15);
+        }
+
+        .lang-btn {
+            padding: 8px 16px;
+            border: 2px solid #3498db;
+            background: transparent;
+            color: #3498db;
+            border-radius: 20px;
+            cursor: pointer;
+            font-weight: 600;
+            transition: all 0.3s ease;
+            font-size: 14px;
+        }
+
+        .lang-btn:hover,
+        .lang-btn.active {
+            background: #3498db;
+            color: white;
+        }
+
+        @media print {
+            .language-switcher {
+                display: none;
+            }
+        }
+    </style>
+</head>
+
+<body>
+
+    <!-- Language Switcher -->
+    <div class="lang-switcher">
+        <div class="nav-links" style="margin-bottom: 15px; text-align: right;">
+            <a href="index.html" class="lang-btn" style="text-decoration: none; font-size: 0.9em; padding: 5px 10px;">🏠
+                Home</a>
+            <a href="OneCent_Project_Introduction.html" class="lang-btn"
+                style="text-decoration: none; font-size: 0.9em; padding: 5px 10px;">📄 Intro</a>
+            <a href="OneCent_Pricing_Plan.html" class="lang-btn"
+                style="text-decoration: none; font-size: 0.9em; padding: 5px 10px;">💰 Pricing</a>
+            <a href="index.html#contact" class="lang-btn"
+                style="text-decoration: none; font-size: 0.9em; padding: 5px 10px;">📞 Contact</a>
+        </div>
+        <div class="lang-buttons">
+            <button class="lang-btn active" data-lang="en">EN</button>
+            <button class="lang-btn" data-lang="my">မြန်မာ</button>
+            <button class="lang-btn" data-lang="zh">中文</button>
+        </div>
+    </div>
+
+    <h1>OneCent - Pricing Plan</h1>
+
+    <h2 data-i18n="overview.title">Pricing Model Overview</h2>
+    <p data-i18n="overview.desc">OneCent uses a transparent, usage-based pricing model designed to scale with your
+        platform's growth. Our pricing
+        consists of two components:</p>
+    <ol>
+        <li data-i18n="overview.item1"><strong>One-Time Setup Fee</strong> - Initial integration and account
+            configuration</li>
+        <li data-i18n="overview.item2"><strong>Per-Request API Fee</strong> - Pay only for what you use (100 MMK per API
+            request)</li>
+    </ol>
+
+    <hr>
+
+    <h2 data-i18n="structure.title">Pricing Structure</h2>
+
+    <h3 data-i18n="setup.title">💎 Setup Fee (One-Time Payment)</h3>
+
+    <table>
+        <thead>
+            <tr>
+                <th data-i18n="table.package">Package</th>
+                <th data-i18n="table.fee">Setup Fee</th>
+                <th data-i18n="table.services">Included Services</th>
+            </tr>
+        </thead>
+        <tbody>
+            <tr>
+                <td data-i18n="setup.starter.name"><strong>Starter</strong></td>
+                <td class="price" data-i18n="setup.starter.price">500,000 MMK</td>
+                <td data-i18n="setup.starter.features">
+                    • Single KPay or Wave Pay account integration<br>
+                    • API credentials and documentation<br>
+                    • Email support<br>
+                    • 7-day integration assistance
+                </td>
+            </tr>
+            <tr>
+                <td data-i18n="setup.business.name"><strong>Business</strong></td>
+                <td class="price" data-i18n="setup.business.price">800,000 MMK</td>
+                <td data-i18n="setup.business.features">
+                    • Up to 3 KPay/Wave Pay accounts<br>
+                    • API credentials and documentation<br>
+                    • Priority email & chat support<br>
+                    • 14-day integration assistance<br>
+                    • Custom webhook configuration<br>
+                    • Sandbox environment access
+                </td>
+            </tr>
+            <tr>
+                <td data-i18n="setup.enterprise.name"><strong>Enterprise</strong></td>
+                <td class="price" data-i18n="setup.enterprise.price">1,500,000 MMK</td>
+                <td data-i18n="setup.enterprise.features">
+                    • Unlimited KPay/Wave Pay accounts<br>
+                    • Dedicated integration engineer<br>
+                    • 24/7 phone & chat support<br>
+                    • 30-day integration assistance<br>
+                    • Custom API features<br>
+                    • Dedicated sandbox environment<br>
+                    • SLA guarantee (99.9% uptime)
+                </td>
+            </tr>
+        </tbody>
+    </table>
+
+    <h3 data-i18n="api.title">📊 API Request Pricing</h3>
+    <p class="price" style="font-size: 1.3em;" data-i18n="api.price.title">100 MMK per API request</p>
+
+    <h4 data-i18n="api.what.title">What Counts as an API Request?</h4>
+    <p data-i18n="api.what.desc">Each query to verify a transaction counts as one API request:</p>
+
+    <div class="success">
+        <strong data-i18n="api.counted.title">✅ Counted as 1 Request:</strong>
+        <ul>
+            <li data-i18n="api.counted.item1">Query transaction history by respective payment (Kpay or Wave Pay)</li>
+        </ul>
+    </div>
+
+    <div class="info">
+        <strong data-i18n="api.not_counted.title">❌ Not Counted:</strong>
+        <ul>
+            <li data-i18n="api.not_counted.item1">Authentication/token refresh</li>
+            <li data-i18n="api.not_counted.item2">System health checks</li>
+        </ul>
+    </div>
+
+    <hr>
+
+    <h2 data-i18n="examples.title">Pricing Examples</h2>
+
+    <h3 data-i18n="example1.title">Example 1: Small Platform (100 deposits/day)</h3>
+    <p><strong data-i18n="usage.title">Monthly Usage:</strong></p>
+    <ul>
+        <li data-i18n="example1.usage.deposits">Daily deposits: 100</li>
+        <li data-i18n="example1.usage.monthly">Monthly deposits: ~3,000</li>
+        <li data-i18n="example1.usage.api">API requests: 3,000</li>
+    </ul>
+
+    <p><strong data-i18n="cost.title">Monthly Cost:</strong></p>
+    <ul>
+        <li data-i18n="example1.cost.api">API fees: 3,000 × 100 MMK = <span class="price">300,000 MMK/month</span></li>
+        <li data-i18n="example1.cost.setup">Setup fee (one-time): 500,000 MMK</li>
+    </ul>
+
+    <p><strong data-i18n="example1.total.month1">First Month Total:</strong> 800,000 MMK<br>
+        <strong data-i18n="example1.total.subsequent">Subsequent Months:</strong> 300,000 MMK
+    </p>
+
+    <div class="highlight">
+        <strong data-i18n="savings.title">💰 Savings vs Manual System:</strong>
+        <ul>
+            <li data-i18n="example1.savings.staff">Staff cost (1 person, 24/7 shifts): ~500,000 - 800,000 MMK/month</li>
+            <li data-i18n="example1.savings.net"><strong>Net Savings:</strong> 200,000 - 500,000 MMK/month (after first
+                month)</li>
+        </ul>
+    </div>
+
+    <hr>
+
+    <h3 data-i18n="example2.title">Example 2: Medium Platform (500 deposits/day)</h3>
+    <p><strong data-i18n="usage.title">Monthly Usage:</strong></p>
+    <ul>
+        <li data-i18n="example2.usage.deposits">Daily deposits: 500</li>
+        <li data-i18n="example2.usage.monthly">Monthly deposits: ~15,000</li>
+        <li data-i18n="example2.usage.api">API requests: 15,000</li>
+    </ul>
+
+    <p><strong data-i18n="cost.title">Monthly Cost:</strong></p>
+    <ul>
+        <li data-i18n="example2.cost.api">API fees: 15,000 × 100 MMK = <span class="price">1,500,000 MMK/month</span>
+        </li>
+        <li data-i18n="example2.cost.setup">Setup fee (one-time): 800,000 MMK</li>
+    </ul>
+
+    <p><strong data-i18n="example2.total.month1">First Month Total:</strong> 2,300,000 MMK<br>
+        <strong data-i18n="example2.total.subsequent">Subsequent Months:</strong> 1,500,000 MMK
+    </p>
+
+    <div class="highlight">
+        <strong data-i18n="savings.title">💰 Savings vs Manual System:</strong>
+        <ul>
+            <li data-i18n="example2.savings.staff">Staff cost (3-4 people, 24/7 shifts): ~2,000,000 - 3,000,000
+                MMK/month</li>
+            <li data-i18n="example2.savings.net"><strong>Net Savings:</strong> 500,000 - 1,500,000 MMK/month (after
+                first month)</li>
+        </ul>
+    </div>
+
+    <hr>
+
+    <h3 data-i18n="example3.title">Example 3: Large Platform (2,000 deposits/day)</h3>
+    <p><strong data-i18n="usage.title">Monthly Usage:</strong></p>
+    <ul>
+        <li data-i18n="example3.usage.deposits">Daily deposits: 2,000</li>
+        <li data-i18n="example3.usage.monthly">Monthly deposits: ~60,000</li>
+        <li data-i18n="example3.usage.api">API requests: 60,000</li>
+    </ul>
+
+    <p><strong data-i18n="cost.title">Monthly Cost:</strong></p>
+    <ul>
+        <li data-i18n="example3.cost.api">API fees: 60,000 × 100 MMK = <span class="price">6,000,000 MMK/month</span>
+        </li>
+        <li data-i18n="example3.cost.setup">Setup fee (one-time): 1,500,000 MMK</li>
+    </ul>
+
+    <p><strong data-i18n="example3.total.month1">First Month Total:</strong> 7,500,000 MMK<br>
+        <strong data-i18n="example3.total.subsequent">Subsequent Months:</strong> 6,000,000 MMK
+    </p>
+
+    <div class="highlight">
+        <strong data-i18n="savings.title">💰 Savings vs Manual System:</strong>
+        <ul>
+            <li data-i18n="example3.savings.staff">Staff cost (8-10 people, 24/7 shifts): ~8,000,000 - 12,000,000
+                MMK/month</li>
+            <li data-i18n="example3.savings.net"><strong>Net Savings:</strong> 2,000,000 - 6,000,000 MMK/month (after
+                first month)</li>
+            <li data-i18n="example3.savings.benefits"><strong>Additional Benefits:</strong> Zero errors, instant
+                processing, better user experience</li>
+        </ul>
+    </div>
+
+    <hr>
+
+    <h2 data-i18n="discount.title">Volume Discounts</h2>
+    <p data-i18n="discount.desc">For high-volume platforms, we offer tiered pricing discounts:</p>
+
+    <table>
+        <thead>
+            <tr>
+                <th data-i18n="discount.table.requests">Monthly API Requests</th>
+                <th data-i18n="discount.table.price">Price per Request</th>
+                <th data-i18n="discount.table.discount">Discount</th>
+            </tr>
+        </thead>
+        <tbody>
+            <tr>
+                <td>0 - 10,000</td>
+                <td class="price">100 MMK</td>
+                <td data-i18n="discount.standard">Standard</td>
+            </tr>
+            <tr>
+                <td>10,001 - 50,000</td>
+                <td class="price">90 MMK</td>
+                <td data-i18n="discount.10off">10% off</td>
+            </tr>
+            <tr>
+                <td>50,001 - 100,000</td>
+                <td class="price">80 MMK</td>
+                <td data-i18n="discount.20off">20% off</td>
+            </tr>
+            <tr>
+                <td>100,001 - 500,000</td>
+                <td class="price">70 MMK</td>
+                <td data-i18n="discount.30off">30% off</td>
+            </tr>
+            <tr>
+                <td>500,001+</td>
+                <td data-i18n="discount.custom_price">Custom pricing</td>
+                <td data-i18n="discount.contact">Contact us</td>
+            </tr>
+        </tbody>
+    </table>
+
+    <div class="info">
+        <strong data-i18n="discount.example.title">Example with Volume Discount:</strong>
+        <p data-i18n="discount.example.desc">Platform with 80,000 monthly requests:</p>
+        <ul>
+            <li data-i18n="discount.example.step1">First 10,000 requests: 10,000 × 100 = 1,000,000 MMK</li>
+            <li data-i18n="discount.example.step2">Next 40,000 requests: 40,000 × 90 = 3,600,000 MMK</li>
+            <li data-i18n="discount.example.step3">Next 30,000 requests: 30,000 × 80 = 2,400,000 MMK</li>
+            <li data-i18n="discount.example.total"><strong>Total: 7,000,000 MMK</strong> (vs 8,000,000 MMK without
+                discount)</li>
+        </ul>
+    </div>
+
+    <hr>
+
+    <h2 data-i18n="terms.title">Payment Terms</h2>
+
+    <h3 data-i18n="terms.setup.title">Setup Fee</h3>
+    <ul>
+        <li data-i18n="terms.setup.due"><strong>Due:</strong> Before integration begins</li>
+        <li data-i18n="terms.setup.method"><strong>Payment Methods:</strong> Bank transfer, KPay, Wave Pay</li>
+        <li data-i18n="terms.setup.refund"><strong>Refund Policy:</strong> 50% refund if integration cancelled within 3
+            days</li>
+    </ul>
+
+    <h3 data-i18n="terms.monthly.title">Monthly API Fees</h3>
+    <ul>
+        <li data-i18n="terms.monthly.cycle"><strong>Billing Cycle:</strong> Monthly (calendar month)</li>
+        <li data-i18n="terms.monthly.due"><strong>Payment Due:</strong> Within 7 days of invoice</li>
+        <li data-i18n="terms.monthly.method"><strong>Payment Methods:</strong> Bank transfer, KPay, Wave Pay</li>
+        <li data-i18n="terms.monthly.billing"><strong>Billing:</strong> Postpaid (pay for actual usage at month-end)
+        </li>
+    </ul>
+
+    <h3 data-i18n="terms.prepaid.title">Prepaid Options (Optional)</h3>
+    <p data-i18n="terms.prepaid.desc">Save on monthly billing with prepaid packages:</p>
+
+    <table>
+        <thead>
+            <tr>
+                <th data-i18n="terms.prepaid.table.package">Prepaid Package</th>
+                <th data-i18n="terms.prepaid.table.requests">API Requests Included</th>
+                <th data-i18n="terms.prepaid.table.price">Price</th>
+                <th data-i18n="terms.prepaid.table.rate">Effective Rate</th>
+                <th data-i18n="terms.prepaid.table.savings">Savings</th>
+            </tr>
+        </thead>
+        <tbody>
+            <tr>
+                <td data-i18n="terms.prepaid.basic.name"><strong>Basic</strong></td>
+                <td data-i18n="terms.prepaid.basic.req">5,000 requests</td>
+                <td class="price" data-i18n="terms.prepaid.basic.price">450,000 MMK</td>
+                <td data-i18n="terms.prepaid.basic.rate">90 MMK/req</td>
+                <td data-i18n="terms.prepaid.basic.save">10%</td>
+            </tr>
+            <tr>
+                <td data-i18n="terms.prepaid.plus.name"><strong>Plus</strong></td>
+                <td data-i18n="terms.prepaid.plus.req">15,000 requests</td>
+                <td class="price" data-i18n="terms.prepaid.plus.price">1,200,000 MMK</td>
+                <td data-i18n="terms.prepaid.plus.rate">80 MMK/req</td>
+                <td data-i18n="terms.prepaid.plus.save">20%</td>
+            </tr>
+            <tr>
+                <td data-i18n="terms.prepaid.pro.name"><strong>Pro</strong></td>
+                <td data-i18n="terms.prepaid.pro.req">50,000 requests</td>
+                <td class="price" data-i18n="terms.prepaid.pro.price">3,500,000 MMK</td>
+                <td data-i18n="terms.prepaid.pro.rate">70 MMK/req</td>
+                <td data-i18n="terms.prepaid.pro.save">30%</td>
+            </tr>
+            <tr>
+                <td data-i18n="terms.prepaid.premium.name"><strong>Premium</strong></td>
+                <td data-i18n="terms.prepaid.premium.req">150,000 requests</td>
+                <td class="price" data-i18n="terms.prepaid.premium.price">9,000,000 MMK</td>
+                <td data-i18n="terms.prepaid.premium.rate">60 MMK/req</td>
+                <td data-i18n="terms.prepaid.premium.save">40%</td>
+            </tr>
+        </tbody>
+    </table>
+
+    <div class="success">
+        <strong data-i18n="terms.prepaid.benefits.title">Prepaid Benefits:</strong>
+        <ul>
+            <li data-i18n="terms.prepaid.benefits.item1">Lower effective cost per request</li>
+            <li data-i18n="terms.prepaid.benefits.item2">No monthly invoicing</li>
+            <li data-i18n="terms.prepaid.benefits.item3">Requests valid for 3 months</li>
+            <li data-i18n="terms.prepaid.benefits.item4">Unused requests roll over</li>
+        </ul>
+    </div>
+
+    <hr>
+
+    <h2 data-i18n="features.title">What's Included in All Plans</h2>
+
+    <h3 data-i18n="features.core.title">✅ Core Features</h3>
+    <ul>
+        <li data-i18n="features.core.item1">Real-time KPay and Wave Pay transaction data</li>
+        <li data-i18n="features.core.item2">RESTful API access</li>
+        <li data-i18n="features.core.item3">Automated transaction verification</li>
+        <li data-i18n="features.core.item4">Transaction history and audit logs</li>
+        <li data-i18n="features.core.item5">API documentation and guides</li>
+    </ul>
+
+    <h3 data-i18n="features.security.title">✅ Security & Reliability</h3>
+    <ul>
+        <li data-i18n="features.security.item1">99.9% uptime SLA (Enterprise plan)</li>
+        <li data-i18n="features.security.item2">Encrypted data transmission</li>
+        <li data-i18n="features.security.item3">Secure API authentication</li>
+        <li data-i18n="features.security.item4">Regular security updates</li>
+    </ul>
+
+    <h3 data-i18n="features.support.title">✅ Support</h3>
+    <ul>
+        <li data-i18n="features.support.item1">Technical documentation</li>
+        <li data-i18n="features.support.item2">Integration guides and sample code</li>
+        <li data-i18n="features.support.item3">Email support (response within 24 hours)</li>
+        <li data-i18n="features.support.item4">System status notifications</li>
+    </ul>
+
+    <h3 data-i18n="features.updates.title">✅ Updates & Maintenance</h3>
+    <ul>
+        <li data-i18n="features.updates.item1">Free API updates and improvements</li>
+        <li data-i18n="features.updates.item2">Compatibility with KPay/Wave Pay changes</li>
+        <li data-i18n="features.updates.item3">Regular feature enhancements</li>
+        <li data-i18n="features.updates.item4">No additional maintenance fees</li>
+    </ul>
+
+    <hr>
+
+    <h2 data-i18n="services.title">Add-On Services (Optional)</h2>
+
+    <h3 data-i18n="services.dev.title">Custom Development</h3>
+    <ul>
+        <li data-i18n="services.dev.item1"><strong>Custom API Endpoints:</strong> 300,000 MMK per endpoint</li>
+        <li data-i18n="services.dev.item2"><strong>Custom Reporting Dashboard:</strong> 1,000,000 MMK</li>
+        <li data-i18n="services.dev.item3"><strong>White-Label Solution:</strong> Contact for pricing</li>
+    </ul>
+
+    <h3 data-i18n="services.support.title">Premium Support</h3>
+    <ul>
+        <li data-i18n="services.support.item1"><strong>Dedicated Account Manager:</strong> 500,000 MMK/month</li>
+        <li data-i18n="services.support.item2"><strong>24/7 Priority Support:</strong> 300,000 MMK/month</li>
+        <li data-i18n="services.support.item3"><strong>On-Site Integration Support:</strong> 200,000 MMK/day + expenses
+        </li>
+    </ul>
+
+    <h3 data-i18n="services.training.title">Training & Consultation</h3>
+    <ul>
+        <li data-i18n="services.training.item1"><strong>Staff Training Session:</strong> 150,000 MMK per session (2
+            hours)</li>
+        <li data-i18n="services.training.item2"><strong>Technical Consultation:</strong> 100,000 MMK/hour</li>
+        <li data-i18n="services.training.item3"><strong>System Optimization Review:</strong> 500,000 MMK</li>
+    </ul>
+
+    <hr>
+
+    <h2 data-i18n="comparison.title">Comparison: OneCent vs Manual System</h2>
+
+    <table>
+        <thead>
+            <tr>
+                <th data-i18n="comparison.table.factor">Factor</th>
+                <th data-i18n="comparison.table.manual">Manual System</th>
+                <th data-i18n="comparison.table.onecent">OneCent</th>
+            </tr>
+        </thead>
+        <tbody>
+            <tr>
+                <td data-i18n="comparison.factor.setup"><strong>Setup Cost</strong></td>
+                <td data-i18n="comparison.manual.setup">Staff recruitment & training<br>~1,000,000 MMK</td>
+                <td data-i18n="comparison.onecent.setup">One-time setup fee<br>500,000 - 1,500,000 MMK</td>
+            </tr>
+            <tr>
+                <td data-i18n="comparison.factor.monthly"><strong>Monthly Cost (500 deposits/day)</strong></td>
+                <td data-i18n="comparison.manual.monthly">3-4 staff members<br>~2,000,000 - 3,000,000 MMK</td>
+                <td data-i18n="comparison.onecent.monthly">API fees only<br>~1,500,000 MMK</td>
+            </tr>
+            <tr>
+                <td data-i18n="comparison.factor.time"><strong>Processing Time</strong></td>
+                <td data-i18n="comparison.manual.time">5-15 minutes per deposit</td>
+                <td data-i18n="comparison.onecent.time">&lt;10 seconds</td>
+            </tr>
+            <tr>
+                <td data-i18n="comparison.factor.error"><strong>Error Rate</strong></td>
+                <td data-i18n="comparison.manual.error">2-5% (human error)</td>
+                <td data-i18n="comparison.onecent.error">0% (automated)</td>
+            </tr>
+            <tr>
+                <td data-i18n="comparison.factor.scale"><strong>Scalability</strong></td>
+                <td data-i18n="comparison.manual.scale">Hire more staff</td>
+                <td data-i18n="comparison.onecent.scale">Automatic</td>
+            </tr>
+            <tr>
+                <td data-i18n="comparison.factor.availability"><strong>24/7 Availability</strong></td>
+                <td data-i18n="comparison.manual.availability">Requires shift management</td>
+                <td data-i18n="comparison.onecent.availability">Always available</td>
+            </tr>
+            <tr>
+                <td data-i18n="comparison.factor.ux"><strong>User Experience</strong></td>
+                <td data-i18n="comparison.manual.ux">Delayed, inconsistent</td>
+                <td data-i18n="comparison.onecent.ux">Instant, reliable</td>
+            </tr>
+        </tbody>
+    </table>
+
+    <hr>
+
+    <h2 data-i18n="roi.title">ROI Calculator</h2>
+
+    <h3 data-i18n="roi.small.title">Small Platform Example (100 deposits/day)</h3>
+
+    <p><strong data-i18n="roi.manual.cost.title">Current Manual System Costs:</strong></p>
+    <ul>
+        <li data-i18n="roi.small.manual.staff">Staff: 600,000 MMK/month</li>
+        <li data-i18n="roi.small.manual.training">Training: 100,000 MMK/month</li>
+        <li data-i18n="roi.small.manual.errors">Errors/Disputes: 50,000 MMK/month</li>
+        <li data-i18n="roi.small.manual.total"><strong>Total: 750,000 MMK/month</strong></li>
+    </ul>
+
+    <p><strong data-i18n="roi.onecent.cost.title">OneCent Costs:</strong></p>
+    <ul>
+        <li data-i18n="roi.small.onecent.setup">Setup (one-time): 500,000 MMK</li>
+        <li data-i18n="roi.small.onecent.api">API fees: 300,000 MMK/month</li>
+        <li data-i18n="roi.small.onecent.monthly"><strong>Monthly: 300,000 MMK</strong></li>
+    </ul>
+
+    <div class="success">
+        <strong data-i18n="roi.savings.title">Savings:</strong>
+        <ul>
+            <li data-i18n="roi.small.savings.m1">Month 1: 750,000 - 800,000 = -50,000 MMK (investment)</li>
+            <li data-i18n="roi.small.savings.m2">Month 2+: 750,000 - 300,000 = <strong>450,000 MMK/month saved</strong>
+            </li>
+            <li data-i18n="roi.small.savings.roi"><strong>ROI achieved in 2 months</strong></li>
+        </ul>
+    </div>
+
+    <h3 data-i18n="roi.medium.title">Medium Platform Example (500 deposits/day)</h3>
+
+    <p><strong data-i18n="roi.manual.cost.title">Current Manual System Costs:</strong></p>
+    <ul>
+        <li data-i18n="roi.medium.manual.staff">Staff: 2,500,000 MMK/month</li>
+        <li data-i18n="roi.medium.manual.training">Training: 200,000 MMK/month</li>
+        <li data-i18n="roi.medium.manual.errors">Errors/Disputes: 150,000 MMK/month</li>
+        <li data-i18n="roi.medium.manual.total"><strong>Total: 2,850,000 MMK/month</strong></li>
+    </ul>
+
+    <p><strong data-i18n="roi.onecent.cost.title">OneCent Costs:</strong></p>
+    <ul>
+        <li data-i18n="roi.medium.onecent.setup">Setup (one-time): 800,000 MMK</li>
+        <li data-i18n="roi.medium.onecent.api">API fees: 1,500,000 MMK/month</li>
+        <li data-i18n="roi.medium.onecent.monthly"><strong>Monthly: 1,500,000 MMK</strong></li>
+    </ul>
+
+    <div class="success">
+        <strong data-i18n="roi.savings.title">Savings:</strong>
+        <ul>
+            <li data-i18n="roi.medium.savings.m1">Month 1: 2,850,000 - 2,300,000 = 550,000 MMK saved</li>
+            <li data-i18n="roi.medium.savings.m2">Month 2+: 2,850,000 - 1,500,000 = <strong>1,350,000 MMK/month
+                    saved</strong></li>
+            <li data-i18n="roi.medium.savings.roi"><strong>Immediate positive ROI</strong></li>
+        </ul>
+    </div>
+
+    <hr>
+
+    <h2 data-i18n="start.title">Getting Started</h2>
+
+    <h3 data-i18n="start.step1.title">Step 1: Choose Your Package</h3>
+    <p data-i18n="start.step1.desc">Select the setup package that matches your platform size and needs.</p>
+
+    <h3 data-i18n="start.step2.title">Step 2: Complete Onboarding</h3>
+    <ul>
+        <li data-i18n="start.step2.item1">Sign service agreement</li>
+        <li data-i18n="start.step2.item2">Pay setup fee</li>
+        <li data-i18n="start.step2.item3">Provide KPay/Wave Pay account details</li>
+        <li data-i18n="start.step2.item4">Receive API credentials</li>
+    </ul>
+
+    <h3 data-i18n="start.step3.title">Step 3: Integration</h3>
+    <ul>
+        <li data-i18n="start.step3.item1">Integrate OneCent API into your platform</li>
+        <li data-i18n="start.step3.item2">Test in sandbox environment</li>
+        <li data-i18n="start.step3.item3">Go live with automated deposits</li>
+    </ul>
+
+    <h3 data-i18n="start.step4.title">Step 4: Start Saving</h3>
+    <ul>
+        <li data-i18n="start.step4.item1">Pay only for actual API usage</li>
+        <li data-i18n="start.step4.item2">Monitor usage via dashboard</li>
+        <li data-i18n="start.step4.item3">Receive monthly invoices</li>
+    </ul>
+
+    <hr>
+
+    <h2 data-i18n="faq.title">Frequently Asked Questions</h2>
+
+    <h3 data-i18n="faq.q1">Q: Is there a minimum monthly commitment?</h3>
+    <p><strong data-i18n="faq.a1">A: No, you only pay for the API requests you actually use. No minimum usage
+            required.</strong></p>
+
+    <h3 data-i18n="faq.q2">Q: What happens if I exceed my prepaid package?</h3>
+    <p><strong data-i18n="faq.a2">A: Additional requests are billed at the standard rate (100 MMK/request) at
+            month-end.</strong></p>
+
+    <h3 data-i18n="faq.q3">Q: Can I upgrade/downgrade my package?</h3>
+    <p><strong data-i18n="faq.a3">A: Yes, you can change packages anytime. Setup fee difference applies for
+            upgrades.</strong></p>
+
+    <h3 data-i18n="faq.q4">Q: What if the API is down?</h3>
+    <p><strong data-i18n="faq.a4">A: We maintain 99.9% uptime. Enterprise customers receive SLA credits for any
+            downtime.</strong></p>
+
+    <h3 data-i18n="faq.q5">Q: How do I track my API usage?</h3>
+    <p><strong data-i18n="faq.a5">A: Real-time usage dashboard included with all plans. Monthly reports sent via
+            email.</strong></p>
+
+    <h3 data-i18n="faq.q6">Q: Can I get a custom pricing plan?</h3>
+    <p><strong data-i18n="faq.a6">A: Yes! Contact us for custom pricing for high-volume platforms (500,000+
+            requests/month).</strong></p>
+
+    <h3 data-i18n="faq.q7">Q: Is there a trial period?</h3>
+    <p><strong data-i18n="faq.a7">A: Yes, we offer a 7-day free trial with up to 500 API requests to test the
+            service.</strong></p>
+
+    <h3 data-i18n="faq.q8">Q: What payment methods do you accept?</h3>
+    <p><strong data-i18n="faq.a8">A: Bank transfer, KPay, and Wave Pay. Invoices provided for all transactions.</strong>
+    </p>
+
+    <hr>
+
+    <h2 data-i18n="launch.title">Special Launch Offer 🎉</h2>
+
+    <h3 data-i18n="launch.promo.title">Limited Time Promotion (Valid until March 31, 2026)</h3>
+
+    <div class="highlight">
+        <strong data-i18n="launch.benefits.title">Early Adopter Benefits:</strong>
+        <ul>
+            <li data-i18n="launch.benefits.setup">✨ <strong>20% off setup fee</strong> for first 20 customers</li>
+            <li data-i18n="launch.benefits.free">✨ <strong>First 100 API requests free</strong> every month for 6 months
+            </li>
+            <li data-i18n="launch.benefits.support">✨ <strong>Free priority support</strong> for first 3 months</li>
+            <li data-i18n="launch.benefits.lock">✨ <strong>Locked-in pricing</strong> - no rate increases for 12 months
+            </li>
+        </ul>
+    </div>
+
+    <div class="success">
+        <strong data-i18n="launch.savings.title">Example Savings:</strong>
+        <ul>
+            <li data-i18n="launch.savings.setup">Business Package Setup: <span class="strikethrough">800,000 MMK</span>
+                → <span class="price">640,000
+                    MMK</span> (20% discount = 160,000 MMK saved)</li>
+            <li data-i18n="launch.savings.monthly">Monthly (15,000 requests): 1,500,000 - 10,000 (free 100 requests) =
+                <span class="price">1,490,000
+                    MMK</span>
+            </li>
+            <li data-i18n="launch.savings.first6"><strong>First 6 Months Savings:</strong> 60,000 MMK (10,000 × 6 months
+                free requests)</li>
+            <li data-i18n="launch.savings.setup_total"><strong>Setup Fee Savings:</strong> 160,000 MMK</li>
+            <li data-i18n="launch.savings.total"><strong>Total First Year Savings: ~220,000 MMK</strong></li>
+        </ul>
+    </div>
+
+    <hr>
+
+    <div style="text-align: center; margin-top: 40px; padding: 20px; background-color: #f8f9fa; border-radius: 8px;">
+        <h2 style="color: #3498db; margin-bottom: 10px;" data-i18n="footer.brand">OneCent</h2>
+        <p style="font-style: italic; color: #555;" data-i18n="footer.tagline">Transparent Pricing, Powerful Automation,
+            Proven Results</p>
+        <p style="font-size: 0.9em; color: #777; margin-top: 20px;" data-i18n="footer.disclaimer">All prices in Myanmar
+            Kyat (MMK). Prices subject to
+            change with 30-day notice. Custom enterprise pricing available for high-volume platforms.</p>
+    </div>
+
+
+    <script>
+        // Translations for Pricing Plan
+        const translations = {
+            en: {
+                "title": "OneCent - Pricing Plan",
+                "overview.title": "Pricing Model Overview",
+                "overview.desc": "OneCent uses a transparent, usage-based pricing model designed to scale with your platform's growth. Our pricing consists of two components:",
+                "overview.item1": "<strong>One-Time Setup Fee</strong> - Initial integration and account configuration",
+                "overview.item2": "<strong>Per-Request API Fee</strong> - Pay only for what you use (100 MMK per API request)",
+                "structure.title": "Pricing Structure",
+                "setup.title": "💎 Setup Fee (One-Time Payment)",
+                "table.package": "Package",
+                "table.fee": "Setup Fee",
+                "table.services": "Included Services",
+                "setup.starter.name": "<strong>Starter</strong>",
+                "setup.starter.price": "500,000 MMK",
+                "setup.starter.features": "• Single KPay or Wave Pay account integration<br>• API credentials and documentation<br>• Email support<br>• 7-day integration assistance",
+                "setup.business.name": "<strong>Business</strong>",
+                "setup.business.price": "800,000 MMK",
+                "setup.business.features": "• Up to 3 KPay/Wave Pay accounts<br>• API credentials and documentation<br>• Priority email & chat support<br>• 14-day integration assistance<br>• Custom webhook configuration<br>• Sandbox environment access",
+                "setup.enterprise.name": "<strong>Enterprise</strong>",
+                "setup.enterprise.price": "1,500,000 MMK",
+                "setup.enterprise.features": "• Unlimited KPay/Wave Pay accounts<br>• Dedicated integration engineer<br>• 24/7 phone & chat support<br>• 30-day integration assistance<br>• Custom API features<br>• Dedicated sandbox environment<br>• SLA guarantee (99.9% uptime)",
+                "api.title": "📊 API Request Pricing",
+                "api.price.title": "100 MMK per API request",
+                "api.what.title": "What Counts as an API Request?",
+                "api.what.desc": "Each query to verify a transaction counts as one API request:",
+                "api.counted.title": "✅ Counted as 1 Request:",
+                "api.counted.item1": "Query transaction history by respective payment (Kpay or Wave Pay)",
+                "api.not_counted.title": "❌ Not Counted:",
+                "api.not_counted.item1": "Authentication/token refresh",
+                "api.not_counted.item2": "System health checks",
+                "examples.title": "Pricing Examples",
+                "example1.title": "Example 1: Small Platform (100 deposits/day)",
+                "usage.title": "Monthly Usage:",
+                "example1.usage.deposits": "Daily deposits: 100",
+                "example1.usage.monthly": "Monthly deposits: ~3,000",
+                "example1.usage.api": "API requests: 3,000",
+                "cost.title": "Monthly Cost:",
+                "example1.cost.api": "API fees: 3,000 × 100 MMK = <span class=\"price\">300,000 MMK/month</span>",
+                "example1.cost.setup": "Setup fee (one-time): 500,000 MMK",
+                "example1.total.month1": "First Month Total:",
+                "example1.total.subsequent": "Subsequent Months:",
+                "savings.title": "💰 Savings vs Manual System:",
+                "example1.savings.staff": "Staff cost (1 person, 24/7 shifts): ~500,000 - 800,000 MMK/month",
+                "example1.savings.net": "<strong>Net Savings:</strong> 200,000 - 500,000 MMK/month (after first month)",
+                "example2.title": "Example 2: Medium Platform (500 deposits/day)",
+                "example2.usage.deposits": "Daily deposits: 500",
+                "example2.usage.monthly": "Monthly deposits: ~15,000",
+                "example2.usage.api": "API requests: 15,000",
+                "example2.cost.api": "API fees: 15,000 × 100 MMK = <span class=\"price\">1,500,000 MMK/month</span>",
+                "example2.cost.setup": "Setup fee (one-time): 800,000 MMK",
+                "example2.total.month1": "First Month Total:",
+                "example2.total.subsequent": "Subsequent Months:",
+                "example2.savings.staff": "Staff cost (3-4 people, 24/7 shifts): ~2,000,000 - 3,000,000 MMK/month",
+                "example2.savings.net": "<strong>Net Savings:</strong> 500,000 - 1,500,000 MMK/month (after first month)",
+                "example3.title": "Example 3: Large Platform (2,000 deposits/day)",
+                "example3.usage.deposits": "Daily deposits: 2,000",
+                "example3.usage.monthly": "Monthly deposits: ~60,000",
+                "example3.usage.api": "API requests: 60,000",
+                "example3.cost.api": "API fees: 60,000 × 100 MMK = <span class=\"price\">6,000,000 MMK/month</span>",
+                "example3.cost.setup": "Setup fee (one-time): 1,500,000 MMK",
+                "example3.total.month1": "First Month Total:",
+                "example3.total.subsequent": "Subsequent Months:",
+                "example3.savings.staff": "Staff cost (8-10 people, 24/7 shifts): ~8,000,000 - 12,000,000 MMK/month",
+                "example3.savings.net": "<strong>Net Savings:</strong> 2,000,000 - 6,000,000 MMK/month (after first month)",
+                "example3.savings.benefits": "<strong>Additional Benefits:</strong> Zero errors, instant processing, better user experience",
+                "discount.title": "Volume Discounts",
+                "discount.desc": "For high-volume platforms, we offer tiered pricing discounts:",
+                "discount.table.requests": "Monthly API Requests",
+                "discount.table.price": "Price per Request",
+                "discount.table.discount": "Discount",
+                "discount.standard": "Standard",
+                "discount.10off": "10% off",
+                "discount.20off": "20% off",
+                "discount.30off": "30% off",
+                "discount.custom_price": "Custom pricing",
+                "discount.contact": "Contact us",
+                "discount.example.title": "Example with Volume Discount:",
+                "discount.example.desc": "Platform with 80,000 monthly requests:",
+                "discount.example.step1": "First 10,000 requests: 10,000 × 100 = 1,000,000 MMK",
+                "discount.example.step2": "Next 40,000 requests: 40,000 × 90 = 3,600,000 MMK",
+                "discount.example.step3": "Next 30,000 requests: 30,000 × 80 = 2,400,000 MMK",
+                "discount.example.total": "<strong>Total: 7,000,000 MMK</strong> (vs 8,000,000 MMK without discount)",
+                "terms.title": "Payment Terms",
+                "terms.setup.title": "Setup Fee",
+                "terms.setup.due": "<strong>Due:</strong> Before integration begins",
+                "terms.setup.method": "<strong>Payment Methods:</strong> Bank transfer, KPay, Wave Pay",
+                "terms.setup.refund": "<strong>Refund Policy:</strong> 50% refund if integration cancelled within 3 days",
+                "terms.monthly.title": "Monthly API Fees",
+                "terms.monthly.cycle": "<strong>Billing Cycle:</strong> Monthly (calendar month)",
+                "terms.monthly.due": "<strong>Payment Due:</strong> Within 7 days of invoice",
+                "terms.monthly.method": "<strong>Payment Methods:</strong> Bank transfer, KPay, Wave Pay",
+                "terms.monthly.billing": "<strong>Billing:</strong> Postpaid (pay for actual usage at month-end)",
+                "terms.prepaid.title": "Prepaid Options (Optional)",
+                "terms.prepaid.desc": "Save on monthly billing with prepaid packages:",
+                "terms.prepaid.table.package": "Prepaid Package",
+                "terms.prepaid.table.requests": "API Requests Included",
+                "terms.prepaid.table.price": "Price",
+                "terms.prepaid.table.rate": "Effective Rate",
+                "terms.prepaid.table.savings": "Savings",
+                "terms.prepaid.basic.name": "<strong>Basic</strong>",
+                "terms.prepaid.basic.req": "5,000 requests",
+                "terms.prepaid.basic.price": "450,000 MMK",
+                "terms.prepaid.basic.rate": "90 MMK/req",
+                "terms.prepaid.basic.save": "10%",
+                "terms.prepaid.plus.name": "<strong>Plus</strong>",
+                "terms.prepaid.plus.req": "15,000 requests",
+                "terms.prepaid.plus.price": "1,200,000 MMK",
+                "terms.prepaid.plus.rate": "80 MMK/req",
+                "terms.prepaid.plus.save": "20%",
+                "terms.prepaid.pro.name": "<strong>Pro</strong>",
+                "terms.prepaid.pro.req": "50,000 requests",
+                "terms.prepaid.pro.price": "3,500,000 MMK",
+                "terms.prepaid.pro.rate": "70 MMK/req",
+                "terms.prepaid.pro.save": "30%",
+                "terms.prepaid.premium.name": "<strong>Premium</strong>",
+                "terms.prepaid.premium.req": "150,000 requests",
+                "terms.prepaid.premium.price": "9,000,000 MMK",
+                "terms.prepaid.premium.rate": "60 MMK/req",
+                "terms.prepaid.premium.save": "40%",
+                "terms.prepaid.benefits.title": "Prepaid Benefits:",
+                "terms.prepaid.benefits.item1": "Lower effective cost per request",
+                "terms.prepaid.benefits.item2": "No monthly invoicing",
+                "terms.prepaid.benefits.item3": "Requests valid for 3 months",
+                "terms.prepaid.benefits.item4": "Unused requests roll over",
+                "features.title": "What's Included in All Plans",
+                "features.core.title": "✅ Core Features",
+                "features.core.item1": "Real-time KPay and Wave Pay transaction data",
+                "features.core.item2": "RESTful API access",
+                "features.core.item3": "Automated transaction verification",
+                "features.core.item4": "Transaction history and audit logs",
+                "features.core.item5": "API documentation and guides",
+                "features.security.title": "✅ Security & Reliability",
+                "features.security.item1": "99.9% uptime SLA (Enterprise plan)",
+                "features.security.item2": "Encrypted data transmission",
+                "features.security.item3": "Secure API authentication",
+                "features.security.item4": "Regular security updates",
+                "features.support.title": "✅ Support",
+                "features.support.item1": "Technical documentation",
+                "features.support.item2": "Integration guides and sample code",
+                "features.support.item3": "Email support (response within 24 hours)",
+                "features.support.item4": "System status notifications",
+                "features.updates.title": "✅ Updates & Maintenance",
+                "features.updates.item1": "Free API updates and improvements",
+                "features.updates.item2": "Compatibility with KPay/Wave Pay changes",
+                "features.updates.item3": "Regular feature enhancements",
+                "features.updates.item4": "No additional maintenance fees",
+                "services.title": "Add-On Services (Optional)",
+                "services.dev.title": "Custom Development",
+                "services.dev.item1": "<strong>Custom API Endpoints:</strong> 300,000 MMK per endpoint",
+                "services.dev.item2": "<strong>Custom Reporting Dashboard:</strong> 1,000,000 MMK",
+                "services.dev.item3": "<strong>White-Label Solution:</strong> Contact for pricing",
+                "services.support.title": "Premium Support",
+                "services.support.item1": "<strong>Dedicated Account Manager:</strong> 500,000 MMK/month",
+                "services.support.item2": "<strong>24/7 Priority Support:</strong> 300,000 MMK/month",
+                "services.support.item3": "<strong>On-Site Integration Support:</strong> 200,000 MMK/day + expenses",
+                "services.training.title": "Training & Consultation",
+                "services.training.item1": "<strong>Staff Training Session:</strong> 150,000 MMK per session (2 hours)",
+                "services.training.item2": "<strong>Technical Consultation:</strong> 100,000 MMK/hour",
+                "services.training.item3": "<strong>System Optimization Review:</strong> 500,000 MMK",
+                "comparison.title": "Comparison: OneCent vs Manual System",
+                "comparison.table.factor": "Factor",
+                "comparison.table.manual": "Manual System",
+                "comparison.table.onecent": "OneCent",
+                "comparison.factor.setup": "<strong>Setup Cost</strong>",
+                "comparison.manual.setup": "Staff recruitment & training<br>~1,000,000 MMK",
+                "comparison.onecent.setup": "One-time setup fee<br>500,000 - 1,500,000 MMK",
+                "comparison.factor.monthly": "<strong>Monthly Cost (500 deposits/day)</strong>",
+                "comparison.manual.monthly": "3-4 staff members<br>~2,000,000 - 3,000,000 MMK",
+                "comparison.onecent.monthly": "API fees only<br>~1,500,000 MMK",
+                "comparison.factor.time": "<strong>Processing Time</strong>",
+                "comparison.manual.time": "5-15 minutes per deposit",
+                "comparison.onecent.time": "&lt;10 seconds",
+                "comparison.factor.error": "<strong>Error Rate</strong>",
+                "comparison.manual.error": "2-5% (human error)",
+                "comparison.onecent.error": "0% (automated)",
+                "comparison.factor.scale": "<strong>Scalability</strong>",
+                "comparison.manual.scale": "Hire more staff",
+                "comparison.onecent.scale": "Automatic",
+                "comparison.factor.availability": "<strong>24/7 Availability</strong>",
+                "comparison.manual.availability": "Requires shift management",
+                "comparison.onecent.availability": "Always available",
+                "comparison.factor.ux": "<strong>User Experience</strong>",
+                "comparison.manual.ux": "Delayed, inconsistent",
+                "comparison.onecent.ux": "Instant, reliable",
+                "roi.title": "ROI Calculator",
+                "roi.small.title": "Small Platform Example (100 deposits/day)",
+                "roi.manual.cost.title": "Current Manual System Costs:",
+                "roi.small.manual.staff": "Staff: 600,000 MMK/month",
+                "roi.small.manual.training": "Training: 100,000 MMK/month",
+                "roi.small.manual.errors": "Errors/Disputes: 50,000 MMK/month",
+                "roi.small.manual.total": "<strong>Total: 750,000 MMK/month</strong>",
+                "roi.onecent.cost.title": "OneCent Costs:",
+                "roi.small.onecent.setup": "Setup (one-time): 500,000 MMK",
+                "roi.small.onecent.api": "API fees: 300,000 MMK/month",
+                "roi.small.onecent.monthly": "<strong>Monthly: 300,000 MMK</strong>",
+                "roi.savings.title": "Savings:",
+                "roi.small.savings.m1": "Month 1: 750,000 - 800,000 = -50,000 MMK (investment)",
+                "roi.small.savings.m2": "Month 2+: 750,000 - 300,000 = <strong>450,000 MMK/month saved</strong>",
+                "roi.small.savings.roi": "<strong>ROI achieved in 2 months</strong>",
+                "roi.medium.title": "Medium Platform Example (500 deposits/day)",
+                "roi.medium.manual.staff": "Staff: 2,500,000 MMK/month",
+                "roi.medium.manual.training": "Training: 200,000 MMK/month",
+                "roi.medium.manual.errors": "Errors/Disputes: 150,000 MMK/month",
+                "roi.medium.manual.total": "<strong>Total: 2,850,000 MMK/month</strong>",
+                "roi.medium.onecent.setup": "Setup (one-time): 800,000 MMK",
+                "roi.medium.onecent.api": "API fees: 1,500,000 MMK/month",
+                "roi.medium.onecent.monthly": "<strong>Monthly: 1,500,000 MMK</strong>",
+                "roi.medium.savings.m1": "Month 1: 2,850,000 - 2,300,000 = 550,000 MMK saved",
+                "roi.medium.savings.m2": "Month 2+: 2,850,000 - 1,500,000 = <strong>1,350,000 MMK/month saved</strong>",
+                "roi.medium.savings.roi": "<strong>Immediate positive ROI</strong>",
+                "start.title": "Getting Started",
+                "start.step1.title": "Step 1: Choose Your Package",
+                "start.step1.desc": "Select the setup package that matches your platform size and needs.",
+                "start.step2.title": "Step 2: Complete Onboarding",
+                "start.step2.item1": "Sign service agreement",
+                "start.step2.item2": "Pay setup fee",
+                "start.step2.item3": "Provide KPay/Wave Pay account details",
+                "start.step2.item4": "Receive API credentials",
+                "start.step3.title": "Step 3: Integration",
+                "start.step3.item1": "Integrate OneCent API into your platform",
+                "start.step3.item2": "Test in sandbox environment",
+                "start.step3.item3": "Go live with automated deposits",
+                "start.step4.title": "Step 4: Start Saving",
+                "start.step4.item1": "Pay only for actual API usage",
+                "start.step4.item2": "Monitor usage via dashboard",
+                "start.step4.item3": "Receive monthly invoices",
+                "faq.title": "Frequently Asked Questions",
+                "faq.q1": "Q: Is there a minimum monthly commitment?",
+                "faq.a1": "A: No, you only pay for the API requests you actually use. No minimum usage required.",
+                "faq.q2": "Q: What happens if I exceed my prepaid package?",
+                "faq.a2": "A: Additional requests are billed at the standard rate (100 MMK/request) at month-end.",
+                "faq.q3": "Q: Can I upgrade/downgrade my package?",
+                "faq.a3": "A: Yes, you can change packages anytime. Setup fee difference applies for upgrades.",
+                "faq.q4": "Q: What if the API is down?",
+                "faq.a4": "A: We maintain 99.9% uptime. Enterprise customers receive SLA credits for any downtime.",
+                "faq.q5": "Q: How do I track my API usage?",
+                "faq.a5": "A: Real-time usage dashboard included with all plans. Monthly reports sent via email.",
+                "faq.q6": "Q: Can I get a custom pricing plan?",
+                "faq.a6": "A: Yes! Contact us for custom pricing for high-volume platforms (500,000+ requests/month).",
+                "faq.q7": "Q: Is there a trial period?",
+                "faq.a7": "A: Yes, we offer a 7-day free trial with up to 500 API requests to test the service.",
+                "faq.q8": "Q: What payment methods do you accept?",
+                "faq.a8": "A: Bank transfer, KPay, and Wave Pay. Invoices provided for all transactions.",
+                "launch.promo.title": "Limited Time Promotion (Valid until March 31, 2026)",
+                "launch.benefits.title": "Early Adopter Benefits:",
+                "launch.benefits.setup": "✨ <strong>20% off setup fee</strong> for first 20 customers",
+                "launch.benefits.free": "✨ <strong>First 100 API requests free</strong> every month for 6 months",
+                "launch.benefits.support": "✨ <strong>Free priority support</strong> for first 3 months",
+                "launch.benefits.lock": "✨ <strong>Locked-in pricing</strong> - no rate increases for 12 months",
+                "launch.savings.title": "Example Savings:",
+                "launch.savings.setup": "Business Package Setup: <span class=\"strikethrough\">800,000 MMK</span> → <span class=\"price\">640,000 MMK</span> (20% discount = 160,000 MMK saved)",
+                "launch.savings.monthly": "Monthly (15,000 requests): 1,500,000 - 10,000 (free 100 requests) = <span class=\"price\">1,490,000 MMK</span>",
+                "launch.savings.first6": "<strong>First 6 Months Savings:</strong> 60,000 MMK (10,000 × 6 months free requests)",
+                "launch.savings.setup_total": "<strong>Setup Fee Savings:</strong> 160,000 MMK",
+                "launch.savings.total": "<strong>Total First Year Savings: ~220,000 MMK</strong>",
+                "footer.brand": "OneCent",
+                "footer.tagline": "Transparent Pricing, Powerful Automation, Proven Results",
+                "footer.disclaimer": "All prices in Myanmar Kyat (MMK). Prices subject to change with 30-day notice. Custom enterprise pricing available for high-volume platforms."
+            },
+            my: {
+                "title": "OneCent - စျေးနှုန်းစာရင်း",
+                "overview.title": "စျေးနှုန်းပုံစံ အကျဉ်းချုပ်",
+                "overview.desc": "OneCent သည် သင့်ပလက်ဖောင်းတိုးတက်မှုနှင့်အတူ လိုက်လျောညီထွေဖြစ်စေရန် ပွင့်လင်းမြင်သာသော၊ အသုံးပြုမှုအပေါ်အခြေခံသည့် စျေးနှုန်းပုံစံကို အသုံးပြုထားသည်။ ကျွန်ုပ်တို့၏စျေးနှုန်းတွင် အစိတ်အပိုင်းနှစ်ခု ပါဝင်သည်-",
+                "overview.item1": "<strong>တစ်ကြိမ်တည်းပေးရမည့် တပ်ဆင်ခ</strong> - အစဦး အကောင့်ပြင်ဆင်ခြင်းနှင့် ချိတ်ဆက်ခြင်း",
+                "overview.item2": "<strong>API တောင်းဆိုမှုတစ်ခုချင်းစီအတွက် အခကြေးငွေ</strong> - အသုံးပြုသလောက်သာပေးချေရန် (API တောင်းဆိုမှုတစ်ခုလျှင် ၁၀၀ ကျပ်)",
+                "structure.title": "စျေးနှုန်းဖွဲ့စည်းပုံ",
+                "setup.title": "💎 တပ်ဆင်ခ (တစ်ကြိမ်ပေး)",
+                "table.package": "ပက်ကေ့ချ်",
+                "table.fee": "တပ်ဆင်ခ",
+                "table.services": "ပါဝင်သော ဝန်ဆောင်မှုများ",
+                "setup.starter.name": "<strong>Starter</strong>",
+                "setup.starter.price": "၅၀၀,၀၀၀ ကျပ်",
+                "setup.starter.features": "• KPay သို့မဟုတ် Wave Pay အကောင့်တစ်ခု ချိတ်ဆက်ခြင်း<br>• API အချက်အလက်များနှင့် လမ်းညွှန်ချက်များ<br>• အီးမေးလ်မှတစ်ဆင့် ကူညီဆောင်ရွက်ပေးခြင်း<br>• ၇ ရက်ကြာ ချိတ်ဆက်မှု အကူအညီ",
+                "setup.business.name": "<strong>Business</strong>",
+                "setup.business.price": "၈၀၀,၀၀၀ ကျပ်",
+                "setup.business.features": "• KPay/Wave Pay အကောင့် ၃ ခုအထိ ချိတ်ဆက်ခြင်း<br>• API အချက်အလက်များနှင့် လမ်းညွှန်ချက်များ<br>• အီးမေးလ်နှင့် Chat မှတစ်ဆင့် ဦးစားပေး ကူညီဆောင်ရွက်ပေးခြင်း<br>• ၁၄ ရက်ကြာ ချိတ်ဆက်မှု အကူအညီ<br>• စိတ်ကြိုက် Webhook ပြင်ဆင်ခြင်း<br>• Sandbox စမ်းသပ်ပတ်ဝန်းကျင် အသုံးပြုခွင့်",
+                "setup.enterprise.name": "<strong>Enterprise</strong>",
+                "setup.enterprise.price": "၁,၅၀၀,၀၀၀ ကျပ်",
+                "setup.enterprise.features": "• KPay/Wave Pay အကောင့် အကန့်အသတ်မရှိ ချိတ်ဆက်ခြင်း<br>• သီးသန့် ချိတ်ဆက်မှု အင်ဂျင်နီယာ<br>• ၂၄/၇ ဖုန်းနှင့် Chat မှတစ်ဆင့် ကူညီဆောင်ရွက်ပေးခြင်း<br>• ၃၀ ရက်ကြာ ချိတ်ဆက်မှု အကူအညီ<br>• စိတ်ကြိုက် API လုပ်ဆောင်ချက်များ<br>• သီးသန့် Sandbox စမ်းသပ်ပတ်ဝန်းကျင်<br>• SLA အာမခံချက် (99.9% အလုပ်လုပ်ချိန်)",
+                "api.title": "📊 API တောင်းဆိုမှု စျေးနှုန်း",
+                "api.price.title": "API တောင်းဆိုမှုတစ်ခုလျှင် ၁၀၀ ကျပ်",
+                "api.what.title": "မည်သည့်အရာကို API တောင်းဆိုမှုဟု သတ်မှတ်သနည်း?",
+                "api.what.desc": "ငွေလွှဲမှုကို စစ်ဆေးရန် တစ်ကြိမ်မေးမြန်းခြင်းကို API တောင်းဆိုမှု တစ်ခုဟု သတ်မှတ်သည်-",
+                "api.counted.title": "✅ ၁ ကြိမ်အဖြစ် သတ်မှတ်သည်-",
+                "api.counted.item1": "သက်ဆိုင်ရာ ငွေပေးချေမှု (Kpay သို့မဟုတ် Wave Pay) ဖြင့် ငွေလွှဲမှတ်တမ်းကို စစ်ဆေးခြင်း",
+                "api.not_counted.title": "❌ မသတ်မှတ်ပါ-",
+                "api.not_counted.item1": "အကောင့်ဝင်ခြင်း / Token အသစ်ယူခြင်း",
+                "api.not_counted.item2": "စနစ် အခြေအနေ စစ်ဆေးခြင်း",
+                "examples.title": "စျေးနှုန်း ဥပမာများ",
+                "example1.title": "ဥပမာ ၁ - ပလက်ဖောင်းအသေး (တစ်ရက်လျှင် ငွေသွင်းမှု ၁၀၀)",
+                "usage.title": "လစဉ် အသုံးပြုမှု-",
+                "example1.usage.deposits": "နေ့စဉ် ငွေသွင်းမှု - ၁၀၀",
+                "example1.usage.monthly": "လစဉ် ငွေသွင်းမှု - ~၃,၀၀၀",
+                "example1.usage.api": "API တောင်းဆိုမှု - ၃,၀၀၀",
+                "cost.title": "လစဉ် ကုန်ကျစရိတ်-",
+                "example1.cost.api": "API အခကြေးငွေ - ၃,၀၀၀ × ၁၀၀ ကျပ် = <span class=\"price\">၃၀၀,၀၀၀ ကျပ်/လ</span>",
+                "example1.cost.setup": "တပ်ဆင်ခ (တစ်ကြိမ်ပေး) - ၅၀၀,၀၀၀ ကျပ်",
+                "example1.total.month1": "ပထမလ စုစုပေါင်း-",
+                "example1.total.subsequent": "နောက်လများ-",
+                "savings.title": "💰 လူဖြင့်စစ်ခြင်းနှင့် နှိုင်းယှဉ်ပါက သက်သာမှု-",
+                "example1.savings.staff": "ဝန်ထမ်းစရိတ် (၁ ဦး၊ ၂၄/၇ အဆိုင်း) - ~၅၀၀,၀၀၀ မှ ၈၀၀,၀၀၀ ကျပ်/လ",
+                "example1.savings.net": "<strong>အသားတင် ချွေတာနိုင်မှု -</strong> ၂၀၀,၀၀၀ မှ ၅၀၀,၀၀၀ ကျပ်/လ (ပထမလပြီးနောက်)",
+                "example2.title": "ဥပမာ ၂ - ပလက်ဖောင်းအလယ်အလတ် (တစ်ရက်လျှင် ငွေသွင်းမှု ၅၀၀)",
+                "example2.usage.deposits": "နေ့စဉ် ငွေသွင်းမှု - ၅၀၀",
+                "example2.usage.monthly": "လစဉ် ငွေသွင်းမှု - ~၁၅,၀၀၀",
+                "example2.usage.api": "API တောင်းဆိုမှု - ၁၅,၀၀၀",
+                "example2.cost.api": "API အခကြေးငွေ - ၁၅,၀၀၀ × ၁၀၀ ကျပ် = <span class=\"price\">၁,၅၀၀,၀၀၀ ကျပ်/လ</span>",
+                "example2.cost.setup": "တပ်ဆင်ခ (တစ်ကြိမ်ပေး) - ၈၀၀,၀၀၀ ကျပ်",
+                "example2.total.month1": "ပထမလ စုစုပေါင်း-",
+                "example2.total.subsequent": "နောက်လများ-",
+                "example2.savings.staff": "ဝန်ထမ်းစရိတ် (၃-၄ ဦး၊ ၂၄/၇ အဆိုင်း) - ~၂,၀၀၀,၀၀၀ မှ ၃,၀၀၀,၀၀၀ ကျပ်/လ",
+                "example2.savings.net": "<strong>အသားတင် ချွေတာနိုင်မှု -</strong> ၅၀၀,၀၀၀ မှ ၁,၅၀၀,၀၀၀ ကျပ်/လ (ပထမလပြီးနောက်)",
+                "example3.title": "ဥပမာ ၃ - ပလက်ဖောင်းအကြီး (တစ်ရက်လျှင် ငွေသွင်းမှု ၂,၀၀၀)",
+                "example3.usage.deposits": "နေ့စဉ် ငွေသွင်းမှု - ၂,၀၀၀",
+                "example3.usage.monthly": "လစဉ် ငွေသွင်းမှု - ~၆၀,၀၀၀",
+                "example3.usage.api": "API တောင်းဆိုမှု - ၆၀,၀၀၀",
+                "example3.cost.api": "API အခကြေးငွေ - ၆၀,၀၀၀ × ၁၀၀ ကျပ် = <span class=\"price\">၆,၀၀၀,၀၀၀ ကျပ်/လ</span>",
+                "example3.cost.setup": "တပ်ဆင်ခ (တစ်ကြိမ်ပေး) - ၁,၅၀၀,၀၀၀ ကျပ်",
+                "example3.total.month1": "ပထမလ စုစုပေါင်း-",
+                "example3.total.subsequent": "နောက်လများ-",
+                "example3.savings.staff": "ဝန်ထမ်းစရိတ် (၈-၁၀ ဦး၊ ၂၄/၇ အဆိုင်း) - ~၈,၀၀၀,၀၀၀ မှ ၁၂,၀၀၀,၀၀၀ ကျပ်/လ",
+                "example3.savings.net": "<strong>အသားတင် ချွေတာနိုင်မှု -</strong> ၂,၀၀၀,၀၀၀ မှ ၆,၀၀၀,၀၀၀ ကျပ်/လ (ပထမလပြီးနောက်)",
+                "example3.savings.benefits": "<strong>အခြား အကျိုးကျေးဇူးများ -</strong> အမှားအယွင်း မရှိခြင်း၊ ချက်ချင်း လုပ်ဆောင်နိုင်ခြင်း၊ သုံးစွဲသူ စိတ်ကျေနပ်မှု ပိုမိုရရှိခြင်း",
+                "discount.title": "အများသုံး လျှော့စျေးများ",
+                "discount.desc": "အသုံးပြုမှုများသော ပလက်ဖောင်းများအတွက် ကျွန်ုပ်တို့မှ အဆင့်အလိုက် လျှော့စျေးများ ပေးအပ်ပါသည်-",
+                "discount.table.requests": "လစဉ် API တောင်းဆိုမှု",
+                "discount.table.price": "တစ်ခုလျှင် စျေးနှုန်း",
+                "discount.table.discount": "လျှော့စျေး",
+                "discount.standard": "ပုံမှန်",
+                "discount.10off": "၁၀% လျှော့",
+                "discount.20off": "၂၀% လျှော့",
+                "discount.30off": "၃၀% လျှော့",
+                "discount.custom_price": "အထူးစျေးနှုန်း",
+                "discount.contact": "ဆက်သွယ်ရန်",
+                "discount.example.title": "အများသုံး လျှော့စျေး ဥပမာ-",
+                "discount.example.desc": "လစဉ် တောင်းဆိုမှု ၈၀,၀၀၀ ရှိသော ပလက်ဖောင်း-",
+                "discount.example.step1": "ပထမ ၁၀,၀၀၀ အတွက် - ၁၀,၀၀၀ × ၁၀၀ = ၁,၀၀၀,၀၀၀ ကျပ်",
+                "discount.example.step2": "နောက် ၄၀,၀၀၀ အတွက် - ၄၀,၀၀၀ × ၉၀ = ၃,၆၀၀,၀၀၀ ကျပ်",
+                "discount.example.step3": "နောက် ၃၀,၀၀၀ အတွက် - ၃၀,၀၀၀ × ၈၀ = ၂,၄၀၀,၀၀၀ ကျပ်",
+                "discount.example.total": "<strong>စုစုပေါင်း - ၇,၀၀၀,၀၀၀ ကျပ်</strong> (လျှော့စျေးမရှိပါက ၈,၀၀၀,၀၀၀ ကျပ်)",
+                "terms.title": "ငွေပေးချေမှု စည်းကမ်းချက်များ",
+                "terms.setup.title": "တပ်ဆင်ခ",
+                "terms.setup.due": "<strong>ပေးချေရန် -</strong> ချိတ်ဆက်မှု မစတင်မီ",
+                "terms.setup.method": "<strong>ပေးချေနိုင်သည့် နည်းလမ်းများ -</strong> ဘဏ်မှလွှဲခြင်း၊ KPay၊ Wave Pay",
+                "terms.setup.refund": "<strong>ငွေပြန်အမ်းမှု မူဝါဒ -</strong> ၃ ရက်အတွင်း ပြန်ဖျက်ပါက ၅၀% ပြန်အမ်းပါမည်",
+                "terms.monthly.title": "လစဉ် API အခကြေးငွေ",
+                "terms.monthly.cycle": "<strong>ငွေတောင်းခံလွှာ ကာလ -</strong> လစဉ် (ပြက္ခဒိန်လ)",
+                "terms.monthly.due": "<strong>ပေးချေရန် နောက်ဆုံးရက် -</strong> အင်ဗွိုက်စ် ထွက်ပြီး ၇ ရက်အတွင်း",
+                "terms.monthly.method": "<strong>ပေးချေနိုင်သည့် နည်းလမ်းများ -</strong> ဘဏ်မှလွှဲခြင်း၊ KPay၊ Wave Pay",
+                "terms.monthly.billing": "<strong>ငွေတောင်းခံမှု -</strong> အသုံးပြုပြီးမှပေးချေစနစ် (လကုန်တွင် အသုံးပြုသလောက် ပေးချေရန်)",
+                "terms.prepaid.title": "ကြိုတင်ငွေပေးချေမှု ရွေးချယ်စရာများ (လိုအပ်ပါက)",
+                "terms.prepaid.desc": "ကြိုတင်ငွေပေးချေမှု ပက်ကေ့ချ်များဖြင့် လစဉ်စရိတ်ကို ချွေတာနိုင်သည်-",
+                "terms.prepaid.table.package": "ကြိုတင်ပေး ပက်ကေ့ချ်",
+                "terms.prepaid.table.requests": "ပါဝင်သော API တောင်းဆိုမှု",
+                "terms.prepaid.table.price": "စျေးနှုန်း",
+                "terms.prepaid.table.rate": "တစ်ခုချင်းစျေး",
+                "terms.prepaid.table.savings": "ချွေတာနိုင်မှု",
+                "terms.prepaid.basic.name": "<strong>Basic</strong>",
+                "terms.prepaid.basic.req": "၅,၀၀၀ ကြိမ်",
+                "terms.prepaid.basic.price": "၄၅၀,၀၀၀ ကျပ်",
+                "terms.prepaid.basic.rate": "၉၀ ကျပ်/ကြိမ်",
+                "terms.prepaid.basic.save": "၁၀%",
+                "terms.prepaid.plus.name": "<strong>Plus</strong>",
+                "terms.prepaid.plus.req": "၁၅,၀၀၀ ကြိမ်",
+                "terms.prepaid.plus.price": "၁,၂၀၀,၀၀၀ ကျပ်",
+                "terms.prepaid.plus.rate": "၈၀ ကျပ်/ကြိမ်",
+                "terms.prepaid.plus.save": "၂၀%",
+                "terms.prepaid.pro.name": "<strong>Pro</strong>",
+                "terms.prepaid.pro.req": "၅၀,၀၀၀ ကြိမ်",
+                "terms.prepaid.pro.price": "၃,၅၀၀,၀၀၀ ကျပ်",
+                "terms.prepaid.pro.rate": "၇၀ ကျပ်/ကြိမ်",
+                "terms.prepaid.pro.save": "၃၀%",
+                "terms.prepaid.premium.name": "<strong>Premium</strong>",
+                "terms.prepaid.premium.req": "၁၅၀,၀၀၀ ကြိမ်",
+                "terms.prepaid.premium.price": "၉,၀၀၀,၀၀၀ ကျပ်",
+                "terms.prepaid.premium.rate": "၆၀ ကျပ်/ကြိမ်",
+                "terms.prepaid.premium.save": "၄၀%",
+                "terms.prepaid.benefits.title": "ကြိုတင်ပေးချေမှု၏ အကျိုးကျေးဇူးများ-",
+                "terms.prepaid.benefits.item1": "တစ်ခုချင်း ကုန်ကျစရိတ် ပိုမိုသက်သာခြင်း",
+                "terms.prepaid.benefits.item2": "လစဉ် အင်ဗွိုက်စ် ရှင်းရန် မလိုခြင်း",
+                "terms.prepaid.benefits.item3": "၃ လအထိ အသုံးပြုနိုင်ခြင်း",
+                "terms.prepaid.benefits.item4": "အသုံးမကုန်ပါက နောက်လသို့ လွှဲပြောင်းနိုင်ခြင်း",
+                "features.title": "Plan အားလုံးတွင် ပါဝင်မည့် အချက်များ",
+                "features.core.title": "✅ အဓိက လုပ်ဆောင်ချက်များ",
+                "features.core.item1": "KPay နှင့် Wave Pay ငွေလွှဲမှတ်တမ်းများကို အချိန်နှင့်တစ်ပြေးညီ ရယူနိုင်ခြင်း",
+                "features.core.item2": "RESTful API အသုံးပြုခွင့်",
+                "features.core.item3": "အလိုအလျောက် ငွေသွင်းမှု စစ်ဆေးပေးခြင်း",
+                "features.core.item4": "ငွေလွှဲမှတ်တမ်းနှင့် စစ်ဆေးမှု မှတ်တမ်းများ",
+                "features.core.item5": "API လမ်းညွှန်ချက်များနှင့် အထောက်အထားများ",
+                "features.security.title": "✅ လုံခြုံရေးနှင့် စိတ်ချရမှု",
+                "features.security.item1": "99.9% အလုပ်လုပ်ချိန် အာမခံ (Enterprise Plan)",
+                "features.security.item2": "လျှို့ဝှက်ကုဒ်စနစ်ဖြင့် အချက်အလက် ပေးပို့ခြင်း",
+                "features.security.item3": "လုံခြုံသော API စစ်ဆေးမှု စနစ်",
+                "features.security.item4": "လုံခြုံရေး ပုံမှန် အဆင့်မြှင့်တင်မှုများ",
+                "features.support.title": "✅ ကူညီပံ့ပိုးမှု",
+                "features.support.item1": "နည်းပညာပိုင်းဆိုင်ရာ လမ်းညွှန်များ",
+                "features.support.item2": "ချိတ်ဆက်မှု လမ်းညွှန်နှင့် နမူနာ ကုဒ်များ",
+                "features.support.item3": "အီးမေးလ်မှတစ်ဆင့် ကူညီပေးခြင်း (၂၄ နာရီအတွင်း အကြောင်းပြန်ခြင်း)",
+                "features.support.item4": "စနစ် အခြေအနေ အသိပေးချက်များ",
+                "features.updates.title": "✅ စနစ် အဆင့်မြှင့်တင်မှုများ",
+                "features.updates.item1": "API အဆင့်မြှင့်တင်မှုများကို အခမဲ့ ရရှိခြင်း",
+                "features.updates.item2": "KPay/Wave Pay ပြောင်းလဲမှုများနှင့် အညီ အမြဲ အမှီလိုက်ခြင်း",
+                "features.updates.item3": "လုပ်ဆောင်ချက်သစ်များ အမြဲ ထည့်သွင်းပေးခြင်း",
+                "features.updates.item4": "အပို ပြုပြင်ထိန်းသိမ်းခများ မရှိခြင်း",
+                "services.title": "အပို ဝန်ဆောင်မှုများ (ရွေးချယ်နိုင်သည်)",
+                "services.dev.title": "စိတ်ကြိုက် ပြင်ဆင် ဖန်တီးပေးခြင်း",
+                "services.dev.item1": "<strong>စိတ်ကြိုက် API Endpoint များ -</strong> တစ်ခုလျှင် ၃၀၀,၀၀၀ ကျပ်",
+                "services.dev.item2": "<strong>စိတ်ကြိုက် မှတ်တမ်း Dashboard -</strong> ၁,၀၀၀,၀၀၀ ကျပ်",
+                "services.dev.item3": "<strong>White-Label Solution -</strong> စျေးနှုန်းအတွက် ဆက်သွယ်ရန်",
+                "services.support.title": "အဆင့်မြင့် ကူညီပံ့ပိုးမှု",
+                "services.support.item1": "<strong>သီးသန့် Account Manager -</strong> ၅၀၀,၀၀၀ ကျပ်/လ",
+                "services.support.item2": "<strong>၂၄/၇ ဦးစားပေး ကူညီမှု -</strong> ၃၀၀,၀၀၀ ကျပ်/လ",
+                "services.support.item3": "<strong>လူကိုယ်တိုင် လာရောက်ကူညီမှု -</strong> ၂၀၀,၀၀၀ ကျပ်/ရက် + ခရီးစရိတ်",
+                "services.training.title": "သင်တန်းနှင့် အကြံပေးခြင်း",
+                "services.training.item1": "<strong>ဝန်ထမ်း သင်တန်းပေးခြင်း -</strong> တစ်ကြိမ်လျှင် ၁၅၀,၀၀၀ ကျပ် (၂ နာရီ)",
+                "services.training.item2": "<strong>နည်းပညာပိုင်း အကြံပေးခြင်း -</strong> ၁၀၀,၀၀၀ ကျပ်/နာရီ",
+                "services.training.item3": "<strong>စနစ် ကောင်းမွန်စေရန် ပြန်လည်စစ်ဆေးခြင်း -</strong> ၅၀၀,၀၀၀ ကျပ်",
+                "comparison.title": "နှိုင်းယှဉ်ချက် - OneCent နှင့် လူဖြင့်စစ်ခြင်း",
+                "comparison.table.factor": "အချက်အလက်",
+                "comparison.table.manual": "လူဖြင့်စစ်ခြင်း",
+                "comparison.table.onecent": "OneCent",
+                "comparison.factor.setup": "<strong>တပ်ဆင်စရိတ်</strong>",
+                "comparison.manual.setup": "ဝန်ထမ်းရှာဖွေခြင်းနှင့် သင်တန်းပေးခြင်း<br>~၁,၀၀၀,၀၀၀ ကျပ်",
+                "comparison.onecent.setup": "တစ်ကြိမ်တည်းပေးရမည့် တပ်ဆင်ခ<br>၅၀၀,၀၀၀ - ၁,၅၀၀,၀၀၀ ကျပ်",
+                "comparison.factor.monthly": "<strong>လစဉ်ကုန်ကျစရိတ် (၅၀၀ ကြိမ်/ရက်)</strong>",
+                "comparison.manual.monthly": "ဝန်ထမ်း ၃-၄ ဦး<br>~၂,၀၀၀,၀၀၀ - ၃,၀၀၀,၀၀၀ ကျပ်",
+                "comparison.onecent.monthly": "API အခကြေးငွေသာ<br>~၁,၅၀၀,၀၀၀ ကျပ်",
+                "comparison.factor.time": "<strong>ကြာမြင့်ချိန်</strong>",
+                "comparison.manual.time": "တစ်ခေါက်လျှင် ၅-၁၅ မိနစ်",
+                "comparison.onecent.time": "၁၀ စက္ကန့်အောက်",
+                "comparison.factor.error": "<strong>အမှားအယွင်းနှုန်း</strong>",
+                "comparison.manual.error": "၂-၅% (လူ့အမှား)",
+                "comparison.onecent.error": "၀% (အလိုအလျောက်)",
+                "comparison.factor.scale": "<strong>တိုးချဲ့နိုင်မှု</strong>",
+                "comparison.manual.scale": "ဝန်ထမ်း ထပ်တိုးရမည်",
+                "comparison.onecent.scale": "အလိုအလျောက်",
+                "comparison.factor.availability": "<strong>၂၄/၇ ရရှိနိုင်မှု</strong>",
+                "comparison.manual.availability": "အဆိုင်းများ ခွဲရန်လိုအပ်သည်",
+                "comparison.onecent.availability": "အမြဲတမ်း ရရှိနိုင်သည်",
+                "comparison.factor.ux": "<strong>သုံးစွဲသူ အတွေ့အကြုံ</strong>",
+                "comparison.manual.ux": "နှောင့်နှေးနိုင်သည်",
+                "comparison.onecent.ux": "မြန်ဆန် စိတ်ချရသည်",
+                "roi.title": "ROI တွက်ချက်မှု",
+                "roi.small.title": "ပလက်ဖောင်းငယ် ဥပမာ (တစ်ရက် ငွေသွင်းမှု ၁၀၀)",
+                "roi.manual.cost.title": "လက်ရှိ လူဖြင့်စစ်ခြင်း ကုန်ကျစရိတ်-",
+                "roi.small.manual.staff": "ဝန်ထမ်း - ၆၀၀,၀၀၀ ကျပ်/လ",
+                "roi.small.manual.training": "သင်တန်း - ၁၀၀,၀၀၀ ကျပ်/လ",
+                "roi.small.manual.errors": "အမှားအယွင်း/အငြင်းပွားမှု - ၅၀,၀၀၀ ကျပ်/လ",
+                "roi.small.manual.total": "<strong>စုစုပေါင်း - ၇၅၀,၀၀၀ ကျပ်/လ</strong>",
+                "roi.onecent.cost.title": "OneCent ကုန်ကျစရိတ်-",
+                "roi.small.onecent.setup": "တပ်ဆင်ခ (တစ်ကြိမ်) - ၅၀၀,၀၀၀ ကျပ်",
+                "roi.small.onecent.api": "API အခ - ၃၀၀,၀၀၀ ကျပ်/လ",
+                "roi.small.onecent.monthly": "<strong>လစဉ် - ၃၀၀,၀၀၀ ကျပ်</strong>",
+                "roi.savings.title": "ချွေတာနိုင်မှု-",
+                "roi.small.savings.m1": "ပထမလ - ၇၅၀,၀၀၀ - ၈၀၀,၀၀၀ = -၅၀,၀၀၀ ကျပ် (ရင်းနှီးမြှုပ်နှံမှု)",
+                "roi.small.savings.m2": "ဒုတိယလမှစ၍ - ၇၅၀,၀၀၀ - ၃၀၀,၀၀၀ = <strong>၄၅၀,၀၀၀ ကျပ်/လ ချွေတာနိုင်သည်</strong>",
+                "roi.small.savings.roi": "<strong>၂ လအတွင်း အရင်းကျေသည်</strong>",
+                "roi.medium.title": "ပလက်ဖောင်းအလယ်အလတ် ဥပမာ (တစ်ရက် ငွေသွင်းမှု ၅၀၀)",
+                "roi.medium.manual.staff": "ဝန်ထမ်း - ၂,၅၀၀,၀၀၀ ကျပ်/လ",
+                "roi.medium.manual.training": "သင်တန်း - ၂၀၀,၀၀၀ ကျပ်/လ",
+                "roi.medium.manual.errors": "အမှားအယွင်း/အငြင်းပွားမှု - ၁၅၀,၀၀၀ ကျပ်/လ",
+                "roi.medium.manual.total": "<strong>စုစုပေါင်း - ၂,၈၅၀,၀၀၀ ကျပ်/လ</strong>",
+                "roi.medium.onecent.setup": "တပ်ဆင်ခ (တစ်ကြိမ်) - ၈၀၀,၀၀၀ ကျပ်",
+                "roi.medium.onecent.api": "API အခ - ၁,၅၀၀,၀၀၀ ကျပ်/လ",
+                "roi.medium.onecent.monthly": "<strong>လစဉ် - ၁,၅၀၀,၀၀၀ ကျပ်</strong>",
+                "roi.medium.savings.m1": "ပထမလ - ၂,၈၅၀,၀၀၀ - ၂,၃၀၀,၀၀၀ = ၅၅၀,၀၀၀ ကျပ် သက်သာသည်",
+                "roi.medium.savings.m2": "ဒုတိယလမှစ၍ - ၂,၈၅၀,၀၀၀ - ၁,၅၀၀,၀၀၀ = <strong>၁,၃၅၀,၀၀၀ ကျပ်/လ ချွေတာနိုင်သည်</strong>",
+                "roi.medium.savings.roi": "<strong>ချက်ချင်း အကျိုးအမြတ်ရှိသည်</strong>",
+                "start.title": "ယခုပဲ စတင်လိုက်ပါ",
+                "start.step1.title": "အဆင့် ၁ - ပက်ကေ့ချ် ရွေးချယ်ပါ",
+                "start.step1.desc": "သင့်ပလက်ဖောင်း အရွယ်အစားနှင့် လိုအပ်ချက်နှင့် ကိုက်ညီသော ပက်ကေ့ချ်ကို ရွေးချယ်ပါ",
+                "start.step2.title": "အဆင့် ၂ - စာရင်းသွင်းပါ",
+                "start.step2.item1": "ဝန်ဆောင်မှု သဘောတူညီချက် လက်မှတ်ရေးထိုးပါ",
+                "start.step2.item2": "တပ်ဆင်ခ ပေးချေပါ",
+                "start.step2.item3": "KPay/Wave Pay အကောင့် အချက်အလက်များ ပေးပါ",
+                "start.step2.item4": "API ချိတ်ဆက်ရန် အချက်အလက်များ ရယူပါ",
+                "start.step3.title": "အဆင့် ၃ - ချိတ်ဆက်ခြင်း",
+                "start.step3.item1": "သင့်ပလက်ဖောင်းသို့ OneCent API ချိတ်ဆက်ပါ",
+                "start.step3.item2": "Sandbox ပတ်ဝန်းကျင်တွင် စမ်းသပ်ပါ",
+                "start.step3.item3": "အလိုအလျောက် ငွေသွင်းစနစ်ဖြင့် အစစ်အမှန် စတင်ပါ",
+                "start.step4.title": "အဆင့် ၄ - ချွေတာမှု စတင်ပါ",
+                "start.step4.item1": "အမှန်တကယ် အသုံးပြုသည့် API အတွက်သာ ပေးချေပါ",
+                "start.step4.item2": "Dashboard မှတစ်ဆင့် အသုံးပြုမှုကို စောင့်ကြည့်ပါ",
+                "start.step4.item3": "လစဉ် အင်ဗွိုက်စ်များ လက်ခံရယူပါ",
+                "faq.title": "အမေးများသော မေးခွန်းများ",
+                "faq.q1": "Q - လစဉ် အနည်းဆုံး အသုံးပြုရမည့် ကန့်သတ်ချက် ရှိပါသလား?",
+                "faq.a1": "A - မရှိပါ။ သင် အမှန်တကယ် အသုံးပြုသည့် API တောင်းဆိုမှုများအတွက်သာ ပေးချေရန် လိုအပ်ပါသည်။",
+                "faq.q2": "Q - ကြိုတင်ပေးထားသည့် ပက်ကေ့ချ်ထက် ပိုသုံးမိပါက ဘာဖြစ်မလဲ?",
+                "faq.a2": "A - ပိုသုံးသည့် အကြိမ်များအတွက် ပုံမှန်စျေးနှုန်း (၁၀၀ ကျပ်/ကြိမ်) ဖြင့် လကုန်တွင် ငွေတောင်းခံလွှာ ပေးပို့ပါမည်။",
+                "faq.q3": "Q - ပက်ကေ့ချ်ကို အဆင့်မြှင့်ခြင်း/လျှော့ခြင်း လုပ်နိုင်ပါသလား?",
+                "faq.a3": "A - ဟုတ်ကဲ့၊ အချိန်မရွေး ပြုလုပ်နိုင်ပါသည်။ အဆင့်မြှင့်ပါက တပ်ဆင်ခ ကွာခြားချက်ကိုသာ ပေးရန် လိုပါသည်။",
+                "faq.q4": "Q - API အလုပ်မလုပ်ပါက ဘယ်လိုဖြစ်မလဲ?",
+                "faq.a4": "A - ကျွန်ုပ်တို့သည် 99.9% uptime ရှိအောင် ထိန်းသိမ်းထားပါသည်။ Enterprise သုံးစွဲသူများအတွက် အကယ်၍ စနစ်ရပ်ဆိုင်းမှုရှိပါက SLA အလိုက် ပြန်လည်ကုစားပေးပါမည်။",
+                "faq.q5": "Q - API အသုံးပြုမှုကို ဘယ်လိုသိနိုင်မလဲ?",
+                "faq.a5": "A - Plan အားလုံးတွင် အချိန်နှင့်တစ်ပြေးညီ ကြည့်နိုင်သော Dashboard ပါဝင်ပါသည်။ လစဉ် အစီရင်ခံစာများကိုလည်း အီးမေးလ်မှတစ်ဆင့် ပေးပို့ပါသည်။",
+                "faq.q6": "Q - စိတ်ကြိုက်စျေးနှုန်း ရနိုင်ပါသလား?",
+                "faq.a6": "A - ဟုတ်ကဲ့၊ အသုံးပြုမှု အလွန်များသော ပလက်ဖောင်းများ (တစ်လလျှင် ၅ သိန်းနှင့်အထက်) အတွက် စိတ်ကြိုက်စျေးနှုန်းအတွက် ဆက်သွယ်နိုင်ပါသည်။",
+                "faq.q7": "Q - အစမ်းသုံး ကာလ ရှိပါသလား?",
+                "faq.a7": "A - ဟုတ်ကဲ့၊ ဝန်ဆောင်မှုကို စမ်းသပ်နိုင်ရန် ၇ ရက်ကြာ အခမဲ့ စမ်းသပ်ခွင့် (API တောင်းဆိုမှု ၅၀၀ ထိ) ပေးအပ်ထားပါသည်။",
+                "faq.q8": "Q - မည်သည့် ငွေပေးချေမှု နည်းလမ်းများ လက်ခံသနည်း?",
+                "faq.a8": "A - ဘဏ်မှလွှဲခြင်း၊ KPay နှင့် Wave Pay တို့ကို လက်ခံပါသည်။ လုပ်ငန်းစဉ်တိုင်းအတွက် အင်ဗွိုက်စ် ထုတ်ပေးပါသည်။",
+                "launch.promo.title": "အထူး မိတ်ဆက် ကမ်းလှမ်းချက် (၂၀၂၆၊ မတ်လ ၃၁ ထိသာ)",
+                "launch.benefits.title": "စတင်အသုံးပြုသူများအတွက် အကျိုးကျေးဇူးများ-",
+                "launch.benefits.setup": "✨ ပထမဆုံး သုံးစွဲသူ ၂၀ ဦးအတွက် <strong>တပ်ဆင်ခ ၂၀% လျှော့စျေး</strong>",
+                "launch.benefits.free": "✨ ၆ လတိုင်တိုင် လစဉ် <strong>ပထမဆုံး API တောင်းဆိုမှု ၁၀၀ အခမဲ့</strong>",
+                "launch.benefits.support": "✨ ပထမဆုံး ၃ လအတွက် <strong>ဦးစားပေး ကူညီပံ့ပိုးမှု အခမဲ့</strong>",
+                "launch.benefits.lock": "✨ ၁၂ လတိုင်တိုင် <strong>စျေးနှုန်း မပြောင်းလဲဘဲ ပုံသေထားရှိခြင်း</strong>",
+                "launch.savings.title": "သက်သာမှု ဥပမာ-",
+                "launch.savings.setup": "Business ပက်ကေ့ချ် တပ်ဆင်ခ - <span class=\"strikethrough\">၈၀၀,၀၀၀ ကျပ်</span> → <span class=\"price\">၆၄၀,၀၀၀ ကျပ်</span> (၂၀% လျှော့စျေး = ၁၆၀,၀၀၀ ကျပ် သက်သာမည်)",
+                "launch.savings.monthly": "လစဉ် (၁၅,၀၀၀ ကြိမ်) - ၁,၅၀၀,၀၀၀ - ၁၀,၀၀၀ (အခမဲ့ ၁၀၀ ကြိမ်အတွက်) = <span class=\"price\">၁,၄၉၀,၀၀၀ ကျပ်</span>",
+                "launch.savings.first6": "<strong>ပထမ ၆ လ သက်သာမှု -</strong> ၆၀,၀၀၀ ကျပ် (အခမဲ့ အကြိမ် ၁၀၀ × ၆ လ)",
+                "launch.savings.setup_total": "<strong>တပ်ဆင်ခ သက်သာမှု -</strong> ၁၆၀,၀၀၀ ကျပ်",
+                "launch.savings.total": "<strong>ပထမတစ်နှစ် စုစုပေါင်း သက်သာမှု - ~၂၂၀,၀၀၀ ကျပ်</strong>",
+                "footer.brand": "OneCent",
+                "footer.tagline": "ပွင့်လင်းမြင်သာသော စျေးနှုန်း၊ အားကောင်းသော အလိုအလျောက်စနစ်၊ ခိုင်မာသော ရလဒ်များ",
+                "footer.disclaimer": "စျေးနှုန်းများအားလုံးသည် မြန်မာကျပ်ငွေဖြင့် ဖြစ်သည်။ စျေးနှုန်းပြောင်းလဲမှုရှိပါက ရက်ပေါင်း ၃၀ ကြိုတင် အကြောင်းကြားပါမည်။ အသုံးပြုမှုများသော ပလက်ဖောင်းများအတွက် စိတ်ကြိုက်စျေးနှုန်းများ ရရှိနိုင်ပါသည်။"
+            },
+            zh: {
+                "title": "OneCent - 价格方案",
+                "overview.title": "定价模式概览",
+                "overview.desc": "OneCent 使用透明的、基于使用量的定价模式，旨在随您的平台增长而扩展。我们的定价由两部分组成：",
+                "overview.item1": "<strong>一次性设置费</strong> - 初始集成和账户配置",
+                "overview.item2": "<strong>按请求 API 费</strong> - 仅为您使用的部分付费（每 API 请求 100 MMK）",
+                "structure.title": "定价结构",
+                "setup.title": "💎 设置费 (一次性付款)",
+                "table.package": "方案包",
+                "table.fee": "设置费",
+                "table.services": "包含的服务",
+                "setup.starter.name": "<strong>入门版</strong>",
+                "setup.starter.price": "500,000 MMK",
+                "setup.starter.features": "• 单个 KPay 或 Wave Pay 账户集成<br>• API 凭证和文档<br>• 邮件支持<br>• 7天集成协助",
+                "setup.business.name": "<strong>商务版</strong>",
+                "setup.business.price": "800,000 MMK",
+                "setup.business.features": "• 最多 3 个 KPay/Wave Pay 账户<br>• API 凭证和文档<br>• 优先邮件和聊天支持<br>• 14天集成协助<br>• 自定义 Webhook 配置<br>• 沙盒环境访问",
+                "setup.enterprise.name": "<strong>企业版</strong>",
+                "setup.enterprise.price": "1,500,000 MMK",
+                "setup.enterprise.features": "• 无限制 KPay/Wave Pay 账户<br>• 专用集成工程师<br>• 24/7 电话和聊天支持<br>• 30天集成协助<br>• 自定义 API 功能<br>• 专用沙盒环境<br>• SLA 保证 (99.9% 正常运行时间)",
+                "api.title": "📊 API 请求定价",
+                "api.price.title": "100 MMK 每 API 请求",
+                "api.what.title": "什么算作 API 请求？",
+                "api.what.desc": "每次查询验证交易即算作一次 API 请求：",
+                "api.counted.title": "✅ 计为 1 次请求：",
+                "api.counted.item1": "通过相应的支付方式（Kpay 或 Wave Pay）查询交易历史",
+                "api.not_counted.title": "❌ 不计入：",
+                "api.not_counted.item1": "身份验证/令牌刷新",
+                "api.not_counted.item2": "系统健康检查",
+                "examples.title": "定价示例",
+                "example1.title": "示例 1：小型平台（100 笔存款/天）",
+                "usage.title": "月度使用量：",
+                "example1.usage.deposits": "日存款量：100",
+                "example1.usage.monthly": "月存款量：~3,000",
+                "example1.usage.api": "API 请求：3,000",
+                "cost.title": "月度费用：",
+                "example1.cost.api": "API 费用：3,000 × 100 MMK = <span class=\"price\">300,000 MMK/月</span>",
+                "example1.cost.setup": "设置费（一次性）：500,000 MMK",
+                "example1.total.month1": "首月总计：",
+                "example1.total.subsequent": "后续月份：",
+                "savings.title": "💰 相比人工系统节省的费用：",
+                "example1.savings.staff": "员工成本（1人，24/7 轮班）：~500,000 - 800,000 MMK/月",
+                "example1.savings.net": "<strong>净节省：</strong> 200,000 - 500,000 MMK/月（首月后）",
+                "example2.title": "示例 2：中型平台（500 笔存款/天）",
+                "example2.usage.deposits": "日存款量：500",
+                "example2.usage.monthly": "月存款量：~15,000",
+                "example2.usage.api": "API 请求：15,000",
+                "example2.cost.api": "API 费用：15,000 × 100 MMK = <span class=\"price\">1,500,000 MMK/月</span>",
+                "example2.cost.setup": "设置费（一次性）：800,000 MMK",
+                "example2.total.month1": "首月总计：",
+                "example2.total.subsequent": "后续月份：",
+                "example2.savings.staff": "员工成本（3-4人，24/7 轮班）：~2,000,000 - 3,000,000 MMK/月",
+                "example2.savings.net": "<strong>净节省：</strong> 500,000 - 1,500,000 MMK/月（首月后）",
+                "example3.title": "示例 3：大型平台（2,000 笔存款/天）",
+                "example3.usage.deposits": "日存款量：2,000",
+                "example3.usage.monthly": "月存款量：~60,000",
+                "example3.usage.api": "API 请求：60,000",
+                "example3.cost.api": "API 费用：60,000 × 100 MMK = <span class=\"price\">6,000,000 MMK/月</span>",
+                "example3.cost.setup": "设置费（一次性）：1,500,000 MMK",
+                "example3.total.month1": "首月总计：",
+                "example3.total.subsequent": "后续月份：",
+                "example3.savings.staff": "员工成本（8-10人，24/7 轮班）：~8,000,000 - 12,000,000 MMK/月",
+                "example3.savings.net": "<strong>净节省：</strong> 2,000,000 - 6,000,000 MMK/月（首月后）",
+                "example3.savings.benefits": "<strong>其他好处：</strong> 零错误、即时处理、更好的用户体验",
+                "discount.title": "批量折扣",
+                "discount.desc": "对于高交易量的平台，我们提供分层定价折扣：",
+                "discount.table.requests": "月度 API 请求量",
+                "discount.table.price": "每请求价格",
+                "discount.table.discount": "折扣",
+                "discount.standard": "标准",
+                "discount.10off": "9折 (10% off)",
+                "discount.20off": "8折 (20% off)",
+                "discount.30off": "7折 (30% off)",
+                "discount.custom_price": "定制价格",
+                "discount.contact": "联系我们",
+                "discount.example.title": "批量折扣示例：",
+                "discount.example.desc": "每月有 80,000 次请求的平台：",
+                "discount.example.step1": "前 10,000 次请求：10,000 × 100 = 1,000,000 MMK",
+                "discount.example.step2": "接下来的 40,000 次请求：40,000 × 90 = 3,600,000 MMK",
+                "discount.example.step3": "最后的 30,000 次请求：30,000 × 80 = 2,400,000 MMK",
+                "discount.example.total": "<strong>总计：7,000,000 MMK</strong> （如果不使用折扣则为 8,000,000 MMK）",
+                "terms.title": "付款条款",
+                "terms.setup.title": "设置费",
+                "terms.setup.due": "<strong>截止日期：</strong> 集成开始前付清",
+                "terms.setup.method": "<strong>付款方式：</strong> 银行转账、KPay、Wave Pay",
+                "terms.setup.refund": "<strong>退款政策：</strong> 集成开始后 3 天内取消可退款 50%",
+                "terms.monthly.title": "月度 API 费用",
+                "terms.monthly.cycle": "<strong>计费周期：</strong> 按月（自然月）",
+                "terms.monthly.due": "<strong>付款到期：</strong> 发票开具后 7 天内",
+                "terms.monthly.method": "<strong>付款方式：</strong> 银行转账、KPay、Wave Pay",
+                "terms.monthly.billing": "<strong>结算方式：</strong> 后付（月底按实际使用量支付）",
+                "terms.prepaid.title": "预付选项（可选）",
+                "terms.prepaid.desc": "通过预付套餐节省月度费用：",
+                "terms.prepaid.table.package": "预付套餐",
+                "terms.prepaid.table.requests": "包含的 API 请求次数",
+                "terms.prepaid.table.price": "价格",
+                "terms.prepaid.table.rate": "实际费率",
+                "terms.prepaid.table.savings": "节省",
+                "terms.prepaid.basic.name": "<strong>基础版</strong>",
+                "terms.prepaid.basic.req": "5,000 次请求",
+                "terms.prepaid.basic.price": "450,000 MMK",
+                "terms.prepaid.basic.rate": "90 MMK/请求",
+                "terms.prepaid.basic.save": "10%",
+                "terms.prepaid.plus.name": "<strong>增强版</strong>",
+                "terms.prepaid.plus.req": "15,000 次请求",
+                "terms.prepaid.plus.price": "1,200,000 MMK",
+                "terms.prepaid.plus.rate": "80 MMK/请求",
+                "terms.prepaid.plus.save": "20%",
+                "terms.prepaid.pro.name": "<strong>专业版</strong>",
+                "terms.prepaid.pro.req": "50,000 次请求",
+                "terms.prepaid.pro.price": "3,500,000 MMK",
+                "terms.prepaid.pro.rate": "70 MMK/请求",
+                "terms.prepaid.pro.save": "30%",
+                "terms.prepaid.premium.name": "<strong>尊享版</strong>",
+                "terms.prepaid.premium.req": "150,000 次请求",
+                "terms.prepaid.premium.price": "9,000,000 MMK",
+                "terms.prepaid.premium.rate": "60 MMK/请求",
+                "terms.prepaid.premium.save": "40%",
+                "terms.prepaid.benefits.title": "预付好处：",
+                "terms.prepaid.benefits.item1": "实际单次请求成本更低",
+                "terms.prepaid.benefits.item2": "无需月度开票",
+                "terms.prepaid.benefits.item3": "请求次数 3 个月内有效",
+                "terms.prepaid.benefits.item4": "未使用的请求可滚存",
+                "features.title": "所有方案均包含的内容",
+                "features.core.title": "✅ 核心功能",
+                "features.core.item1": "KPay 和 Wave Pay 实时交易数据",
+                "features.core.item2": "RESTful API 访问",
+                "features.core.item3": "自动化交易验证",
+                "features.core.item4": "交易历史和审计日志",
+                "features.core.item5": "API 文档和指南",
+                "features.security.title": "✅ 安全与可靠性",
+                "features.security.item1": "99.9% 正常运行时间 SLA（企业方案）",
+                "features.security.item2": "加密数据传输",
+                "features.security.item3": "安全的 API 身份验证",
+                "features.security.item4": "定期安全更新",
+                "features.support.title": "✅ 支持",
+                "features.support.item1": "技术文档",
+                "features.support.item2": "集成指南和示例代码",
+                "features.support.item3": "邮件支持（24 小时内回复）",
+                "features.support.item4": "系统状态通知",
+                "features.updates.title": "✅ 更新与维护",
+                "features.updates.item1": "免费的 API 更新和改进",
+                "features.updates.item2": "兼容 KPay/Wave Pay 的变化",
+                "features.updates.item3": "定期的功能增强",
+                "features.updates.item4": "无额外维护费用",
+                "services.title": "附加服务（可选）",
+                "services.dev.title": "自定义开发",
+                "services.dev.item1": "<strong>自定义 API 端点：</strong> 每个端点 300,000 MMK",
+                "services.dev.item2": "<strong>自定义报告仪表板：</strong> 1,000,000 MMK",
+                "services.dev.item3": "<strong>白标解决方案：</strong> 请联系我们获取报价",
+                "services.support.title": "高级支持",
+                "services.support.item1": "<strong>专属客户经理：</strong> 500,000 MMK/月",
+                "services.support.item2": "<strong>24/7 优先支持：</strong> 300,000 MMK/月",
+                "services.support.item3": "<strong>现场集成支持：</strong> 200,000 MMK/天 + 差旅费",
+                "services.training.title": "培训与咨询",
+                "services.training.item1": "<strong>员工培训课程：</strong> 每课 150,000 MMK（2 小时）",
+                "services.training.item2": "<strong>技术咨询：</strong> 100,000 MMK/小时",
+                "services.training.item3": "<strong>系统优化审核：</strong> 500,000 MMK",
+                "comparison.title": "对比：OneCent vs 人工系统",
+                "comparison.table.factor": "衡量因素",
+                "comparison.table.manual": "人工系统",
+                "comparison.table.onecent": "OneCent",
+                "comparison.factor.setup": "<strong>设置成本</strong>",
+                "comparison.manual.setup": "员工招聘和培训<br>~1,000,000 MMK",
+                "comparison.onecent.setup": "一次性设置费<br>500,000 - 1,500,000 MMK",
+                "comparison.factor.monthly": "<strong>月度成本（500 笔存款/天）</strong>",
+                "comparison.manual.monthly": "3-4 名员工<br>~2,000,000 - 3,000,000 MMK",
+                "comparison.onecent.monthly": "仅 API 费<br>~1,500,000 MMK",
+                "comparison.factor.time": "<strong>处理时间</strong>",
+                "comparison.manual.time": "每笔存款 5-15 分钟",
+                "comparison.onecent.time": "&lt;10 秒",
+                "comparison.factor.error": "<strong>错误率</strong>",
+                "comparison.manual.error": "2-5%（人为错误）",
+                "comparison.onecent.error": "0%（自动化）",
+                "comparison.factor.scale": "<strong>可扩展性</strong>",
+                "comparison.manual.scale": "增加员工",
+                "comparison.onecent.scale": "自动扩展",
+                "comparison.factor.availability": "<strong>24/7 可用性</strong>",
+                "comparison.manual.availability": "需要轮班管理",
+                "comparison.onecent.availability": "全天候可用",
+                "comparison.factor.ux": "<strong>用户体验</strong>",
+                "comparison.manual.ux": "延迟、不一致",
+                "comparison.onecent.ux": "即时、可靠",
+                "roi.title": "ROI 投资回报率计算器",
+                "roi.small.title": "小型平台示例（100 笔存款/天）",
+                "roi.manual.cost.title": "目前人工系统的成本：",
+                "roi.small.manual.staff": "员工：600,000 MMK/月",
+                "roi.small.manual.training": "培训：100,000 MMK/月",
+                "roi.small.manual.errors": "错误/纠纷：50,000 MMK/月",
+                "roi.small.manual.total": "<strong>总计：750,000 MMK/月</strong>",
+                "roi.onecent.cost.title": "OneCent 的成本：",
+                "roi.small.onecent.setup": "设置（一次性）：500,000 MMK",
+                "roi.small.onecent.api": "API 费：300,000 MMK/月",
+                "roi.small.onecent.monthly": "<strong>每月：300,000 MMK</strong>",
+                "roi.savings.title": "节省费用：",
+                "roi.small.savings.m1": "第 1 个月：750,000 - 800,000 = -50,000 MMK (投资)",
+                "roi.small.savings.m2": "第 2 个月起：750,000 - 300,000 = <strong>450,000 MMK/月 节省</strong>",
+                "roi.small.savings.roi": "<strong>2 个月内实现 ROI</strong>",
+                "roi.medium.title": "中型平台示例（500 笔存款/天）",
+                "roi.medium.manual.staff": "员工：2,500,000 MMK/月",
+                "roi.medium.manual.training": "培训：200,000 MMK/月",
+                "roi.medium.manual.errors": "错误/纠纷：150,000 MMK/月",
+                "roi.medium.manual.total": "<strong>总计：2,850,000 MMK/月</strong>",
+                "roi.medium.onecent.setup": "设置（一次性）：800,000 MMK",
+                "roi.medium.onecent.api": "API 费：1,500,000 MMK/月",
+                "roi.medium.onecent.monthly": "<strong>每月：1,500,000 MMK</strong>",
+                "roi.medium.savings.m1": "第 1 个月：2,850,000 - 2,300,000 = 550,000 MMK 节省",
+                "roi.medium.savings.m2": "第 2 个月起：2,850,000 - 1,500,000 = <strong>1,350,000 MMK/月 节省</strong>",
+                "roi.medium.savings.roi": "<strong>立即获得正收益</strong>",
+                "start.title": "开始使用",
+                "start.step1.title": "第一步：选择您的方案",
+                "start.step1.desc": "选择符合您平台规模 and 需求的设置套餐。",
+                "start.step2.title": "第二步：完成入驻",
+                "start.step2.item1": "签署服务协议",
+                "start.step2.item2": "支付设置费",
+                "start.step2.item3": "提供 KPay/Wave Pay 账户详情",
+                "start.step2.item4": "接收 API 凭证",
+                "start.step3.title": "第三步：集成",
+                "start.step3.item1": "将 OneCent API 集成到您的平台中",
+                "start.step3.item2": "在沙盒环境中测试",
+                "start.step3.item3": "正式上线自动化存款",
+                "start.step4.title": "第四步：开始节省时间与成本",
+                "start.step4.item1": "仅为您实际的 API 使用量付费",
+                "start.step4.item2": "通过仪表板监控使用情况",
+                "start.step4.item3": "接收月度发票",
+                "faq.title": "常见问题",
+                "faq.q1": "问：是否有最低月度承诺额？",
+                "faq.a1": "答：没有，您只需为您实际使用的 API 请求付费。没有最低使用量要求。",
+                "faq.q2": "问：如果超过了预付套餐会怎样？",
+                "faq.a2": "答：额外的请求将按标准费率 (100 MMK/请求) 在月底结算。",
+                "faq.q3": "问：我可以升级或降级套餐吗？",
+                "faq.a3": "答：是的，您可以随时更改套餐。升级时需支付设置费差价。",
+                "faq.q4": "问：如果 API 宕机怎么办？",
+                "faq.a4": "答：我们保持 99.9% 的正常运行时间。企业客户会收到针对任何宕机时间的 SLA 赔付。",
+                "faq.q5": "问：如何跟踪我的 API 使用情况？",
+                "faq.a5": "答：所有方案都包含实时使用情况仪表板。月度报告通过邮件发送。",
+                "faq.q6": "问：可以定制价格吗？",
+                "faq.a6": "答：是的！对于高交易量平台（每月 500,000 次及以上请求），请联系我们获取定制价格。",
+                "faq.q7": "问：是否有试用期？",
+                "faq.a7": "答：是的，我们提供 7 天免费试用，包含最多 500 次 API 请求供测试服务。",
+                "faq.q8": "问：你们接受哪些付款方式？",
+                "faq.a8": "答：银行转账、KPay 和 Wave Pay。所有交易均提供发票。",
+                "launch.promo.title": "特别发布优惠（有效期至 2026 年 3 月 31 日）",
+                "launch.benefits.title": "早期采用者福利：",
+                "launch.benefits.setup": "✨ 前 20 名客户享受 <strong>设置费 8 折优惠</strong>",
+                "launch.benefits.free": "✨ 连续 6 个月每月 <strong>前 100 次 API 请求免费</strong>",
+                "launch.benefits.support": "✨ 前 3 个月 <strong>免费优先支持</strong>",
+                "launch.benefits.lock": "✨ <strong>锁定价格</strong> - 12 个月内不涨价",
+                "launch.savings.title": "节省示例：",
+                "launch.savings.setup": "商务版套餐设置：<span class=\"strikethrough\">800,000 MMK</span> → <span class=\"price\">640,000 MMK</span> (20% 折扣 = 节省 160,000 MMK)",
+                "launch.savings.monthly": "月度（15,000 次请求）：1,500,000 - 10,000 (免费 100 次) = <span class=\"price\">1,490,000 MMK</span>",
+                "launch.savings.first6": "<strong>首 6 个月节省：</strong> 60,000 MMK (10,000 × 6 个月免费请求)",
+                "launch.savings.setup_total": "<strong>设置费节省：</strong> 160,000 MMK",
+                "launch.savings.total": "<strong>首年节省总计：~220,000 MMK</strong>",
+                "footer.brand": "OneCent",
+                "footer.tagline": "透明定价，强大自动化，实证结果",
+                "footer.disclaimer": "所有价格均为缅币 (MMK)。价格如有变动，将提前 30 天通知。高交易量平台可提供定制化的企业定价。"
+            }
+        };
+
+        let currentLang = 'en';
+
+        function setLanguage(lang) {
+            currentLang = lang;
+            localStorage.setItem('onecent-doc-lang', lang);
+
+            // Update active button
+            document.querySelectorAll('.lang-btn').forEach(btn => {
+                btn.classList.remove('active');
+                if (btn.getAttribute('data-lang') === lang) {
+                    btn.classList.add('active');
+                }
+            });
+
+            // Update translatable elements
+            document.querySelectorAll('[data-i18n]').forEach(element => {
+                const key = element.getAttribute('data-i18n');
+                if (translations[lang] && translations[lang][key]) {
+                    // Use innerHTML to preserve bold tags and formatting
+                    element.innerHTML = translations[lang][key];
+                }
+            });
+
+            document.documentElement.lang = lang;
+            if (translations[lang] && translations[lang]['title']) {
+                document.title = translations[lang]['title'];
+            }
+        }
+
+        document.addEventListener('DOMContentLoaded', function () {
+            const savedLang = localStorage.getItem('onecent-doc-lang') || 'en';
+            setLanguage(savedLang);
+
+            document.querySelectorAll('.lang-btn').forEach(btn => {
+                btn.addEventListener('click', function () {
+                    setLanguage(this.getAttribute('data-lang'));
+                });
+            });
+        });
+    </script>
+
+</body>
+
+</html>
